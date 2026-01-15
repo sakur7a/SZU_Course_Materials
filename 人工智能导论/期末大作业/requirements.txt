@@ -1,0 +1,9 @@
+# 说明：MindSpore 需按你的平台/环境单独安装（确保能 import mindspore）。
+# mindspore
+
+numpy
+pillow
+
+opencv-python
+matplotlib
+easydict
