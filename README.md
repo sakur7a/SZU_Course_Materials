@@ -1,3 +1,11 @@
 # 深圳大学cs本科课程资料
 
-一般期末考完后会update，然后可能有一些经验...没有的课可能是因为不可抗力因素丢失了，或者是我学得不好，可以去另外一些学长的repo看一下，比较齐全，po一下链接https://github.com/Hytidel/SZU_Math_and_Computer
+## Preface
+
+初衷是因为腾班的一些课程比较封闭，前人的经验也很少，希望这个repo可以帮到大家。我一般期末考完后会update，然后可能有一些经验...没有的课可能是因为不可抗力因素丢失了，或者是我学得不好，可以去另外一些学长的repo看一下，比较齐全，po一下链接https://github.com/Hytidel/SZU_Math_and_Computer
+
+## License
+
+大部分是我的实验报告和作业，可能会有些往年的考题或者资料我也会放上去。
+
+有些资料来自网络，如有可能的侵权行为麻烦您联系sakur7a@outlook.com，带来的不便请您谅解。
