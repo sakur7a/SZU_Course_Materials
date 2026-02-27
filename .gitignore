@@ -1,0 +1,5 @@
+site/
+docs/
+__pycache__/
+*.pyc
+.DS_Store

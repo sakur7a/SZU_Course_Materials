@@ -1,0 +1,60 @@
+site_name: SZU 课程资料共享
+site_description: 深圳大学计算机科学（腾班）本科课程资料共享
+repo_url: https://github.com/sakur7a/SZU_Course_Materials/
+repo_name: sakur7a/SZU_Course_Materials
+theme:
+  name: material
+  language: zh
+  palette:
+  - scheme: default
+    primary: indigo
+    accent: indigo
+    toggle:
+      icon: material/brightness-7
+      name: 切换到深色模式
+  - scheme: slate
+    primary: indigo
+    accent: indigo
+    toggle:
+      icon: material/brightness-4
+      name: 切换到浅色模式
+  font:
+    text: Noto Sans SC
+    code: Fira Code
+  features:
+  - navigation.instant
+  - navigation.tabs
+  - navigation.top
+  - search.highlight
+  - search.suggest
+  - toc.follow
+plugins:
+- search
+markdown_extensions:
+- toc:
+    permalink: true
+- admonition
+- pymdownx.details
+- pymdownx.superfences
+extra:
+  social:
+  - icon: fontawesome/brands/github
+    link: https://github.com/sakur7a/SZU_Course_Materials
+nav:
+- 首页: index.md
+- 专业课:
+  - 专业英语: 专业课_专业英语.md
+  - 人工智能导论: 专业课_人工智能导论.md
+  - 数据结构: 专业课_数据结构.md
+  - 最优化方法: 专业课_最优化方法.md
+  - 计算机系统（1）: 专业课_计算机系统（1）.md
+- 通识课:
+  - 大学物理: 通识课_大学物理.md
+  - 大学物理实验（1）: 通识课_大学物理实验（1）.md
+  - 概率论与数理统计: 通识课_概率论与数理统计.md
+  - 线性代数: 通识课_线性代数.md
+  - 高等数学: 通识课_高等数学.md
+- 模版与表格: 模版与表格.md
+- 转专业:
+  - 往年原题: 转专业_往年原题.md
+  - 经验: 转专业_经验.md
