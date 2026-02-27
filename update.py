@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import hashlib
 from urllib.parse import quote
 
 # 仓库信息
@@ -14,6 +15,22 @@ CATEGORY_DIRS = ['专业课', '通识课', '模版与表格', '转专业']
 EXCLUDE_DIRS = ['.git', 'docs', '.vscode', 'site', '.github', '__pycache__']
 README_MD = ['README.md', 'readme.md', 'index.md']
 TXT_EXTS = ['md', 'txt', 'py', 'cpp', 'c', 'h', 'java', 'asm', 'js', 'ts', 'm']
+
+# 用于生成稳定的 ASCII 文件名
+_slug_counter = 0
+_slug_map = {}
+
+def to_slug(chinese_name):
+    """将中文名转为短且稳定的 ASCII slug"""
+    global _slug_counter
+    if chinese_name in _slug_map:
+        return _slug_map[chinese_name]
+    # 用 md5 前 8 位确保唯一且稳定
+    h = hashlib.md5(chinese_name.encode('utf-8')).hexdigest()[:8]
+    _slug_counter += 1
+    slug = 'c{:02d}_{}'.format(_slug_counter, h)
+    _slug_map[chinese_name] = slug
+    return slug
 
 
 def make_link(root, filename):
@@ -94,8 +111,9 @@ def main():
             if entry in EXCLUDE_DIRS:
                 continue
 
-            # 生成 md 文件名：使用 "分类_课程名" 避免冲突
-            md_filename = '{}_{}.md'.format(category, entry)
+            # 生成 ASCII 文件名避免 GitHub Pages URL 编码问题
+            slug = to_slug(category + '/' + entry)
+            md_filename = '{}.md'.format(slug)
             output_path = os.path.join('docs', md_filename)
             generate_md(entry, entry_path, output_path)
             category_items.append({entry: md_filename})
@@ -104,7 +122,8 @@ def main():
         # 如果该分类下没有子目录，检查是否有直接文件
         if not category_items:
             # 将整个分类目录当作一个条目
-            md_filename = '{}.md'.format(category)
+            slug = to_slug(category)
+            md_filename = '{}.md'.format(slug)
             output_path = os.path.join('docs', md_filename)
             generate_md(category, category, output_path)
             nav_items.append({category: md_filename})
