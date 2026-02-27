@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SZU 课程资料共享</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --text-secondary: #666;
+      --border: #e5e5e5;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --tag-pro: #dbeafe;
+      --tag-pro-text: #1e40af;
+      --tag-gen: #dcfce7;
+      --tag-gen-text: #166534;
+      --tag-other: #fef3c7;
+      --tag-other-text: #92400e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0a0a0a;
+        --card: #141414;
+        --text: #e5e5e5;
+        --text-secondary: #999;
+        --border: #262626;
+        --accent: #60a5fa;
+        --accent-light: #1e293b;
+        --tag-pro: #1e3a5f;
+        --tag-pro-text: #93c5fd;
+        --tag-gen: #14532d;
+        --tag-gen-text: #86efac;
+        --tag-other: #451a03;
+        --tag-other-text: #fcd34d;
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 2rem;
+    }
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    header p {
+      margin-top: 0.5rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      max-width: 560px;
+    }
+    header .links {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      font-size: 0.875rem;
+    }
+    header .links a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    header .links a:hover { opacity: 0.7; }
+
+    /* Main */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 2.5rem;
+    }
+    .section-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Course Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 0.75rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 12px rgba(37, 99, 235, 0.08);
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .tag-pro { background: var(--tag-pro); color: var(--tag-pro-text); }
+    .tag-gen { background: var(--tag-gen); color: var(--tag-gen-text); }
+    .tag-other { background: var(--tag-other); color: var(--tag-other-text); }
+
+    .card-desc {
+      font-size: 0.825rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .card-meta {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+    .meta-item {
+      font-size: 0.725rem;
+      color: var(--text-secondary);
+      background: var(--bg);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+    }
+
+    /* File tree */
+    .tree {
+      list-style: none;
+      font-size: 0.875rem;
+    }
+    .tree li {
+      padding: 0.35rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .tree li:last-child { border-bottom: none; }
+    .tree a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .tree a:hover { text-decoration: underline; }
+
+    /* Footer */
+    footer {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* Expand/Collapse */
+    details summary {
+      cursor: pointer;
+      user-select: none;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::before {
+      content: "▸ ";
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+    details[open] summary::before {
+      content: "▾ ";
+    }
+    .sub-tree {
+      list-style: none;
+      padding-left: 1.25rem;
+      margin-top: 0.25rem;
+    }
+    .sub-tree li {
+      padding: 0.2rem 0;
+      border-bottom: none;
+      color: var(--text-secondary);
+      font-size: 0.825rem;
+    }
+    .sub-tree .file-icon { margin-right: 0.25rem; opacity: 0.5; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📚 SZU 课程资料共享</h1>
+  <p>深圳大学计算机科学（腾班）本科课程资料，包含实验报告、代码、往年试卷与经验分享。</p>
+  <div class="links">
+    <a href="https://github.com/sakur7a/SZU_Course_Materials" target="_blank">GitHub 仓库 ↗</a>
+    <a href="https://github.com/Hytidel/SZU_Math_and_Computer" target="_blank">更多资料（Hytidel）↗</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- 专业课 -->
+  <section class="section">
+    <div class="section-title">专业课</div>
+    <div class="grid">
+
+      <a class="card" href="https://github.com/sakur7a/SZU_Course_Materials/tree/main/专业课/数据结构" target="_blank">
+        <div class="card-header">
+          <span class="card-title">数据结构</span>
+          <span class="tag tag-pro">专业</span>
+        </div>
+        <div class="card-desc">OJ 题解（lab1-lab12），涵盖链表、栈、队列、树、图、排序、查找等。</div>
+        <div class="card-meta">
+          <span class="meta-item">C++</span>
+          <span class="meta-item">12 个 Lab</span>
+          <span class="meta-item">往年试卷</span>
+        </div>
+      </a>
+
+      <a class="card" href="https://github.com/sakur7a/SZU_Course_Materials/tree/main/专业课/计算机系统（1）" target="_blank">
+        <div class="card-header">
+          <span class="card-title">计算机系统（1）</span>
+          <span class="tag tag-pro">专业</span>
+        </div>
+        <div class="card-desc">ICS 实验 1-5，包含汇编程序设计与中断实验。</div>
+        <div class="card-meta">
+          <span class="meta-item">ASM</span>
+          <span class="meta-item">5 个实验</span>
+        </div>
+      </a>
+
+      <a class="card" href="https://github.com/sakur7a/SZU_Course_Materials/tree/main/专业课/人工智能导论" target="_blank">
+        <div class="card-header">
+          <span class="card-title">人工智能导论</span>
+          <span class="tag tag-pro">专业</span>
+        </div>
+        <div class="card-desc">搜索算法（BFS/DFS/A*）、多智能体、值迭代，含期末大作业（MobileNetV2）。</div>
+        <div class="card-meta">
+          <span class="meta-item">Python</span>
+          <span class="meta-item">3 个 Lab</span>
+          <span class="meta-item">期末大作业</span>
+        </div>
+      </a>
+
+      <a class="card" href="https://github.com/sakur7a/SZU_Course_Materials/tree/main/专业课/最优化方法" target="_blank">
+        <div class="card-header">
+          <span class="card-title">最优化方法</span>
+          <span class="tag tag-pro">专业</span>
+        </div>
+        <div class="card-desc">数值优化实验，矩阵运算与线性方程组求解。</div>
+        <div class="card-meta">
+          <span class="meta-item">Python / MATLAB</span>
+          <span class="meta-item">3 个 Lab</span>
+        </div>
+      </a>
+
+      <a class="card" href="https://github.com/sakur7a/SZU_Course_Materials/tree/main/专业课/专业英语" target="_blank">
+        <div class="card-header">
+          <span class="card-title">专业英语</span>
+          <span class="tag tag-pro">专业</span>
+        </div>
+        <div class="card-desc">展讲 PPT、报告及期末报告。</div>
+        <div class="card-meta">
+          <span class="meta-item">文档</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- 通识课 -->
+  <section class="section">
+    <div class="section-title">通识课 / 基础课</div>
+    <div class="grid">
+
+      <a class="card" href="https://github.com/sakur7a/SZU_Course_Materials/tree/main/通识课/高等数学" target="_blank">
+        <div class="card-header">
+          <span class="card-title">高等数学</span>
+          <span class="tag tag-gen">通识</span>
+        </div>
+        <div class="card-desc">往年试卷整理。</div>
+        <div class="card-meta">
+          <span class="meta-item">试卷</span>
+        </div>
+      </a>
+
+      <a class="card" href="https://github.com/sakur7a/SZU_Course_Materials/tree/main/通识课/线性代数" target="_blank">
+        <div class="card-header">
+          <span class="card-title">线性代数</span>
+          <span class="tag tag-gen">通识</span>
+        </div>
+        <div class="card-desc">课程说明。</div>
+        <div class="card-meta">
+          <span class="meta-item">文档</span>
+        </div>
+      </a>
+
+      <a class="card" href="https://github.com/sakur7a/SZU_Course_Materials/tree/main/通识课/概率论与数理统计" target="_blank">
+        <div class="card-header">
+          <span class="card-title">概率论与数理统计</span>
+          <span class="tag tag-gen">通识</span>
+        </div>
+        <div class="card-desc">课程说明。</div>
+        <div class="card-meta">
+          <span class="meta-item">文档</span>
+        </div>
+      </a>
+
+      <a class="card" href="https://github.com/sakur7a/SZU_Course_Materials/tree/main/通识课/大学物理" target="_blank">
+        <div class="card-header">
+          <span class="card-title">大学物理</span>
+          <span class="tag tag-gen">通识</span>
+        </div>
+        <div class="card-desc">大物 A(2) 期中试卷（20/23/24 年）。</div>
+        <div class="card-meta">
+          <span class="meta-item">试卷</span>
+        </div>
+      </a>
+
+      <a class="card" href="https://github.com/sakur7a/SZU_Course_Materials/tree/main/通识课/大学物理实验（1）" target="_blank">
+        <div class="card-header">
+          <span class="card-title">大学物理实验（1）</span>
+          <span class="tag tag-gen">通识</span>
+        </div>
+        <div class="card-desc">10 个实验的预习试卷、实验报告与补充报告。</div>
+        <div class="card-meta">
+          <span class="meta-item">实验报告</span>
+          <span class="meta-item">10 个实验</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- 其他 -->
+  <section class="section">
+    <div class="section-title">其他资料</div>
+    <div class="grid">
+
+      <a class="card" href="https://github.com/sakur7a/SZU_Course_Materials/tree/main/转专业" target="_blank">
+        <div class="card-header">
+          <span class="card-title">转专业</span>
+          <span class="tag tag-other">经验</span>
+        </div>
+        <div class="card-desc">2023-2025 年转专业往年原题与面试经验分享。</div>
+        <div class="card-meta">
+          <span class="meta-item">试卷</span>
+          <span class="meta-item">经验帖</span>
+        </div>
+      </a>
+
+      <a class="card" href="https://github.com/sakur7a/SZU_Course_Materials/tree/main/模版与表格" target="_blank">
+        <div class="card-header">
+          <span class="card-title">模版与表格</span>
+          <span class="tag tag-other">工具</span>
+        </div>
+        <div class="card-desc">免听申请、选课加位申请表等常用表格模版。</div>
+        <div class="card-meta">
+          <span class="meta-item">模版</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>© 2025 sakur7a · 深圳大学计算机与软件学院</span>
+  <span>如有侵权请联系 <a href="mailto:sakur7a@outlook.com">sakur7a@outlook.com</a></span>
+</footer>
+
+</body>
+</html>
