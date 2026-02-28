@@ -4,6 +4,7 @@
 import os
 import re
 import hashlib
+import shutil
 from urllib.parse import quote
 
 # 仓库信息
@@ -90,6 +91,12 @@ def main():
     if not os.path.isdir('docs'):
         os.mkdir('docs')
 
+    # 复制 pages/ 目录下的静态页面到 docs/
+    if os.path.isdir('pages'):
+        for f in os.listdir('pages'):
+            if f.endswith('.md'):
+                shutil.copy2(os.path.join('pages', f), os.path.join('docs', f))
+
     # 收集 nav 结构
     nav_items = []
     nav_items.append({'首页': 'index.md'})
@@ -131,6 +138,11 @@ def main():
             category_courses[category].append((category, md_filename))
         else:
             nav_items.append({category: category_items})
+
+    # 添加额外页面到 nav
+    nav_items.append({'贡献指南': 'contributing.md'})
+    nav_items.append({'友情链接': 'links.md'})
+    nav_items.append({'更新日志': 'changelog.md'})
 
     # 生成首页 docs/index.md
     generate_index(category_courses)
@@ -182,6 +194,9 @@ def generate_index(category_courses):
 
     # 提取标题和前言
     lines.append('# 深圳大学 CS 本科课程资料共享\n\n')
+    lines.append('[![GitHub stars](https://img.shields.io/github/stars/{repo}?style=social)](https://github.com/{repo})\n'.format(repo=REPO))
+    lines.append('[![GitHub forks](https://img.shields.io/github/forks/{repo}?style=social)](https://github.com/{repo}/fork)\n'.format(repo=REPO))
+    lines.append('[![GitHub last commit](https://img.shields.io/github/last-commit/{repo})](https://github.com/{repo}/commits/main)\n\n'.format(repo=REPO))
     lines.append('!!! note "关于"\n')
     lines.append('    初衷是因为腾班的一些课程比较封闭，前人的经验也很少，希望这个 repo 可以帮到大家。\n')
     lines.append('    我一般期末考完后会 update，然后可能有一些经验...\n')
