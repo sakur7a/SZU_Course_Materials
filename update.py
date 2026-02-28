@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import re
 import hashlib
 from urllib.parse import quote
 
@@ -143,13 +144,41 @@ def main():
         print(' ', item)
 
 
+def parse_readme_tables():
+    """从 README.md 解析课程表格，提取时间和内容信息"""
+    with open('README.md', 'r', encoding='utf-8') as f:
+        readme_content = f.read()
+
+    # 提取课程名 -> {时间, 内容} 的映射
+    course_info = {}
+    # 匹配表格行：| [课程名](链接) | 时间 | 内容 | 或 | [内容](链接) | 说明 |
+    for line in readme_content.split('\n'):
+        line = line.strip()
+        if not line.startswith('|') or line.startswith('| ---') or line.startswith('| 课程') or line.startswith('| 内容'):
+            continue
+        cells = [c.strip() for c in line.split('|')]
+        # cells[0] is empty (before first |), cells[-1] is empty (after last |)
+        cells = [c for c in cells if c != '']
+        if len(cells) < 2:
+            continue
+        # 从第一列提取课程名（可能是 [名称](链接) 格式）
+        name_cell = cells[0]
+        match = re.search(r'\[([^\]]+)\]', name_cell)
+        name = match.group(1) if match else name_cell
+        if len(cells) == 3:
+            course_info[name] = {'时间': cells[1], '内容': cells[2]}
+        elif len(cells) == 2:
+            course_info[name] = {'时间': '', '内容': cells[1]}
+
+    return course_info
+
+
 def generate_index(category_courses):
     """生成 MkDocs 首页，包含课程目录和原 README 内容"""
     lines = []
 
-    # 读取 README.md 的前言部分
-    with open('README.md', 'r', encoding='utf-8') as f:
-        readme_content = f.read()
+    # 从 README 解析课程信息
+    course_info = parse_readme_tables()
 
     # 提取标题和前言
     lines.append('# 深圳大学 CS 本科课程资料共享\n\n')
@@ -168,6 +197,9 @@ def generate_index(category_courses):
         '转专业': '### 🔄 转专业',
     }
 
+    # 专业课和通识课显示时间和内容列
+    categories_with_time = {'专业课', '通识课'}
+
     for category in CATEGORY_DIRS:
         if category not in category_courses:
             continue
@@ -175,10 +207,20 @@ def generate_index(category_courses):
         label = category_labels.get(category, '### ' + category)
         lines.append(label + '\n\n')
 
-        lines.append('| 课程 | 链接 |\n')
-        lines.append('| --- | --- |\n')
-        for name, md_filename in courses:
-            lines.append('| {} | [查看详情]({}) |\n'.format(name, md_filename))
+        if category in categories_with_time:
+            lines.append('| 课程 | 时间 | 内容 | 链接 |\n')
+            lines.append('| --- | --- | --- | --- |\n')
+            for name, md_filename in courses:
+                info = course_info.get(name, {})
+                time_str = info.get('时间', '')
+                content_str = info.get('内容', '')
+                lines.append('| {} | {} | {} | [查看详情]({}) |\n'.format(
+                    name, time_str, content_str, md_filename))
+        else:
+            lines.append('| 课程 | 链接 |\n')
+            lines.append('| --- | --- |\n')
+            for name, md_filename in courses:
+                lines.append('| {} | [查看详情]({}) |\n'.format(name, md_filename))
         lines.append('\n')
 
     # 许可
