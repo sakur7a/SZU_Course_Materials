@@ -43,21 +43,21 @@ extra:
 nav:
 - 首页: index.md
 - 专业课:
-  - 专业英语: c01_3845dfd0.md
-  - 人工智能导论: c02_255b42dc.md
-  - 数据结构: c03_275d18ed.md
-  - 最优化方法: c04_16a83d65.md
-  - 计算机系统（1）: c05_60ab8af0.md
+  - 专业英语: professional-english.md
+  - 人工智能导论: intro-to-ai.md
+  - 数据结构: data-structures.md
+  - 最优化方法: optimization-methods.md
+  - 计算机系统（1）: computer-systems-1.md
 - 通识课:
-  - 大学物理: c06_a888c48c.md
-  - 大学物理实验（1）: c07_efe4ee05.md
-  - 概率论与数理统计: c08_53746aff.md
-  - 线性代数: c09_aea4562f.md
-  - 高等数学: c10_a54321da.md
-- 模版与表格: c11_fe36f509.md
+  - 大学物理: college-physics.md
+  - 大学物理实验（1）: college-physics-lab-1.md
+  - 概率论与数理统计: probability-and-statistics.md
+  - 线性代数: linear-algebra.md
+  - 高等数学: advanced-mathematics.md
+- 模版与表格: templates-and-forms.md
 - 转专业:
-  - 往年原题: c12_e48e732b.md
-  - 经验: c13_69719cb4.md
+  - 往年原题: transfer-past-exams.md
+  - 经验: transfer-experience.md
 - 贡献指南: contributing.md
 - 友情链接: links.md
 - 更新日志: changelog.md

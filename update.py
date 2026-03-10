@@ -18,20 +18,70 @@ EXCLUDE_DIRS = ['.git', 'docs', '.vscode', 'site', '.github', '__pycache__']
 README_MD = ['README.md', 'readme.md', 'index.md']
 TXT_EXTS = ['md', 'txt', 'py', 'cpp', 'c', 'h', 'java', 'asm', 'js', 'ts', 'm']
 
+# 临时隐藏：这些课程目录不参与文档与导航生成
+EXCLUDE_COURSE_ENTRIES = {
+    '专业课/机器学习',
+    '专业课/计算机网络',
+}
+
 # 用于生成稳定的 ASCII 文件名
 _slug_counter = 0
 _slug_map = {}
 
-def to_slug(chinese_name):
-    """将中文名转为短且稳定的 ASCII slug"""
+# 为常见中文目录提供可读 URL（可按需继续补充）
+SLUG_OVERRIDES = {
+    '专业课': 'major-courses',
+    '通识课': 'general-courses',
+    '模版与表格': 'templates-and-forms',
+    '转专业': 'major-transfer',
+    '专业课/专业英语': 'professional-english',
+    '专业课/人工智能导论': 'intro-to-ai',
+    '专业课/数据结构': 'data-structures',
+    '专业课/最优化方法': 'optimization-methods',
+    '专业课/计算机系统（1）': 'computer-systems-1',
+    '通识课/大学物理': 'college-physics',
+    '通识课/大学物理实验（1）': 'college-physics-lab-1',
+    '通识课/概率论与数理统计': 'probability-and-statistics',
+    '通识课/线性代数': 'linear-algebra',
+    '通识课/高等数学': 'advanced-mathematics',
+    '转专业/往年原题': 'transfer-past-exams',
+    '转专业/经验': 'transfer-experience',
+}
+
+
+def _ascii_slug(text):
+    """将任意文本转换为小写 ASCII slug（尽量可读）。"""
+    text = text.lower()
+    # 常见连接符统一为短横线
+    text = re.sub(r'[\s_/\\（）()\[\]{}]+', '-', text)
+    # 仅保留英文、数字和短横线
+    text = re.sub(r'[^a-z0-9-]+', '', text)
+    text = re.sub(r'-{2,}', '-', text).strip('-')
+    return text
+
+def to_slug(name):
+    """将目录名转为稳定且可读的 ASCII slug。"""
     global _slug_counter
-    if chinese_name in _slug_map:
-        return _slug_map[chinese_name]
-    # 用 md5 前 8 位确保唯一且稳定
-    h = hashlib.md5(chinese_name.encode('utf-8')).hexdigest()[:8]
-    _slug_counter += 1
-    slug = 'c{:02d}_{}'.format(_slug_counter, h)
-    _slug_map[chinese_name] = slug
+    if name in _slug_map:
+        return _slug_map[name]
+
+    if name in SLUG_OVERRIDES:
+        base_slug = SLUG_OVERRIDES[name]
+    else:
+        base_slug = _ascii_slug(name)
+
+    if not base_slug:
+        # 如果无法从原名提取 ASCII，可回退到稳定 hash 前缀
+        h = hashlib.md5(name.encode('utf-8')).hexdigest()[:8]
+        base_slug = 'page-{}'.format(h)
+
+    slug = base_slug
+    dedupe = 2
+    while slug in _slug_map.values():
+        slug = '{}-{}'.format(base_slug, dedupe)
+        dedupe += 1
+
+    _slug_map[name] = slug
     return slug
 
 
@@ -117,6 +167,8 @@ def main():
             if not os.path.isdir(entry_path):
                 continue
             if entry in EXCLUDE_DIRS:
+                continue
+            if '{}/{}'.format(category, entry) in EXCLUDE_COURSE_ENTRIES:
                 continue
 
             # 生成 ASCII 文件名避免 GitHub Pages URL 编码问题
