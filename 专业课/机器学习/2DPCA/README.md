@@ -133,6 +133,11 @@ python -m unittest discover -s tests
 - [results/train_size_summary.png](results/train_size_summary.png)
 - [results/component_summary.png](results/component_summary.png)
 
+内嵌展示：
+
+![Olivetti 训练样本数对比](results/train_size_summary.png)
+![Olivetti 主成分扫描对比](results/component_summary.png)
+
 ### 7.2 ORL 结果（results_orl）
 
 来源文件：
@@ -158,6 +163,11 @@ PCA 与 2DPCA 对比（30 次重复）：
 - [results_orl/train_size_summary.png](results_orl/train_size_summary.png)
 - [results_orl/component_summary.png](results_orl/component_summary.png)
 
+内嵌展示：
+
+![ORL 训练样本数对比](results_orl/train_size_summary.png)
+![ORL 主成分扫描对比](results_orl/component_summary.png)
+
 ## 8. 重构 Demo 结果
 
 已生成以下文件用于展示 k 增长带来的重构清晰度提升：
@@ -165,6 +175,12 @@ PCA 与 2DPCA 对比（30 次重复）：
 - [results_orl/reconstruction_progression.png](results_orl/reconstruction_progression.png)
 - [results_orl/reconstruction_pca.gif](results_orl/reconstruction_pca.gif)
 - [results_orl/reconstruction_2dpca.gif](results_orl/reconstruction_2dpca.gif)
+
+内嵌展示：
+
+![重构清晰度对比图](results_orl/reconstruction_progression.png)
+![PCA 重构过程 GIF](results_orl/reconstruction_pca.gif)
+![2DPCA 重构过程 GIF](results_orl/reconstruction_2dpca.gif)
 
 观察结论：
 
