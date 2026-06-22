@@ -1,0 +1,19 @@
+[project]
+name = "face-recognition-system"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "datasets>=4.8.5",
+    "flask>=3.1.0",
+    "insightface>=1.0.1",
+    "matplotlib>=3.10.9",
+    "numpy>=2.4.6",
+    "onnxruntime>=1.26.0",
+    "opencv-python>=4.13.0.92",
+    "pillow>=12.2.0",
+    "scikit-learn>=1.8.0",
+    "scipy>=1.16.0",
+    "scienceplots>=2.1.1",
+]

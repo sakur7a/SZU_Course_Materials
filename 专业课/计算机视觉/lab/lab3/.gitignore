@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Environments
+.venv/
+venv/
+env/
+.conda/
+
+# Generated experiment artifacts
+results/
+figures/
+models/
+outputs/
+runs/
+checkpoints/
+*.pkl
+*.pth
+*.pt
+*.onnx
+
+# Documents and compiled reports
+*.pdf
+*.doc
+*.docx
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
