@@ -15,7 +15,7 @@ BIN_URL_PREFIX = f'https://github.com/{REPO}/raw/main/'
 # 需要扫描的顶级目录（分类目录）
 CATEGORY_DIRS = ['专业课', '通识课', '模版与表格', '转专业']
 EXCLUDE_DIRS = ['.git', 'docs', '.vscode', 'site', '.github', '__pycache__']
-README_MD = ['README.md', 'readme.md', 'index.md']
+README_MD = ['README.md', 'readme.md', 'index.md', 'READMD.md']
 TXT_EXTS = ['md', 'txt', 'py', 'cpp', 'c', 'h', 'java', 'asm', 'js', 'ts', 'm']
 
 # 临时隐藏：这些课程目录不参与文档与导航生成
@@ -39,6 +39,10 @@ SLUG_OVERRIDES = {
     '专业课/数据结构': 'data-structures',
     '专业课/最优化方法': 'optimization-methods',
     '专业课/计算机系统（1）': 'computer-systems-1',
+    '专业课/计算机系统（2）': 'computer-systems-2',
+    '专业课/计算机视觉': 'computer-vision',
+    '专业课/数字电路': 'digital-circuits',
+    '专业课/算法设计与分析': 'algorithm-design-and-analysis',
     '通识课/大学物理': 'college-physics',
     '通识课/大学物理实验（1）': 'college-physics-lab-1',
     '通识课/概率论与数理统计': 'probability-and-statistics',
@@ -169,6 +173,8 @@ def main():
             if entry in EXCLUDE_DIRS:
                 continue
             if '{}/{}'.format(category, entry) in EXCLUDE_COURSE_ENTRIES:
+                continue
+            if not os.listdir(entry_path):
                 continue
 
             # 生成 ASCII 文件名避免 GitHub Pages URL 编码问题

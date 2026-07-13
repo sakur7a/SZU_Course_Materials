@@ -45,9 +45,13 @@ nav:
 - 专业课:
   - 专业英语: professional-english.md
   - 人工智能导论: intro-to-ai.md
+  - 数字电路: digital-circuits.md
   - 数据结构: data-structures.md
   - 最优化方法: optimization-methods.md
+  - 算法设计与分析: algorithm-design-and-analysis.md
   - 计算机系统（1）: computer-systems-1.md
+  - 计算机系统（2）: computer-systems-2.md
+  - 计算机视觉: computer-vision.md
 - 通识课:
   - 大学物理: college-physics.md
   - 大学物理实验（1）: college-physics-lab-1.md
