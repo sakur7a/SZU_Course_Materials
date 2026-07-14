@@ -3,3 +3,9 @@ docs/
 __pycache__/
 *.pyc
 .DS_Store
+
+# Large files exceeding GitHub size limits (kept locally, not tracked)
+专业课/算法设计与分析/lab/lab5/largeG.txt
+专业课/算法设计与分析/lab/lab3/tools/TinyTeX-1-windows-v2026.04.exe
+专业课/计算机视觉/lab/lab2/附件.rar
+专业课/计算机网络/计算机网络与下一代互联网 (崔来中，傅向华，陆楠编著, 崔来中, 傅向华, 陆楠编著, 崔来中, 傅向华, 陆楠) (z-library.sk, 1lib.sk, z-lib.sk).pdf

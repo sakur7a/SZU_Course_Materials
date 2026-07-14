@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(kpsewhich beamer.cls)",
+      "Bash(kpsewhich ctex.sty beamerthememetropolis.sty fontaxes.sty mwe.sty)",
+      "Bash(kpsewhich FiraMono.sty FiraSans.sty)",
+      "Bash(kpsewhich *)",
+      "WebSearch",
+      "Bash(cp 'outputs/planar_n*_coloring.csv' C:/Users/28068/Desktop/算设/lab3/提交附件/outputs/)",
+      "Bash(cp 'outputs/figures/*.png' C:/Users/28068/Desktop/算设/lab3/提交附件/outputs/figures/)"
+    ]
+  }
+}

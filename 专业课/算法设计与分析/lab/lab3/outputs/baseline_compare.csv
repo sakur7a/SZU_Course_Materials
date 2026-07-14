@@ -1,0 +1,8 @@
+﻿name,vertices,edges,colors,brute_success,brute_elapsed,brute_assignments,brute_conflicts,dsatur_success,dsatur_elapsed,dsatur_assignments,dsatur_conflicts,brute_full_space,brute_full_est_seconds
+小规模粘贴地图,9,16,4,True,1.9e-05,19,0,True,5.7e-05,9,0,2.621e+05,2.580e-01
+随机平面图n=12,12,30,4,True,2.2e-05,32,0,True,0.000163,12,0,1.678e+07,1.143e+01
+随机平面图n=16,16,42,4,True,2.9e-05,43,0,True,0.000105,16,0,4.295e+09,2.907e+03
+随机平面图n=20,20,54,4,True,3.2e-05,51,0,True,0.00023,20,0,1.100e+12,6.985e+05
+随机平面图n=24,24,66,4,True,4e-05,62,0,True,0.000172,24,0,2.815e+14,1.816e+08
+随机平面图n=28,28,78,4,True,4e-05,67,0,True,0.000216,28,0,7.206e+16,4.313e+10
+随机平面图n=32,32,90,4,True,4.7e-05,78,0,True,0.000259,32,0,1.845e+19,1.102e+13

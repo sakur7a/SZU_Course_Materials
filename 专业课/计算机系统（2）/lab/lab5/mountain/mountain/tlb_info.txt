@@ -1,0 +1,5 @@
+CPU frequency: 2419.2 MHz
+Testing TLB with up to 8192 pages (32 MB)
+
+
+TLB measurement complete.

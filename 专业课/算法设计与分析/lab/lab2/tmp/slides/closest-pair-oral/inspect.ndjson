@@ -1,0 +1,121 @@
+{"kind":"deck","slideCount":7,"slideSize":{"width":1280,"height":720}}
+{"kind":"textbox","slide":1,"role":"cover-title-main","text":"平面最近点对问题","textChars":8,"textLines":1,"bbox":[104,94,520,58]}
+{"kind":"textbox","slide":1,"role":"cover-title-sub","text":"分治算法实验汇报","textChars":8,"textLines":1,"bbox":[104,150,420,42]}
+{"kind":"textbox","slide":1,"role":"statement","text":"核心结论：在 10000 至 50000 点的全实测范围内，分治法相对蛮力法的最高速度提升达到 39.70 倍。","textChars":56,"textLines":1,"bbox":[122,238,672,56]}
+{"kind":"textbox","slide":1,"role":"metric-value","text":"O(n log n)","textChars":10,"textLines":1,"bbox":[122,370,160,38]}
+{"kind":"textbox","slide":1,"role":"metric-label","text":"论文主线模型","textChars":6,"textLines":1,"bbox":[122,414,160,28]}
+{"kind":"textbox","slide":1,"role":"metric-value","text":"39.70x","textChars":6,"textLines":1,"bbox":[340,370,160,38]}
+{"kind":"textbox","slide":1,"role":"metric-label","text":"最大实测速比","textChars":6,"textLines":1,"bbox":[340,414,160,28]}
+{"kind":"textbox","slide":1,"role":"metric-value","text":"轨迹导出","textChars":4,"textLines":1,"bbox":[558,370,160,38]}
+{"kind":"textbox","slide":1,"role":"metric-label","text":"过程可视化链路","textChars":7,"textLines":1,"bbox":[558,414,160,28]}
+{"kind":"textbox","slide":1,"role":"cover-scope","text":"汇报聚焦：论文模型、算法实现与优化、几何证明、实验结果分析","textChars":29,"textLines":1,"bbox":[104,506,760,30]}
+{"kind":"textbox","slide":1,"role":"system-section","text":"实验汇报","textChars":4,"textLines":1,"bbox":[72,30,320,20]}
+{"kind":"textbox","slide":1,"role":"system-page","text":"01","textChars":2,"textLines":1,"bbox":[1152,24,56,34]}
+{"kind":"textbox","slide":1,"role":"system-page-total","text":"/ 07","textChars":4,"textLines":1,"bbox":[1208,33,40,18]}
+{"kind":"image","slide":1,"role":"cover-process","path":"C:\\Users\\28068\\Desktop\\算设\\lab2\\results\\process_dashboard.png","bbox":[842,122,366,440]}
+{"kind":"textbox","slide":2,"role":"system-section","text":"论文模型","textChars":4,"textLines":1,"bbox":[72,30,320,20]}
+{"kind":"textbox","slide":2,"role":"system-page","text":"02","textChars":2,"textLines":1,"bbox":[1152,24,56,34]}
+{"kind":"textbox","slide":2,"role":"system-page-total","text":"/ 07","textChars":4,"textLines":1,"bbox":[1208,33,40,18]}
+{"kind":"textbox","slide":2,"role":"title","text":"论文模型与实验定位","textChars":9,"textLines":1,"bbox":[72,92,920,66]}
+{"kind":"textbox","slide":2,"role":"subtitle","text":"本页仅说明理论模型来源以及本实验的工程化扩展边界","textChars":24,"textLines":1,"bbox":[72,170,920,36]}
+{"kind":"textbox","slide":2,"role":"statement","text":"本实验采用 Shamos-Hoey 的经典确定性分治框架，并进一步构建了可验证、可导出、可可视化的完整实验链。","textChars":55,"textLines":1,"bbox":[90,212,1118,56]}
+{"kind":"textbox","slide":2,"role":"strip-index","text":"01","textChars":2,"textLines":1,"bbox":[88,330,44,28]}
+{"kind":"textbox","slide":2,"role":"strip-label","text":"理论模型","textChars":4,"textLines":1,"bbox":[156,330,220,26]}
+{"kind":"textbox","slide":2,"role":"strip-body","text":"确定性分治主线，目标时间复杂度为 O(n log n)。","textChars":28,"textLines":1,"bbox":[156,360,444,34]}
+{"kind":"textbox","slide":2,"role":"strip-index","text":"02","textChars":2,"textLines":1,"bbox":[88,444,44,28]}
+{"kind":"textbox","slide":2,"role":"strip-label","text":"工程实现","textChars":4,"textLines":1,"bbox":[156,444,220,26]}
+{"kind":"textbox","slide":2,"role":"strip-body","text":"完成 C++ 求解、正确性校验与 benchmark 数据导出。","textChars":32,"textLines":1,"bbox":[156,474,444,34]}
+{"kind":"textbox","slide":2,"role":"strip-index","text":"03","textChars":2,"textLines":1,"bbox":[88,558,44,28]}
+{"kind":"textbox","slide":2,"role":"strip-label","text":"展示层","textChars":3,"textLines":1,"bbox":[156,558,220,26]}
+{"kind":"textbox","slide":2,"role":"strip-body","text":"输出 trace、steps、GIF、dashboard 以及实验报告。","textChars":36,"textLines":1,"bbox":[156,588,444,34]}
+{"kind":"textbox","slide":2,"role":"boundary-title","text":"本实验的工作边界","textChars":8,"textLines":1,"bbox":[700,340,220,26]}
+{"kind":"textbox","slide":2,"role":"boundary-bullets","text":"不展开蛮力法常识与基本定义。","textChars":14,"textLines":1,"bbox":[720,392,430,58]}
+{"kind":"textbox","slide":2,"role":"boundary-bullets","text":"重点展示带状区域筛选、可视化导出与实验验证。","textChars":22,"textLines":1,"bbox":[720,450,430,58]}
+{"kind":"textbox","slide":2,"role":"boundary-bullets","text":"全部结论均基于当前仓库中的真实实验输出。","textChars":20,"textLines":1,"bbox":[720,508,430,58]}
+{"kind":"textbox","slide":3,"role":"system-section","text":"算法实现","textChars":4,"textLines":1,"bbox":[72,30,320,20]}
+{"kind":"textbox","slide":3,"role":"system-page","text":"03","textChars":2,"textLines":1,"bbox":[1152,24,56,34]}
+{"kind":"textbox","slide":3,"role":"system-page-total","text":"/ 07","textChars":4,"textLines":1,"bbox":[1208,33,40,18]}
+{"kind":"textbox","slide":3,"role":"title","text":"算法实现与关键优化","textChars":9,"textLines":1,"bbox":[72,92,920,66]}
+{"kind":"textbox","slide":3,"role":"subtitle","text":"本页聚焦三项直接影响性能、复现性与可展示性的设计","textChars":24,"textLines":1,"bbox":[72,170,920,36]}
+{"kind":"textbox","slide":3,"role":"card-title","text":"预排序与递归划分","textChars":8,"textLines":1,"bbox":[90,264,324,28]}
+{"kind":"textbox","slide":3,"role":"card-bullets","text":"点集分别按 x、y 排序，递归过程中仅进行线性划分。","textChars":26,"textLines":1,"bbox":[110,314,304,54]}
+{"kind":"textbox","slide":3,"role":"card-bullets","text":"递归基限定为 |S|≤3，以控制边界处理复杂度。","textChars":24,"textLines":1,"bbox":[110,368,304,54]}
+{"kind":"textbox","slide":3,"role":"card-bullets","text":"左右子问题规模保持均衡，递归深度稳定在 log n。","textChars":26,"textLines":1,"bbox":[110,422,304,54]}
+{"kind":"textbox","slide":3,"role":"card-title","text":"带状区域筛选","textChars":6,"textLines":1,"bbox":[478,264,324,28]}
+{"kind":"textbox","slide":3,"role":"card-bullets","text":"合并阶段仅搜索满足 |x-xm|<d 的 strip 区域。","textChars":30,"textLines":1,"bbox":[498,314,304,54]}
+{"kind":"textbox","slide":3,"role":"card-bullets","text":"strip 按 y 排序后，利用 y 差进行快速剪枝。","textChars":27,"textLines":1,"bbox":[498,368,304,54]}
+{"kind":"textbox","slide":3,"role":"card-bullets","text":"二维搜索由此压缩为常数级候选比较。","textChars":17,"textLines":1,"bbox":[498,422,304,54]}
+{"kind":"textbox","slide":3,"role":"card-title","text":"可视化友好导出","textChars":7,"textLines":1,"bbox":[866,264,324,28]}
+{"kind":"textbox","slide":3,"role":"card-bullets","text":"trace_demo.csv 记录当前最优值被更新的时刻。","textChars":29,"textLines":1,"bbox":[886,314,304,54]}
+{"kind":"textbox","slide":3,"role":"card-bullets","text":"steps_demo.csv 记录递归深度、中线位置与 strip 边界。","textChars":37,"textLines":1,"bbox":[886,368,304,54]}
+{"kind":"textbox","slide":3,"role":"card-bullets","text":"这些数据进一步驱动 GIF、dashboard 与实验报告。","textChars":30,"textLines":1,"bbox":[886,422,304,54]}
+{"kind":"textbox","slide":4,"role":"system-section","text":"几何证明","textChars":4,"textLines":1,"bbox":[72,30,320,20]}
+{"kind":"textbox","slide":4,"role":"system-page","text":"04","textChars":2,"textLines":1,"bbox":[1152,24,56,34]}
+{"kind":"textbox","slide":4,"role":"system-page-total","text":"/ 07","textChars":4,"textLines":1,"bbox":[1208,33,40,18]}
+{"kind":"textbox","slide":4,"role":"title","text":"分治法合并步骤线性效率的几何证明","textChars":16,"textLines":1,"bbox":[72,92,920,66]}
+{"kind":"textbox","slide":4,"role":"subtitle","text":"报告附录中的核心结论：按 y 排序后，每个点至多只需比较后续 6 个点","textChars":35,"textLines":1,"bbox":[72,170,920,36]}
+{"kind":"textbox","slide":4,"role":"metric-value","text":"2d × d","textChars":6,"textLines":1,"bbox":[90,228,150,38]}
+{"kind":"textbox","slide":4,"role":"metric-label","text":"候选比较矩形","textChars":6,"textLines":1,"bbox":[90,272,150,28]}
+{"kind":"textbox","slide":4,"role":"metric-value","text":"6","textChars":1,"textLines":1,"bbox":[298,228,150,38]}
+{"kind":"textbox","slide":4,"role":"metric-label","text":"最多容纳点数","textChars":6,"textLines":1,"bbox":[298,272,150,28]}
+{"kind":"textbox","slide":4,"role":"metric-value","text":"< d","textChars":3,"textLines":1,"bbox":[506,228,150,38]}
+{"kind":"textbox","slide":4,"role":"metric-label","text":"小矩形对角线","textChars":6,"textLines":1,"bbox":[506,272,150,28]}
+{"kind":"textbox","slide":4,"role":"proof-title","text":"证明思路","textChars":4,"textLines":1,"bbox":[98,364,140,24]}
+{"kind":"textbox","slide":4,"role":"proof-step-index","text":"1","textChars":1,"textLines":1,"bbox":[98,404,20,20]}
+{"kind":"textbox","slide":4,"role":"proof-step-title","text":"候选区域","textChars":4,"textLines":1,"bbox":[124,402,160,20]}
+{"kind":"textbox","slide":4,"role":"proof-step-body","text":"单点仅需考察分界线右侧的 2d×d 候选区域。","textChars":23,"textLines":1,"bbox":[124,422,520,38]}
+{"kind":"textbox","slide":4,"role":"proof-step-index","text":"2","textChars":1,"textLines":1,"bbox":[98,462,20,20]}
+{"kind":"textbox","slide":4,"role":"proof-step-title","text":"区域切割","textChars":4,"textLines":1,"bbox":[124,460,160,20]}
+{"kind":"textbox","slide":4,"role":"proof-step-body","text":"将该矩形划分为 2×3 共 6 个小矩形，每块尺寸为 d/2 × d/3。","textChars":37,"textLines":1,"bbox":[124,480,520,38]}
+{"kind":"textbox","slide":4,"role":"proof-step-index","text":"3","textChars":1,"textLines":1,"bbox":[98,520,20,20]}
+{"kind":"textbox","slide":4,"role":"proof-step-title","text":"对角线界","textChars":4,"textLines":1,"bbox":[124,518,160,20]}
+{"kind":"textbox","slide":4,"role":"proof-step-body","text":"小矩形对角线长度为 d√13/6≈0.6009d，因此严格小于 d。","textChars":34,"textLines":1,"bbox":[124,538,520,38]}
+{"kind":"textbox","slide":4,"role":"proof-step-index","text":"4","textChars":1,"textLines":1,"bbox":[98,578,20,20]}
+{"kind":"textbox","slide":4,"role":"proof-step-title","text":"鸽巢反证","textChars":4,"textLines":1,"bbox":[124,576,160,20]}
+{"kind":"textbox","slide":4,"role":"proof-step-body","text":"若候选区中出现至少 7 个点，则必有两点落入同一小矩形，其距离小于 d，与前提矛盾。","textChars":42,"textLines":1,"bbox":[124,596,520,38]}
+{"kind":"textbox","slide":4,"role":"proof-conclusion","text":"结论：每个点仅需与后续最多 6 个点比较，因此单层合并复杂度为 O(n)。","textChars":37,"textLines":1,"bbox":[98,612,560,20]}
+{"kind":"textbox","slide":4,"role":"proof-axis","text":"2d","textChars":2,"textLines":1,"bbox":[957,604,40,18]}
+{"kind":"textbox","slide":4,"role":"proof-axis","text":"d","textChars":1,"textLines":1,"bbox":[748,405,20,18]}
+{"kind":"textbox","slide":4,"role":"proof-caption","text":"最多容纳 6 个候选点","textChars":11,"textLines":1,"bbox":[766,602,418,18]}
+{"kind":"textbox","slide":4,"role":"proof-citation","text":"文献依据：Shamos & Hoey, FOCS 1975","textChars":29,"textLines":1,"bbox":[820,650,310,18]}
+{"kind":"textbox","slide":5,"role":"system-section","text":"过程可视化","textChars":5,"textLines":1,"bbox":[72,30,320,20]}
+{"kind":"textbox","slide":5,"role":"system-page","text":"05","textChars":2,"textLines":1,"bbox":[1152,24,56,34]}
+{"kind":"textbox","slide":5,"role":"system-page-total","text":"/ 07","textChars":4,"textLines":1,"bbox":[1208,33,40,18]}
+{"kind":"textbox","slide":5,"role":"title","text":"过程可视化：不仅给出结果，也给出执行轨迹","textChars":20,"textLines":1,"bbox":[72,92,920,66]}
+{"kind":"textbox","slide":5,"role":"subtitle","text":"本页展示为答辩表达而设计的 GIF 与 dashboard 输出","textChars":32,"textLines":1,"bbox":[72,170,920,36]}
+{"kind":"image","slide":5,"role":"process-gif","path":"C:\\Users\\28068\\Desktop\\算设\\lab2\\results\\process_dashboard.gif","bbox":[92,232,704,390]}
+{"kind":"image","slide":5,"role":"process-dashboard","path":"C:\\Users\\28068\\Desktop\\算设\\lab2\\results\\process_dashboard.png","bbox":[862,226,330,156]}
+{"kind":"textbox","slide":5,"role":"viz-bullets","text":"GIF 适合展示递归推进与最优点对更新过程。","textChars":22,"textLines":1,"bbox":[892,456,280,58]}
+{"kind":"textbox","slide":5,"role":"viz-bullets","text":"dashboard 同时保留全局视图、距离曲线与局部放大。","textChars":29,"textLines":1,"bbox":[892,514,280,58]}
+{"kind":"textbox","slide":5,"role":"viz-bullets","text":"因此 strip、中线与当前最优解能够被直接解释。","textChars":25,"textLines":1,"bbox":[892,572,280,58]}
+{"kind":"textbox","slide":6,"role":"system-section","text":"实验结果","textChars":4,"textLines":1,"bbox":[72,30,320,20]}
+{"kind":"textbox","slide":6,"role":"system-page","text":"06","textChars":2,"textLines":1,"bbox":[1152,24,56,34]}
+{"kind":"textbox","slide":6,"role":"system-page-total","text":"/ 07","textChars":4,"textLines":1,"bbox":[1208,33,40,18]}
+{"kind":"textbox","slide":6,"role":"title","text":"实验结果：全实测数据支撑复杂度结论","textChars":17,"textLines":1,"bbox":[72,92,920,66]}
+{"kind":"textbox","slide":6,"role":"subtitle","text":"一张原生图表展示绝对时间差，一张 log-log 图验证增长阶与理论是否一致","textChars":38,"textLines":1,"bbox":[72,170,920,36]}
+{"kind":"textbox","slide":6,"role":"metric-value","text":"9.27x","textChars":5,"textLines":1,"bbox":[90,224,170,38]}
+{"kind":"textbox","slide":6,"role":"metric-label","text":"10000 点速度提升","textChars":11,"textLines":1,"bbox":[90,268,170,28]}
+{"kind":"textbox","slide":6,"role":"metric-value","text":"39.70x","textChars":6,"textLines":1,"bbox":[312,224,170,38]}
+{"kind":"textbox","slide":6,"role":"metric-label","text":"50000 点速度提升","textChars":11,"textLines":1,"bbox":[312,268,170,28]}
+{"kind":"textbox","slide":6,"role":"metric-value","text":"19.91ms","textChars":7,"textLines":1,"bbox":[534,224,170,38]}
+{"kind":"textbox","slide":6,"role":"metric-label","text":"50000 点分治均值","textChars":11,"textLines":1,"bbox":[534,268,170,28]}
+{"kind":"image","slide":6,"role":"loglog","path":"C:\\Users\\28068\\Desktop\\算设\\lab2\\results\\benchmark_loglog.png","bbox":[864,232,326,224]}
+{"kind":"textbox","slide":6,"role":"statement","text":"在 log-log 坐标下，分治曲线更接近 n log n，而蛮力曲线更接近 n²。","textChars":42,"textLines":1,"bbox":[886,492,296,56]}
+{"kind":"textbox","slide":6,"role":"results-note","text":"因此，本页不仅比较绝对耗时，也检验实测增长阶是否与理论分析一致。","textChars":32,"textLines":1,"bbox":[868,566,300,44]}
+{"kind":"textbox","slide":7,"role":"system-section","text":"结论","textChars":2,"textLines":1,"bbox":[72,30,320,20]}
+{"kind":"textbox","slide":7,"role":"system-page","text":"07","textChars":2,"textLines":1,"bbox":[1152,24,56,34]}
+{"kind":"textbox","slide":7,"role":"system-page-total","text":"/ 07","textChars":4,"textLines":1,"bbox":[1208,33,40,18]}
+{"kind":"textbox","slide":7,"role":"title","text":"结论与收束","textChars":5,"textLines":1,"bbox":[72,92,920,66]}
+{"kind":"textbox","slide":7,"role":"subtitle","text":"最后 30 至 40 秒，仅保留三条结论与一句结束语","textChars":26,"textLines":1,"bbox":[72,170,920,36]}
+{"kind":"textbox","slide":7,"role":"statement","text":"本实验的价值不仅在于完成最近点对算法实现，更在于将理论分析、可视化表达与实验验证整合为一条完整链路。","textChars":50,"textLines":1,"bbox":[90,212,1062,56]}
+{"kind":"textbox","slide":7,"role":"strip-index","text":"01","textChars":2,"textLines":1,"bbox":[88,342,44,28]}
+{"kind":"textbox","slide":7,"role":"strip-label","text":"性能结论","textChars":4,"textLines":1,"bbox":[156,342,220,26]}
+{"kind":"textbox","slide":7,"role":"strip-body","text":"在 10000 至 50000 点的全实测范围内，分治法始终显著快于蛮力法。","textChars":38,"textLines":1,"bbox":[156,372,508,34]}
+{"kind":"textbox","slide":7,"role":"strip-index","text":"02","textChars":2,"textLines":1,"bbox":[88,456,44,28]}
+{"kind":"textbox","slide":7,"role":"strip-label","text":"表达结论","textChars":4,"textLines":1,"bbox":[156,456,220,26]}
+{"kind":"textbox","slide":7,"role":"strip-body","text":"trace、steps、GIF 与 dashboard 使分治过程可以被清晰解释，而不仅仅给出最终结果。","textChars":52,"textLines":1,"bbox":[156,486,508,34]}
+{"kind":"textbox","slide":7,"role":"strip-index","text":"03","textChars":2,"textLines":1,"bbox":[88,570,44,28]}
+{"kind":"textbox","slide":7,"role":"strip-label","text":"实验价值","textChars":4,"textLines":1,"bbox":[156,570,220,26]}
+{"kind":"textbox","slide":7,"role":"strip-body","text":"复杂度结论获得真实实验数据支撑，整体实现适合作为课程实验展示版本。","textChars":33,"textLines":1,"bbox":[156,600,508,34]}
+{"kind":"image","slide":7,"role":"linear-benchmark","path":"C:\\Users\\28068\\Desktop\\算设\\lab2\\results\\benchmark_linear.png","bbox":[732,304,476,264]}
+{"kind":"textbox","slide":7,"role":"closing-line","text":"一句话结束：实现正确，机制可解释，结论可信。","textChars":22,"textLines":1,"bbox":[794,608,352,26]}

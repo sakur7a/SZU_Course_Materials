@@ -1,0 +1,11 @@
+s,method,avg_ms,stddev_ms,ci95_ms,overlap_at_k
+20,baseline_aos_double,2.99312,0.289568,0.0709442,1.000
+20,optimized_csr_float_invnorm,2.44815,0.230011,0.0563528,1
+40,baseline_aos_double,5.89393,0.487428,0.11942,1.000
+40,optimized_csr_float_invnorm,4.92122,0.423361,0.103723,1
+80,baseline_aos_double,13.8837,2.60382,0.637937,1.000
+80,optimized_csr_float_invnorm,11.7002,2.70348,0.662352,1
+160,baseline_aos_double,26.2074,1.36141,0.333546,1.000
+160,optimized_csr_float_invnorm,21.7096,1.24821,0.305811,1
+320,baseline_aos_double,49.9089,1.68344,0.412443,1.000
+320,optimized_csr_float_invnorm,41.3795,0.976189,0.239166,1

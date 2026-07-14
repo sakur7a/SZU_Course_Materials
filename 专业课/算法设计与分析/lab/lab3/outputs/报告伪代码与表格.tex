@@ -1,0 +1,248 @@
+\documentclass[UTF8,a4paper,12pt]{ctexart}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{graphicx}
+\geometry{left=2.2cm,right=2.2cm,top=2.2cm,bottom=2.2cm}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.4em}
+
+\title{地图填色实验报告中的伪代码与结果表}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{暴力回溯伪代码}
+
+\begin{table}[htbp]
+\centering
+\caption{朴素暴力回溯算法伪代码}
+\small
+\begin{tabular}{@{}r p{0.82\textwidth}@{}}
+\toprule
+\multicolumn{2}{@{}l@{}}{\textbf{Algorithm 1} Brute-Force-Backtracking$(G=(V,E), k)$} \\
+\midrule
+\multicolumn{2}{@{}l@{}}{\textbf{Input:} 图 $G$，颜色数 $k$} \\
+\multicolumn{2}{@{}l@{}}{\textbf{Output:} 合法 $k$-着色 $\textit{color}$；若不存在则返回 failure} \\
+\midrule
+1  & 将顶点按固定顺序排列为 $v_1,v_2,\ldots,v_n$ \\
+2  & \textbf{for each} $v\in V$ \textbf{do} $\textit{color}[v]\leftarrow \textsc{Uncolored}$ \textbf{end for} \\
+3  & \textbf{function} Backtrack$(i)$ \\
+4  & \quad \textbf{if} $i>n$ \textbf{then return} success \\
+5  & \quad \textbf{for} $c=1$ \textbf{to} $k$ \textbf{do} \\
+6  & \quad\quad \textbf{if} 对任意已着色邻居 $u\in N(v_i)$，均有 $\textit{color}[u]\ne c$ \textbf{then} \\
+7  & \quad\quad\quad $\textit{color}[v_i]\leftarrow c$ \\
+8  & \quad\quad\quad \textbf{if} Backtrack$(i+1)$ 成功 \textbf{then return} success \\
+9  & \quad\quad\quad $\textit{color}[v_i]\leftarrow \textsc{Uncolored}$ \\
+10 & \quad\quad \textbf{end if} \\
+11 & \quad \textbf{end for} \\
+12 & \quad \textbf{return} failure \\
+13 & \textbf{end function} \\
+14 & \textbf{return} Backtrack$(1)$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{DSATUR 回溯伪代码}
+
+\begin{table}[htbp]
+\centering
+\caption{DSATUR 回溯算法伪代码}
+\small
+\begin{tabular}{@{}r p{0.82\textwidth}@{}}
+\toprule
+\multicolumn{2}{@{}l@{}}{\textbf{Algorithm 2} DSATUR-Backtracking$(G=(V,E), k)$} \\
+\midrule
+\multicolumn{2}{@{}l@{}}{\textbf{Input:} 图 $G$，颜色数 $k$} \\
+\multicolumn{2}{@{}l@{}}{\textbf{Output:} 合法 $k$-着色 $\textit{color}$；若不存在则返回 failure} \\
+\midrule
+1  & \textbf{for each} $v\in V$ \textbf{do} \\
+2  & \quad $\textit{color}[v]\leftarrow \textsc{Uncolored}$ \\
+3  & \quad $\textit{domain}[v]\leftarrow \{1,2,\ldots,k\}$ \\
+4  & \textbf{end for} \\
+5  & \textbf{function} Search() \\
+6  & \quad \textbf{if} 所有顶点均已着色 \textbf{then return} success \\
+7  & \quad 选择未着色顶点 $v$，使饱和度 $\textit{sat}(v)$ 最大；若并列，则取度数 $\deg(v)$ 最大者 \\
+8  & \quad \textbf{for each} $c\in \textit{domain}[v]$，按前向影响从小到大遍历 \textbf{do} \\
+9  & \quad\quad \textbf{if} $v$ 的已着色邻居均未使用颜色 $c$ \textbf{then} \\
+10 & \quad\quad\quad $\textit{color}[v]\leftarrow c$ \\
+11 & \quad\quad\quad 从所有未着色邻居 $u$ 的 $\textit{domain}[u]$ 中临时删除 $c$ \\
+12 & \quad\quad\quad \textbf{if} 所有未着色邻居的可用颜色集合均非空 \textbf{and} Search() 成功 \textbf{then} \\
+13 & \quad\quad\quad\quad \textbf{return} success \\
+14 & \quad\quad\quad \textbf{end if} \\
+15 & \quad\quad\quad 恢复本轮修改的所有颜色域，$\textit{color}[v]\leftarrow \textsc{Uncolored}$ \\
+16 & \quad\quad \textbf{end if} \\
+17 & \quad \textbf{end for} \\
+18 & \quad \textbf{return} failure \\
+19 & \textbf{end function} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{TabuCol 局部搜索伪代码}
+
+\begin{table}[htbp]
+\centering
+\caption{TabuCol 局部搜索算法伪代码}
+\small
+\begin{tabular}{@{}r p{0.82\textwidth}@{}}
+\toprule
+\multicolumn{2}{@{}l@{}}{\textbf{Algorithm 3} TabuCol$(G=(V,E), k, \textit{maxSteps}, \textit{tabuTenure})$} \\
+\midrule
+\multicolumn{2}{@{}l@{}}{\textbf{Input:} 图 $G$，颜色数 $k$，最大迭代步数 $\textit{maxSteps}$，禁忌期限 $\textit{tabuTenure}$} \\
+\multicolumn{2}{@{}l@{}}{\textbf{Output:} 合法 $k$-着色 $\textit{color}$；若未找到则返回当前最优着色} \\
+\midrule
+1  & $\textit{color}\leftarrow \textsc{GreedyInitialColoring}(G,k)$ \\
+2  & $\textit{bestColor}\leftarrow \textit{color}$ \\
+3  & $\textit{bestConflict}\leftarrow \textsc{ConflictEdges}(\textit{color})$ \\
+4  & 初始化禁忌表：$\textit{tabu}[v][c]\leftarrow 0$ \\
+5  & \textbf{for} $\textit{step}=1$ \textbf{to} $\textit{maxSteps}$ \textbf{do} \\
+6  & \quad $\textit{currentConflict}\leftarrow \textsc{ConflictEdges}(\textit{color})$ \\
+7  & \quad \textbf{if} $\textit{currentConflict}=0$ \textbf{then return} $\textit{color}$ \\
+8  & \quad \textbf{if} $\textit{currentConflict}<\textit{bestConflict}$ \textbf{then} \\
+9  & \quad\quad $\textit{bestConflict}\leftarrow \textit{currentConflict}$，$\textit{bestColor}\leftarrow \textit{color}$ \\
+10 & \quad \textbf{end if} \\
+11 & \quad $C\leftarrow \{v\in V\mid v\text{ 至少关联一条冲突边}\}$ \\
+12 & \quad 在所有移动 $(v,\textit{oldColor}\rightarrow \textit{newColor})$ 中选择评价值最优者 \\
+13 & \quad 其中 $\Delta=$ 移动后冲突边数 $-$ 移动前冲突边数 \\
+14 & \quad 若移动处于禁忌状态，仅当它优于历史最优解时允许执行 \\
+15 & \quad 执行选中移动：$\textit{color}[v]\leftarrow \textit{newColor}$ \\
+16 & \quad 将旧颜色标记为禁忌：$\textit{tabu}[v][\textit{oldColor}]\leftarrow \textit{step}+\textit{tabuTenure}+\textit{random}$ \\
+17 & \textbf{end for} \\
+18 & \textbf{return} $\textit{bestColor}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{三种算法的时间复杂度分析}
+
+设图 $G=(V,E)$，$n=|V|$，$m=|E|$，颜色数为 $k$，最大度数 $\Delta=\max_{v\in V}\deg(v)$。
+
+\subsection{朴素暴力回溯}
+
+暴力回溯按固定顺序逐顶点着色，搜索树第 $i$ 层对应顶点 $v_i$ 的颜色选择，每层至多 $k$ 个分支。最坏情况下（无剪枝）搜索树包含 $\sum_{i=0}^{n} k^i = O(k^n)$ 个节点，每节点处检查邻居颜色耗时 $O(\deg(v_i))$，单条路径验证代价 $\sum_{i=1}^{n}O(\deg(v_i))=O(m)$。因此最坏时间复杂度为：
+\[
+T_{\mathrm{brute}} = O(k^n \cdot \Delta)
+\]
+这是图着色 NP 完全性的直接体现。当 $k\ge\Delta+1$ 时贪心即可线性着色；但当 $k$ 接近色数 $\chi(G)$ 时，搜索树急剧膨胀。
+
+\subsection{DSATUR 回溯}
+
+DSATUR 最坏复杂度与暴力法相同：$T_{\mathrm{DSATUR}}^{\mathrm{worst}}=O(k^n\cdot\Delta)$。实际效率远优，原因在于：
+\begin{enumerate}
+    \item \textbf{饱和度选点}：每步选择饱和度 $\mathrm{sat}(v)$ 最大的顶点。当 $\mathrm{sat}(v)=k$ 时立即回溯，冲突被尽早发现。
+    \item \textbf{前向检查}：每次赋值后从邻居域中删除已用颜色，空域剪枝。单次前向检查代价 $O(\Delta)$，但避免了深入无效子树。
+\end{enumerate}
+
+理想情况下（每步饱和度恰为 $k-1$），搜索退化为线性回溯，赋值次数 $O(n)$。实验中 $k=4$ 平面图上赋值数基本等于 $n$，实际复杂度接近 $O(n^2)$。
+
+\subsection{TabuCol 局部搜索}
+
+TabuCol 不构造搜索树，迭代改进一个完整着色方案。
+\begin{itemize}
+    \item \textbf{初始化}：贪心着色按度数降序分配颜色，代价 $O(m)$。
+    \item \textbf{单步迭代}：找冲突顶点 $O(n)$；采样至多 $s=\min(|C|,80)$ 个候选，各试 $k$ 色（利用 $\mathrm{adjColor}$ 矩阵 $O(1)$ 算 $\Delta$），代价 $O(sk)$；执行移动更新邻接计数 $O(\Delta)$。单步总代价 $O(n+k)$。
+\end{itemize}
+
+设总迭代次数为 $T$，则总代价为 $T_{\mathrm{TabuCol}}=O(T\cdot(n+k))$。$T$ 取决于图结构和颜色数：$k\ge\chi(G)+1$ 时通常 $O(n^2)$ 步内收敛；$k=\chi(G)$ 时搜索空间变窄，迭代次数增加。禁忌期限随冲突边数自适应：
+\[
+\mathrm{tenure} = \mathrm{base} + \mathrm{random}(0,r) + \lfloor\alpha\cdot\mathrm{conflicts}\rfloor
+\]
+冲突多时禁忌期长，驱使解远离当前区域；冲突少时允许精细调整。连续 $150\,000$ 步未改进则重启，至多 $80$ 次，最坏总代价 $O(M\cdot T_{\max}\cdot(n+k))$。
+
+\subsection{复杂度对比}
+
+\begin{table}[h]
+\centering
+\caption{三种算法时间复杂度对比}
+\begin{tabular}{lccc}
+\toprule
+算法 & 最坏复杂度 & 每步代价 & 实际特点 \\
+\midrule
+暴力回溯 & $O(k^n\cdot\Delta)$ & $O(\Delta)$ & 固定顺序，无图结构利用 \\
+DSATUR 回溯 & $O(k^n\cdot\Delta)$ & $O(n+\Delta)$ & 饱和度选点，赋值数$\approx n$ \\
+TabuCol & $O(T\cdot(n+k))$ & $O(n+k)$ & 局部搜索，$T$取决于收敛速度 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{实验结果表格}
+
+\subsection{小规模地图正确性测试}
+
+\begin{table}[h]
+\centering
+\caption{小规模地图 4 色正确性测试结果}
+\begin{tabular}{lrrrrrr}
+\toprule
+数据 & 顶点数 & 边数 & 颜色数 & 算法 & 耗时/s & 冲突边 \\
+\midrule
+小规模粘贴地图抽象图 & 9 & 16 & 4 & DSATUR 回溯 & 0.000126 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{朴素暴力回溯与 DSATUR 回溯对比}
+
+\begin{table}[p]
+\centering
+\caption{朴素暴力回溯与 DSATUR 回溯对比}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrrr}
+\toprule
+数据 & 顶点数 & 边数 & 暴力首解/s & 暴力赋值 & DSATUR/s & DSATUR赋值 & 暴力完整空间 & 外推/s \\
+\midrule
+小规模粘贴地图 & 9 & 16 & 0.000019 & 19 & 0.000057 & 9 & $2.621\times10^{5}$ & $2.580\times10^{-1}$ \\
+随机平面图 n=12 & 12 & 30 & 0.000022 & 32 & 0.000163 & 12 & $1.678\times10^{7}$ & $1.143\times10^{1}$ \\
+随机平面图 n=16 & 16 & 42 & 0.000029 & 43 & 0.000105 & 16 & $4.295\times10^{9}$ & $2.907\times10^{3}$ \\
+随机平面图 n=20 & 20 & 54 & 0.000032 & 51 & 0.000230 & 20 & $1.100\times10^{12}$ & $6.985\times10^{5}$ \\
+随机平面图 n=24 & 24 & 66 & 0.000040 & 62 & 0.000172 & 24 & $2.815\times10^{14}$ & $1.816\times10^{8}$ \\
+随机平面图 n=28 & 28 & 78 & 0.000040 & 67 & 0.000216 & 28 & $7.206\times10^{16}$ & $4.313\times10^{10}$ \\
+随机平面图 n=32 & 32 & 90 & 0.000047 & 78 & 0.000259 & 32 & $1.845\times10^{19}$ & $1.102\times10^{13}$ \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection{三个 450 顶点数据着色结果}
+
+\begin{table}[h]
+\centering
+\caption{三个 DIMACS .col 数据文件的着色结果}
+\begin{tabular}{lrrrrrr}
+\toprule
+数据文件 & 顶点数 & 边数 & 指定颜色数 & 是否成功 & 耗时/s & 冲突边 \\
+\midrule
+le450\_5a.col  & 450 & 5714 & 5  & 成功 & 1.104681 & 0 \\
+le450\_15b.col & 450 & 8169 & 15 & 成功 & 2.501488 & 0 \\
+le450\_25a.col & 450 & 8260 & 25 & 成功 & 0.007555 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{随机平面图规模效率分析}
+
+\begin{table}[h]
+\centering
+\caption{随机平面图 4 色填色效率}
+\begin{tabular}{rrrrrr}
+\toprule
+顶点数 & 边数 & 颜色数 & 是否成功 & 耗时/s & DSATUR 赋值次数 \\
+\midrule
+20  & 54  & 4 & 成功 & 0.000280 & 20 \\
+40  & 114 & 4 & 成功 & 0.000646 & 40 \\
+80  & 234 & 4 & 成功 & 0.001980 & 80 \\
+120 & 354 & 4 & 成功 & 0.003450 & 120 \\
+160 & 474 & 4 & 成功 & 0.005360 & 160 \\
+220 & 654 & 4 & 成功 & 0.010082 & 220 \\
+300 & 894 & 4 & 成功 & 0.020500 & 300 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{document}

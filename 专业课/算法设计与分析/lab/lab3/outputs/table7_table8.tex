@@ -1,0 +1,68 @@
+\documentclass[UTF8,a4paper,12pt]{ctexart}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\geometry{left=2.2cm,right=2.2cm,top=2.2cm,bottom=2.2cm}
+
+\title{表7 \& 表8}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+%% ==================== 表7 ====================
+\begin{table}[htbp]
+\centering
+\caption{DSATUR 回溯枚举全部解的里程碑耗时（超时 300\,s）}
+\label{tab:findall}
+\small
+\begin{tabular}{@{}l c r r r r r r r r r@{}}
+\toprule
+数据文件 & $k$ & 总解数 & \multicolumn{8}{c}{累计找到第 $n$ 个解的耗时/s} \\
+\cmidrule(lr){4-11}
+ &  &  & $10^{0}$ & $10^{1}$ & $10^{2}$ & $10^{3}$ & $10^{4}$ & $10^{5}$ & $10^{6}$ & $10^{7}$ \\
+\midrule
+le450\_5a.col  & 5  &       192 & 21.31 & 21.83 & 151.66 & --- & --- & --- & --- & --- \\
+le450\_15b.col & 15 &         0 & ---   & ---   & ---    & --- & --- & --- & --- & --- \\
+le450\_25a.col & 25 & 156\,640\,920 & 0.156 & 0.156 & 0.156 & 0.157 & 0.172 & 0.319 & 1.834 & 16.854 \\
+\bottomrule
+\end{tabular}
+
+\medskip
+\footnotesize
+le450\_25a.col 在 300\,s 内累计枚举 $1.57\times10^{8}$ 个合法着色仍未穷尽；达到 $10^{8}$ 个解耗时 211.3\,s。
+le450\_15b.col 在 300\,s 内未能找到任何一个完整合法着色。
+\end{table}
+
+%% ==================== 表8 ====================
+\begin{table}[htbp]
+\centering
+\caption{随机 Apollonian 平面图 DSATUR 4-着色效率（指数规模）}
+\label{tab:planar}
+\small
+\begin{tabular}{@{}r r r r r@{}}
+\toprule
+顶点数 $n$ & 边数 $m$ & 颜色数 $k$ & 耗时/s & DSATUR 赋值次数 \\
+\midrule
+    50 &    144 & 4 &    0.0006 &     50 \\
+   100 &    294 & 4 &    0.0019 &    100 \\
+   200 &    594 & 4 &    0.0079 &    200 \\
+   400 &  1\,194 & 4 &    0.0262 &    400 \\
+   800 &  2\,394 & 4 &    0.1048 &    800 \\
+ 1\,600 &  4\,794 & 4 &    0.4180 &  1\,600 \\
+ 3\,200 &  9\,594 & 4 &    1.6190 &  3\,200 \\
+ 6\,400 & 19\,194 & 4 &    6.5907 &  6\,400 \\
+12\,800 & 38\,394 & 4 &   26.1014 & 12\,800 \\
+\bottomrule
+\end{tabular}
+
+\medskip
+\footnotesize
+边数 $m = 3n - 6$，符合 Apollonian 三角剖分的平面图性质。
+DSATUR 赋值次数恰好等于 $n$，说明在平面图 4-着色中无任何回溯发生，算法线性终止。
+每倍增 $n$，耗时约增长 4 倍，实际复杂度 $O(n^2)$，瓶颈在每步选点的饱和度计算。
+\end{table}
+
+\end{document}

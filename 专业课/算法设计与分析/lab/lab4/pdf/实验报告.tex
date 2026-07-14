@@ -1,0 +1,956 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{float}
+
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+
+\lstset{
+    language=Python,
+    basicstyle=\small\ttfamily,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{red},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    tabsize=4
+}
+
+\title{实验四：动态规划 --- 鸡蛋掉落问题}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{实验目的}
+
+\begin{enumerate}
+    \item 掌握动态规划算法设计思想
+    \item 掌握鸡蛋坠落问题的动态规划解法
+    \item 理解不同状态定义对算法效率的影响
+    \item 学会分析和优化算法的时间与空间复杂度
+\end{enumerate}
+
+\section{问题描述}
+
+\subsection{问题背景}
+
+鸡蛋掉落问题（Egg Drop Problem）是理解动态规划如何实现最佳解决方案的经典例子。
+
+我们需要用鸡蛋确认在多高的楼层鸡蛋落下来会破碎。这个刚刚使鸡蛋破碎的楼层叫\textbf{门槛层}（Threshold Floor），门槛楼层是鸡蛋开始破碎的楼层，上面所有楼层的鸡蛋也都碎了。另外，如果鸡蛋从门槛楼层以下的任何楼层掉落，它都不会破碎。
+
+\subsection{问题形式化}
+
+\textbf{输入：}
+\begin{itemize}
+    \item $f$：建筑物的楼层数
+    \item $e$：可用的鸡蛋数量
+\end{itemize}
+
+\textbf{输出：}
+\begin{itemize}
+    \item 找到门槛层所需的\textbf{最少试验次数}
+\end{itemize}
+
+\textbf{约束条件：}
+\begin{enumerate}
+    \item 从跌落中幸存下来的鸡蛋可以再次使用
+    \item 破蛋必须丢弃
+    \item 摔碎对所有鸡蛋的影响都是一样的
+    \item 如果一个鸡蛋掉在地上摔碎了，那么它从高处掉下来也会摔碎（单调性）
+    \item 如果一个鸡蛋在跌落中幸存下来，那么它在较短的跌落中也能完整保留（单调性）
+\end{enumerate}
+
+\section{动态规划方程}
+
+\subsection{状态定义（方法一：标准DP）}
+
+定义 $dp[i][j]$ 表示 \textbf{$i$ 个鸡蛋、$j$ 层楼} 时，找到门槛层所需的最少试验次数。
+
+\subsection{状态转移方程}
+
+\begin{equation}
+dp[i][j] = \min_{1 \leq x \leq j} \{ \max(dp[i-1][x-1],\ dp[i][j-x]) + 1 \}
+\end{equation}
+
+\textbf{方程解释：}
+
+在第 $x$ 层扔鸡蛋时，有两种情况：
+\begin{enumerate}
+    \item \textbf{鸡蛋碎了}：门槛层在第 $x$ 层或以下，需要在 $x-1$ 层楼中用 $i-1$ 个鸡蛋继续测试
+    \begin{itemize}
+        \item 需要的试验次数：$dp[i-1][x-1]$
+    \end{itemize}
+    \item \textbf{鸡蛋没碎}：门槛层在第 $x$ 层以上，需要在 $j-x$ 层楼中用 $i$ 个鸡蛋继续测试
+    \begin{itemize}
+        \item 需要的试验次数：$dp[i][j-x]$
+    \end{itemize}
+\end{enumerate}
+
+由于我们考虑\textbf{最坏情况}，取两者中的较大值，再加上当前这次试验（+1）。为了使总试验次数最少，我们遍历所有可能的 $x$，取最小值。
+
+\subsection{边界条件}
+
+\begin{equation}
+\begin{cases}
+dp[1][j] = j & \text{（1个鸡蛋，需要逐层尝试）} \\
+dp[i][0] = 0 & \text{（0层楼，不需要试验）} \\
+dp[i][1] = 1 & \text{（1层楼，只需要1次试验）}
+\end{cases}
+\end{equation}
+
+\subsection{状态定义（方法二：交替DP）--- 逆向思维}
+
+\textbf{关键洞察：} 与其问"$e$个鸡蛋$f$层楼最少需要几次试验"，不如问"$e$个鸡蛋进行$i$次试验最多能确定多少层楼"。
+
+定义 $dp[i][j]$ 表示 \textbf{$i$ 次试验、$j$ 个鸡蛋} 最多能确定的楼层数。
+
+\textbf{状态转移方程：}
+
+\begin{equation}
+dp[i][j] = dp[i-1][j-1] + dp[i-1][j] + 1
+\end{equation}
+
+\textbf{方程解释：}
+
+假设我们在第 $x$ 层扔鸡蛋：
+\begin{itemize}
+    \item \textbf{碎了}：我们还有 $i-1$ 次试验、$j-1$ 个鸡蛋，能确定下方 $dp[i-1][j-1]$ 层
+    \item \textbf{没碎}：我们还有 $i-1$ 次试验、$j$ 个鸡蛋，能确定上方 $dp[i-1][j]$ 层
+    \item \textbf{加上当前这一层}（+1）
+\end{itemize}
+
+\textbf{数学解释：}
+
+这个递推式实际上是在计算组合数的和：
+
+\begin{equation}
+dp[i][j] = \sum_{k=1}^{j} \binom{i}{k}
+\end{equation}
+
+其中 $\binom{i}{k}$ 是组合数，表示从 $i$ 次试验中选择 $k$ 次"碎了"的情况。
+
+当鸡蛋数足够多时（$j \geq i$），有：
+
+\begin{equation}
+dp[i][j] = 2^i - 1
+\end{equation}
+
+这意味着 $i$ 次试验最多能确定 $2^i - 1$ 层楼，所以答案是 $O(\log f)$ 级别的。
+
+\subsection{两种状态定义的对比}
+
+\begin{table}[H]
+\centering
+\caption{两种状态定义的对比}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{方面} & \textbf{标准DP} & \textbf{交替DP} \\
+\midrule
+状态含义 & $i$个鸡蛋$j$层楼的最少试验次数 & $i$次试验$j$个鸡蛋能确定的最大楼层数 \\
+时间复杂度 & $O(e \times f^2)$ & $O(e \times \text{answer})$ \\
+空间复杂度 & $O(e \times f)$ & $O(e)$ \\
+适用场景 & 教学演示 & 实际应用 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{核心思想：} 从"求答案"转变为"验证答案"，利用答案的对数性质大幅降低复杂度。
+
+\section{算法实现}
+
+\subsection{基础动态规划（自底向上）}
+
+\begin{algorithm}[H]
+\caption{基础动态规划}
+\begin{algorithmic}[1]
+\REQUIRE 鸡蛋数 $e$, 楼层数 $f$
+\ENSURE 最少试验次数
+\IF{$e \leq 0$ 或 $f \leq 0$}
+    \RETURN 0
+\ENDIF
+\IF{$e = 1$}
+    \RETURN $f$
+\ENDIF
+\STATE 初始化 $dp[1..e][0..f] = 0$
+\FOR{$j = 1$ 到 $f$}
+    \STATE $dp[1][j] = j$ \COMMENT{1个鸡蛋需要逐层尝试}
+\ENDFOR
+\FOR{$i = 1$ 到 $e$}
+    \STATE $dp[i][0] = 0$, $dp[i][1] = 1$
+\ENDFOR
+\FOR{$i = 2$ 到 $e$}
+    \FOR{$j = 2$ 到 $f$}
+        \STATE $dp[i][j] = \infty$
+        \FOR{$x = 1$ 到 $j$}
+            \STATE $\text{cost} = 1 + \max(dp[i-1][x-1], dp[i][j-x])$
+            \STATE $dp[i][j] = \min(dp[i][j], \text{cost})$
+        \ENDFOR
+    \ENDFOR
+\ENDFOR
+\RETURN $dp[e][f]$
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{时间复杂度：} $O(e \times f^2)$ \\
+\textbf{空间复杂度：} $O(e \times f)$
+
+\subsection{二分查找优化DP}
+
+\begin{algorithm}[H]
+\caption{二分查找优化DP}
+\begin{algorithmic}[1]
+\REQUIRE 鸡蛋数 $e$, 楼层数 $f$
+\ENSURE 最少试验次数
+\IF{$e \leq 0$ 或 $f \leq 0$}
+    \RETURN 0
+\ENDIF
+\IF{$e = 1$}
+    \RETURN $f$
+\ENDIF
+\STATE 初始化 $dp[1..e][0..f]$
+\FOR{$i = 2$ 到 $e$}
+    \FOR{$j = 2$ 到 $f$}
+        \STATE $dp[i][j] = \infty$
+        \STATE $\text{lo} = 1$, $\text{hi} = j$
+        \WHILE{$\text{lo} \leq \text{hi}$}
+            \STATE $\text{mid} = \lfloor(\text{lo} + \text{hi}) / 2\rfloor$
+            \STATE $\text{cost\_break} = dp[i-1][\text{mid}-1]$
+            \STATE $\text{cost\_not\_break} = dp[i][j-\text{mid}]$
+            \STATE $\text{cost} = 1 + \max(\text{cost\_break}, \text{cost\_not\_break})$
+            \STATE $dp[i][j] = \min(dp[i][j], \text{cost})$
+            \IF{$\text{cost\_break} < \text{cost\_not\_break}$}
+                \STATE $\text{lo} = \text{mid} + 1$
+            \ELSIF{$\text{cost\_break} > \text{cost\_not\_break}$}
+                \STATE $\text{hi} = \text{mid} - 1$
+            \ELSE
+                \STATE \textbf{break}
+            \ENDIF
+        \ENDWHILE
+    \ENDFOR
+\ENDFOR
+\RETURN $dp[e][f]$
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{时间复杂度：} $O(e \times f \times \log f)$ \\
+\textbf{空间复杂度：} $O(e \times f)$
+
+\subsection{交替DP状态定义（最优解法）}
+
+\begin{algorithm}[H]
+\caption{交替DP（最优解法）}
+\begin{algorithmic}[1]
+\REQUIRE 鸡蛋数 $e$, 楼层数 $f$
+\ENSURE 最少试验次数
+\IF{$e \leq 0$ 或 $f \leq 0$}
+    \RETURN 0
+\ENDIF
+\IF{$e = 1$}
+    \RETURN $f$
+\ENDIF
+\STATE 初始化 $dp[0..e] = 0$ \COMMENT{一维数组}
+\STATE $\text{trials} = 0$
+\WHILE{$dp[e] < f$}
+    \STATE $\text{trials} = \text{trials} + 1$
+    \FOR{$j = e$ 到 $1$（从后往前）}
+        \STATE $dp[j] = dp[j] + dp[j-1] + 1$
+    \ENDFOR
+\ENDWHILE
+\RETURN $\text{trials}$
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{时间复杂度：} $O(e \times \text{answer})$，其中 answer 通常远小于 $f$ \\
+\textbf{空间复杂度：} $O(e)$
+
+\subsection{组合数方法（数学方法）}
+
+\begin{algorithm}[H]
+\caption{组合数方法}
+\begin{algorithmic}[1]
+\REQUIRE 鸡蛋数 $e$, 楼层数 $f$
+\ENSURE 最少试验次数
+\IF{$e \leq 0$ 或 $f \leq 0$}
+    \RETURN 0
+\ENDIF
+\IF{$e = 1$}
+    \RETURN $f$
+\ENDIF
+\STATE $n = 1$
+\WHILE{True}
+    \STATE $\text{total} = 0$
+    \FOR{$k = 1$ 到 $\min(e, n)$}
+        \STATE 计算 $C(n, k) = \frac{n!}{k!(n-k)!}$
+        \STATE $\text{total} = \text{total} + C(n, k)$
+        \IF{$\text{total} \geq f$}
+            \RETURN $n$
+        \ENDIF
+    \ENDFOR
+    \STATE $n = n + 1$
+\ENDWHILE
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{时间复杂度：} $O(\text{answer} \times \min(e, \text{answer}))$ \\
+\textbf{空间复杂度：} $O(1)$
+
+\section{实验结果与分析}
+
+\subsection{正确性验证}
+
+使用小规模数据验证各算法的一致性，结果如表~\ref{tab:correctness} 所示。
+
+\begin{table}[H]
+\centering
+\caption{正确性验证结果}
+\label{tab:correctness}
+\begin{tabular}{@{}cccccccc@{}}
+\toprule
+\textbf{鸡蛋数} & \textbf{楼层数} & \textbf{DP} & \textbf{记忆化} & \textbf{优化DP} & \textbf{交替DP} & \textbf{蛮力法} & \textbf{一致} \\
+\midrule
+1 & 1 & 1 & 1 & 1 & 1 & 1 & PASS \\
+1 & 5 & 5 & 5 & 5 & 5 & 5 & PASS \\
+1 & 10 & 10 & 10 & 10 & 10 & 10 & PASS \\
+2 & 1 & 1 & 1 & 1 & 1 & 1 & PASS \\
+2 & 2 & 2 & 2 & 2 & 2 & 2 & PASS \\
+2 & 5 & 3 & 3 & 3 & 3 & 3 & PASS \\
+2 & 10 & 4 & 4 & 4 & 4 & 4 & PASS \\
+2 & 20 & 6 & 6 & 6 & 6 & 6 & PASS \\
+3 & 1 & 1 & 1 & 1 & 1 & 1 & PASS \\
+3 & 5 & 3 & 3 & 3 & 3 & 3 & PASS \\
+3 & 10 & 4 & 4 & 4 & 4 & 4 & PASS \\
+3 & 15 & 5 & 5 & 5 & 5 & 5 & PASS \\
+3 & 20 & 5 & 5 & 5 & 5 & 5 & PASS \\
+4 & 10 & 4 & 4 & 4 & 4 & 4 & PASS \\
+4 & 15 & 4 & 4 & 4 & 4 & 4 & PASS \\
+4 & 20 & 5 & 5 & 5 & 5 & 5 & PASS \\
+5 & 10 & 4 & 4 & 4 & 4 & 4 & PASS \\
+5 & 15 & 4 & 4 & 4 & 4 & 4 & PASS \\
+5 & 20 & 5 & 5 & 5 & 5 & 5 & PASS \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{结论：} 所有测试用例均通过，各算法实现正确。
+
+\subsection{性能测试}
+
+性能分析图表如图~\ref{fig:performance} 所示。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{performance_analysis.png}
+\caption{性能分析图}
+\label{fig:performance}
+\end{figure}
+
+不同数据规模下算法的运行时间如表~\ref{tab:performance} 所示。
+
+\begin{table}[H]
+\centering
+\caption{性能测试结果}
+\label{tab:performance}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{描述} & \textbf{结果} & \textbf{时间(ms)} & \textbf{复杂度类} \\
+\midrule
+小规模 (2鸡蛋, 100层) & 14 & 0.14 & 极快 \\
+中规模 (2鸡蛋, 500层) & 32 & 1.01 & 极快 \\
+大规模 (2鸡蛋, 1000层) & 45 & 2.34 & 极快 \\
+小规模 (3鸡蛋, 100层) & 9 & 0.24 & 极快 \\
+中规模 (3鸡蛋, 500层) & 15 & 1.62 & 极快 \\
+小规模 (5鸡蛋, 100层) & 7 & 0.34 & 极快 \\
+中规模 (5鸡蛋, 500层) & 10 & 2.60 & 极快 \\
+小规模 (10鸡蛋, 100层) & 7 & 0.53 & 极快 \\
+中规模 (10鸡蛋, 500层) & 9 & 3.51 & 极快 \\
+大规模 (10鸡蛋, 1000层) & 10 & 7.94 & 极快 \\
+大规模 (10鸡蛋, 2000层) & 11 & 17.92 & 快 \\
+大规模 (20鸡蛋, 1000层) & 10 & 11.85 & 快 \\
+大规模 (50鸡蛋, 1000层) & 10 & 23.84 & 快 \\
+大规模 (100鸡蛋, 1000层) & 10 & 43.48 & 快 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{大规模测试：为什么交替DP这么快？}
+
+交替DP的时间复杂度是 $O(e \times \text{answer})$，其中 answer 是最终答案（最少试验次数）。关键发现：\textbf{answer 远小于 floors}。
+
+\begin{table}[H]
+\centering
+\caption{答案与楼层数的关系}
+\label{tab:answer_ratio}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+\textbf{鸡蛋数} & \textbf{楼层数} & \textbf{答案(trials)} & \textbf{答案/楼层数} \\
+\midrule
+10 & 1,000 & 10 & 0.010000 \\
+10 & 10,000 & 14 & 0.001400 \\
+10 & 100,000 & 17 & 0.000170 \\
+10 & 1,000,000 & 21 & 0.000021 \\
+10 & 10,000,000 & 26 & 0.000003 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{实际计算量对比（10个鸡蛋，100,000层楼）：}
+\begin{itemize}
+    \item 基础DP：$O(10 \times 100000^2) = 10^{11}$ 次操作
+    \item 交替DP：$O(10 \times 17) = 170$ 次操作
+    \item 差距：约 \textbf{6亿倍}
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{小规模性能对比}
+\label{tab:small_scale}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+\textbf{鸡蛋} & \textbf{楼层} & \textbf{基础DP(ms)} & \textbf{二分DP(ms)} & \textbf{交替DP(ms)} \\
+\midrule
+2 & 100 & 1.06 & 0.14 & 0.003 \\
+2 & 500 & 29.18 & 1.02 & 0.007 \\
+2 & 1000 & 122.88 & 2.35 & 0.010 \\
+5 & 500 & 117.54 & 2.49 & 0.005 \\
+10 & 500 & 258.21 & 3.61 & 0.006 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{极端测试（只用交替DP）}
+\label{tab:extreme}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+\textbf{鸡蛋} & \textbf{楼层} & \textbf{答案} & \textbf{时间(ms)} \\
+\midrule
+10 & 100,000 & 17 & 0.01 \\
+10 & 1,000,000 & 21 & 0.01 \\
+10 & 10,000,000 & 26 & 0.02 \\
+100 & 10,000,000 & 24 & 0.12 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{结论：} 交替DP快不是因为"优化"，而是因为问题本身的答案是对数级别的。
+
+\subsection{空间复杂度分析}
+
+DP表热力图如图~\ref{fig:heatmap} 所示。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{dp_table_heatmap.png}
+\caption{DP表热力图}
+\label{fig:heatmap}
+\end{figure}
+
+空间使用分析如图~\ref{fig:space} 所示。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{space_analysis.png}
+\caption{空间使用分析}
+\label{fig:space}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{空间复杂度分析}
+\label{tab:space}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+\textbf{鸡蛋数} & \textbf{楼层数} & \textbf{实际空间(KB)} & \textbf{理论空间(KB)} \\
+\midrule
+2 & 100 & 2.51 & 2.37 \\
+2 & 500 & 19.57 & 11.74 \\
+5 & 100 & 4.91 & 4.73 \\
+5 & 500 & 31.38 & 23.48 \\
+10 & 500 & 51.01 & 43.05 \\
+10 & 1000 & 109.70 & 86.02 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{理论复杂度分析}
+
+\begin{table}[H]
+\centering
+\caption{时间复杂度对比}
+\label{tab:time_complexity}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{算法} & \textbf{时间复杂度} & \textbf{说明} \\
+\midrule
+基础DP & $O(e \times f^2)$ & 三重循环 \\
+记忆化搜索 & $O(e \times f^2)$ & 最坏情况相同 \\
+二分优化DP & $O(e \times f \times \log f)$ & 利用单调性 \\
+交替DP & $O(e \times \text{answer})$ & answer远小于f \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{空间复杂度对比}
+\label{tab:space_complexity}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{算法} & \textbf{空间复杂度} & \textbf{说明} \\
+\midrule
+基础DP & $O(e \times f)$ & 完整DP表 \\
+记忆化搜索 & $O(e \times f)$ & 递归栈+缓存 \\
+二分优化DP & $O(e \times f)$ & 完整DP表 \\
+交替DP & $O(e)$ & 一维数组 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{效率改进方案分析}
+
+\subsection{时间效率改进}
+
+\subsubsection{方案一：二分查找优化}
+
+\textbf{原理：} 对于固定的 $i$ 和 $j$，随着 $x$ 增大：
+\begin{itemize}
+    \item $dp[i-1][x-1]$ 单调递增
+    \item $dp[i][j-x]$ 单调递减
+\end{itemize}
+
+因此可以用二分查找找到使两者最大值最小的 $x$。
+
+\textbf{效果：} 时间复杂度从 $O(e \times f^2)$ 降低到 $O(e \times f \times \log f)$
+
+\subsubsection{方案二：交替DP状态定义}
+
+\textbf{原理：} 改变状态定义，从"$i$个鸡蛋$j$层楼的最少试验次数"变为"$i$次试验$j$个鸡蛋能确定的最大楼层数"。
+
+\textbf{效果：} 时间复杂度 $O(e \times \text{answer})$，其中 answer 通常远小于 $f$
+
+\subsubsection{方案三：数学方法（组合数公式）}
+
+\textbf{原理：} 利用组合数直接计算答案。
+
+对于 $e$ 个鸡蛋、$f$ 层楼的问题，最少试验次数 $n$ 是满足以下条件的最小整数：
+
+\begin{equation}
+\sum_{k=1}^{e} \binom{n}{k} \geq f
+\end{equation}
+
+\subsection{空间效率改进}
+
+\subsubsection{方案一：滚动数组}
+
+\textbf{原理：} $dp[i][]$ 只依赖于 $dp[i-1][]$ 和 $dp[i][]$，可以只保留两行。
+
+\textbf{效果：} 空间从 $O(e \times f)$ 降低到 $O(f)$
+
+\subsubsection{方案二：交替DP的空间优化}
+
+\textbf{原理：} 交替DP只需要一维数组 $dp[e+1]$
+
+\textbf{效果：} 空间复杂度 $O(e)$
+
+\subsection{实际改进效果对比}
+
+测试数据：10个鸡蛋，1000层楼
+
+\begin{table}[H]
+\centering
+\caption{实际改进效果对比}
+\label{tab:improvement}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{方法} & \textbf{时间(ms)} & \textbf{加速比} \\
+\midrule
+基础DP & 1073.32 & 1.00x \\
+二分优化DP & 8.32 & 128.96x \\
+交替DP & 0.01 & 117947.78x \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{结论：} 交替DP状态定义是最优解法，比基础DP快约11.8万倍！
+
+\subsection{数学方法验证}
+
+组合数方法与交替DP的结果完全一致：
+
+\begin{table}[H]
+\centering
+\caption{数学方法验证}
+\label{tab:math_verify}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+\textbf{鸡蛋} & \textbf{楼层} & \textbf{交替DP(ms)} & \textbf{数学方法(ms)} & \textbf{结果一致} \\
+\midrule
+2 & 100 & 0.003 & 0.009 & YES \\
+2 & 1000 & 0.009 & 0.021 & YES \\
+5 & 1000 & 0.004 & 0.010 & YES \\
+10 & 1000 & 0.005 & 0.013 & YES \\
+10 & 10000 & 0.008 & 0.026 & YES \\
+10 & 100000 & 0.009 & 0.037 & YES \\
+100 & 100000 & 0.075 & 0.050 & YES \\
+100 & 1000000 & 0.095 & 0.082 & YES \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{边界情况分析}
+
+边界分析可视化如图~\ref{fig:boundary_eggs} 和图~\ref{fig:boundary_floors} 所示。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{boundary_eggs.png}
+\caption{鸡蛋数对答案的影响}
+\label{fig:boundary_eggs}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{boundary_floors.png}
+\caption{楼层数与答案的关系}
+\label{fig:boundary_floors}
+\end{figure}
+
+\subsection{极端鸡蛋数}
+
+\begin{table}[H]
+\centering
+\caption{极端鸡蛋数测试}
+\label{tab:extreme_eggs}
+\begin{tabular}{@{}cccl@{}}
+\toprule
+\textbf{鸡蛋数} & \textbf{楼层数} & \textbf{答案} & \textbf{说明} \\
+\midrule
+0 & 100 & 0 & 无法测试，返回0 \\
+1 & 100 & 100 & 必须逐层尝试 \\
+2 & 100 & 14 & 正常情况 \\
+100 & 100 & 7 & 鸡蛋数=楼层数 \\
+1000 & 100 & 7 & 鸡蛋充足，等价于二分查找 \\
+10000 & 100 & 7 & 鸡蛋充足，答案不变 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{结论：} 当鸡蛋数 $\geq \log_2$(楼层数) 时，增加鸡蛋数不会减少试验次数。
+
+\subsection{极端楼层数}
+
+\begin{table}[H]
+\centering
+\caption{极端楼层数测试}
+\label{tab:extreme_floors}
+\begin{tabular}{@{}cccl@{}}
+\toprule
+\textbf{鸡蛋数} & \textbf{楼层数} & \textbf{答案} & \textbf{说明} \\
+\midrule
+2 & 0 & 0 & 无需测试 \\
+2 & 1 & 1 & 只需1次 \\
+2 & 2 & 2 & 最多2次 \\
+2 & 1,000,000 & 1414 & 百万层楼 \\
+2 & 10,000,000 & 4472 & 千万层楼 \\
+10 & 100,000,000 & 32 & 亿层楼 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{结论：} 答案的增长速度远慢于楼层数的增长速度（对数级别）。
+
+\subsection{边界值验证}
+
+\textbf{验证1：} $dp[e][1] = 1$（任意鸡蛋数，1层楼）
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}cc@{}}
+\toprule
+\textbf{鸡蛋数} & \textbf{结果} \\
+\midrule
+1 & 1 \\
+2 & 1 \\
+5 & 1 \\
+10 & 1 \\
+100 & 1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{验证2：} $dp[1][f] = f$（1个鸡蛋，任意楼层数）
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}cc@{}}
+\toprule
+\textbf{楼层数} & \textbf{结果} \\
+\midrule
+1 & 1 \\
+5 & 5 \\
+10 & 10 \\
+20 & 20 \\
+50 & 50 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{验证3：单调性}
+\begin{itemize}
+    \item $dp[e][f]$ 随 $f$ 递增：\textbf{PASS}（固定鸡蛋数，楼层数越多需要试验次数越多）
+    \item $dp[e][f]$ 随 $e$ 递减：\textbf{PASS}（固定楼层数，鸡蛋越多需要试验次数越少）
+\end{itemize}
+
+\subsection{特殊情况：鸡蛋充足}
+
+当鸡蛋数足够多时（$e \geq \log_2(f)$），问题等价于二分查找：
+
+\begin{table}[H]
+\centering
+\caption{鸡蛋充足时等价于二分查找}
+\label{tab:sufficient_eggs}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+\textbf{鸡蛋数} & \textbf{楼层数} & \textbf{答案} & \textbf{二分查找次数} \\
+\midrule
+10 & 10 & 4 & 4 \\
+100 & 100 & 7 & 7 \\
+1000 & 1000 & 10 & 10 \\
+10000 & 10000 & 14 & 14 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{与其他算法的对比}
+
+算法对比可视化如图~\ref{fig:algo_compare} 和图~\ref{fig:greedy} 所示。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{algorithm_comparison.png}
+\caption{最优解 vs 二分查找}
+\label{fig:algo_compare}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{greedy_vs_optimal.png}
+\caption{贪心策略 vs 最优策略}
+\label{fig:greedy}
+\end{figure}
+
+\subsection{朴素二分查找}
+
+\begin{table}[H]
+\centering
+\caption{与朴素二分查找对比}
+\label{tab:binary_compare}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+\textbf{鸡蛋} & \textbf{楼层} & \textbf{最优解} & \textbf{二分查找} & \textbf{说明} \\
+\midrule
+1 & 10 & 10 & 4 & 1个鸡蛋，必须逐层 \\
+2 & 10 & 4 & 4 & 等于二分查找 \\
+5 & 10 & 4 & 4 & 等于二分查找 \\
+1 & 100 & 100 & 7 & 1个鸡蛋，必须逐层 \\
+2 & 100 & 14 & 7 & 比二分多7次 \\
+5 & 100 & 7 & 7 & 等于二分查找 \\
+2 & 1000 & 45 & 10 & 比二分多35次 \\
+5 & 1000 & 11 & 10 & 比二分多1次 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{结论：}
+\begin{itemize}
+    \item 当鸡蛋充足时，最优解等于二分查找
+    \item 当鸡蛋不足时，最优解需要更多次数
+\end{itemize}
+
+\subsection{贪心策略 vs 最优策略}
+
+\textbf{贪心策略的局限性：}
+
+贪心策略：每次选择"看起来最优"的楼层（如中间楼层）\\
+最优策略：考虑所有可能的选择，取全局最优
+
+\textbf{示例：2个鸡蛋，10层楼}
+
+贪心策略（二分查找）：
+\begin{itemize}
+    \item 第1次：第5层
+    \item 如果碎了：需要在1-4层逐个试，最多再试4次，共5次
+    \item 如果没碎：在6-10层继续二分
+    \item 最坏情况：5次
+\end{itemize}
+
+最优策略（交替DP）：
+\begin{itemize}
+    \item 第1次：第4层（不是第5层！）
+    \item 如果碎了：在1-3层逐个试，最多再试3次，共4次
+    \item 如果没碎：在5-10层继续
+    \item 最坏情况：4次
+\end{itemize}
+
+\textbf{为什么第4层比第5层更优？}
+
+因为要平衡"碎了"和"没碎"两种情况的最坏代价：
+\begin{itemize}
+    \item 第4层：碎了$\to$3次，没碎$\to$需要在6层中找，也是3次
+    \item 第5层：碎了$\to$4次，没碎$\to$需要在5层中找，也是4次
+    \item 但第4层的总次数更少！
+\end{itemize}
+
+\subsection{鸡蛋数对结果的影响}
+
+\begin{table}[H]
+\centering
+\caption{鸡蛋数对结果的影响（楼层数=1000）}
+\label{tab:eggs_impact}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+\textbf{鸡蛋数} & \textbf{答案} & \textbf{比值} & \textbf{说明} \\
+\midrule
+1 & 1000 & - & 基准（必须逐层） \\
+2 & 45 & 22.22x & 大幅提升 \\
+3 & 19 & 2.37x & 继续提升 \\
+5 & 11 & 1.73x & 提升减缓 \\
+10 & 10 & 1.10x & 接近极限 \\
+20 & 10 & 1.00x & 达到极限 \\
+50 & 10 & 1.00x & 不再提升 \\
+100 & 10 & 1.00x & 不再提升 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{结论：} 鸡蛋数从1增加到2时收益最大，之后边际收益递减，直到达到二分查找的下限。
+
+\subsection{不同算法的适用场景}
+
+\begin{table}[H]
+\centering
+\caption{不同算法的适用场景}
+\label{tab:scenarios}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{场景} & \textbf{最优解} & \textbf{二分查找} & \textbf{推荐算法} \\
+\midrule
+鸡蛋充足 ($e \geq \log_2 f$) & 7 & 7 & 二分查找 \\
+鸡蛋很少 ($e=1$) & 100 & 7 & 必须逐层尝试 \\
+鸡蛋适中 ($e=2$) & 14 & 7 & 交替DP \\
+鸡蛋较多 ($e=10$) & 10 & 10 & 交替DP \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{算法正确性证明}
+
+\subsection{最优子结构}
+
+鸡蛋掉落问题具有最优子结构性质：
+\begin{itemize}
+    \item 原问题（$e$个鸡蛋，$f$层楼的最少试验次数）可以分解为子问题
+    \item 在第$x$层扔鸡蛋后，无论碎或不碎，都形成一个规模更小的子问题
+    \item 原问题的最优解包含子问题的最优解
+\end{itemize}
+
+\subsection{无后效性}
+
+当前状态只与鸡蛋数和楼层数有关，与之前的操作历史无关。
+
+\subsection{重叠子问题}
+
+在递归求解过程中，相同的$(e, f)$状态会被多次计算，因此适合使用动态规划。
+
+\section{实验总结}
+
+\subsection{主要收获}
+
+\begin{enumerate}
+    \item \textbf{掌握了动态规划的基本思想：} 通过子问题的最优解构建原问题的最优解
+    \item \textbf{理解了状态定义的重要性：} 不同的状态定义会导致截然不同的算法效率
+    \item \textbf{学会了算法优化技巧：} 二分查找优化、状态转换等
+    \item \textbf{掌握了算法复杂度分析方法：} 理论分析与实际测试相结合
+\end{enumerate}
+
+\subsection{关键发现}
+
+\begin{enumerate}
+    \item \textbf{交替DP是最优解法：} 时间复杂度$O(e \times \text{answer})$，空间复杂度$O(e)$
+    \item \textbf{二分查找优化效果显著：} 在基础DP上可获得约129倍加速
+    \item \textbf{算法可处理大规模数据：} 10秒内可处理10万层楼
+\end{enumerate}
+
+\subsection{算法对比总结}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{summary_table.png}
+\caption{算法对比总结表}
+\label{fig:summary}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{算法对比总结}
+\label{tab:summary}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{算法} & \textbf{时间复杂度} & \textbf{空间复杂度} & \textbf{适用场景} \\
+\midrule
+基础DP & $O(e \times f^2)$ & $O(e \times f)$ & 教学演示 \\
+记忆化搜索 & $O(e \times f^2)$ & $O(e \times f)$ & 递归思维 \\
+二分优化DP & $O(e \times f \times \log f)$ & $O(e \times f)$ & 一般场景 \\
+交替DP & $O(e \times \text{answer})$ & $O(e)$ & \textbf{最优解法} \\
+组合数方法 & $O(\text{answer} \times \min(e,\text{answer}))$ & $O(1)$ & 数学推导 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{心得体会}
+
+鸡蛋掉落问题是一个经典的动态规划问题，通过这个问题的学习，我深刻理解了：
+
+\begin{enumerate}
+    \item 动态规划的核心是\textbf{状态定义}和\textbf{状态转移}
+    \item 不同的状态定义可以带来数量级的效率差异
+    \item 算法优化需要深入理解问题的本质特性（如单调性）
+    \item 理论分析和实际测试相结合才能全面评估算法性能
+\end{enumerate}
+
+\section{附录：完整源代码}
+
+详见 \texttt{egg\_drop.py} 文件。
+
+\begin{lstlisting}[caption=Main Function List]
+# 1. egg_drop_dp()           - Basic DP
+# 2. egg_drop_memo()         - Memoization Search
+# 3. egg_drop_dp_optimized() - Binary Search Optimized DP
+# 4. egg_drop_dp_alt()       - Alternative DP State
+# 5. egg_drop_math()         - Binomial Coefficient Method
+# 6. egg_drop_brute_force()  - Brute Force (for verification)
+# 7. verify_correctness()    - Correctness Verification
+# 8. performance_test()      - Performance Test
+# 9. find_max_scale()        - Max Scale Test
+# 10. space_analysis()       - Space Analysis
+# 11. complexity_analysis()  - Complexity Analysis
+# 12. efficiency_improvement_analysis() - Efficiency Analysis
+\end{lstlisting}
+
+\end{document}

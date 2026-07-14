@@ -1,0 +1,257 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath,amssymb}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{geometry}
+
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+
+% ==================== 伪代码 ====================
+
+\section*{算法伪代码}
+
+\subsection*{算法1：基础动态规划}
+\begin{algorithm}[H]
+\caption{Basic DP: $O(e \cdot f^2)$ time, $O(e \cdot f)$ space}
+\begin{algorithmic}[1]
+\REQUIRE eggs $e$, floors $f$
+\ENSURE minimum trials
+\IF{$e \leq 0$ or $f \leq 0$} \RETURN 0 \ENDIF
+\IF{$e = 1$} \RETURN $f$ \ENDIF
+\STATE $dp[1..e][0..f] \leftarrow 0$
+\FOR{$j \leftarrow 1$ to $f$}
+    \STATE $dp[1][j] \leftarrow j$
+\ENDFOR
+\FOR{$i \leftarrow 2$ to $e$}
+    \FOR{$j \leftarrow 2$ to $f$}
+        \STATE $dp[i][j] \leftarrow \infty$
+        \FOR{$x \leftarrow 1$ to $j$}
+            \STATE $dp[i][j] \leftarrow \min(dp[i][j],\ 1 + \max(dp[i-1][x-1],\ dp[i][j-x]))$
+        \ENDFOR
+    \ENDFOR
+\ENDFOR
+\RETURN $dp[e][f]$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection*{算法2：二分查找优化DP}
+\begin{algorithm}[H]
+\caption{Binary Search DP: $O(e \cdot f \cdot \log f)$ time, $O(e \cdot f)$ space}
+\begin{algorithmic}[1]
+\REQUIRE eggs $e$, floors $f$
+\ENSURE minimum trials
+\IF{$e \leq 0$ or $f \leq 0$} \RETURN 0 \ENDIF
+\IF{$e = 1$} \RETURN $f$ \ENDIF
+\FOR{$i \leftarrow 2$ to $e$}
+    \FOR{$j \leftarrow 2$ to $f$}
+        \STATE $dp[i][j] \leftarrow \infty$, $lo \leftarrow 1$, $hi \leftarrow j$
+        \WHILE{$lo \leq hi$}
+            \STATE $mid \leftarrow \lfloor(lo + hi) / 2\rfloor$
+            \STATE $cost \leftarrow 1 + \max(dp[i-1][mid-1],\ dp[i][j-mid])$
+            \STATE $dp[i][j] \leftarrow \min(dp[i][j],\ cost)$
+            \IF{$dp[i-1][mid-1] < dp[i][j-mid]$}
+                \STATE $lo \leftarrow mid + 1$
+            \ELSE
+                \STATE $hi \leftarrow mid - 1$
+            \ENDIF
+        \ENDWHILE
+    \ENDFOR
+\ENDFOR
+\RETURN $dp[e][f]$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection*{算法3：交替DP（最优解法）}
+\begin{algorithm}[H]
+\caption{Alternative DP: $O(e \cdot \mathrm{answer})$ time, $O(e)$ space}
+\begin{algorithmic}[1]
+\REQUIRE eggs $e$, floors $f$
+\ENSURE minimum trials
+\IF{$e \leq 0$ or $f \leq 0$} \RETURN 0 \ENDIF
+\IF{$e = 1$} \RETURN $f$ \ENDIF
+\STATE $dp[0..e] \leftarrow 0$, $trials \leftarrow 0$
+\WHILE{$dp[e] < f$}
+    \STATE $trials \leftarrow trials + 1$
+    \FOR{$j \leftarrow e$ downto $1$}
+        \STATE $dp[j] \leftarrow dp[j] + dp[j-1] + 1$
+    \ENDFOR
+\ENDWHILE
+\RETURN $trials$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection*{算法4：组合数方法}
+\begin{algorithm}[H]
+\caption{Binomial Method: $O(\mathrm{answer} \cdot \min(e, \mathrm{answer}))$ time, $O(1)$ space}
+\begin{algorithmic}[1]
+\REQUIRE eggs $e$, floors $f$
+\ENSURE minimum trials
+\IF{$e \leq 0$ or $f \leq 0$} \RETURN 0 \ENDIF
+\IF{$e = 1$} \RETURN $f$ \ENDIF
+\STATE $n \leftarrow 1$
+\WHILE{true}
+    \STATE $total \leftarrow 0$
+    \FOR{$k \leftarrow 1$ to $\min(e, n)$}
+        \STATE $total \leftarrow total + \binom{n}{k}$
+        \IF{$total \geq f$} \RETURN $n$ \ENDIF
+    \ENDFOR
+    \STATE $n \leftarrow n + 1$
+\ENDWHILE
+\end{algorithmic}
+\end{algorithm}
+
+\newpage
+
+% ==================== 表格 ====================
+
+\section*{实验数据表格}
+
+\subsection*{性能测试}
+
+\begin{table}[H]
+\centering
+\caption{不同配置下的性能}
+\begin{tabular}{@{}cccccc@{}}
+\toprule
+\textbf{蛋} & \textbf{楼} & \textbf{答案} & \textbf{基础DP(ms)} & \textbf{二分DP(ms)} & \textbf{交替DP(ms)} \\
+\midrule
+2 & 100 & 14 & 1.10 & 0.14 & 0.004 \\
+2 & 500 & 32 & 26.97 & 1.02 & 0.009 \\
+2 & 1000 & 45 & 111.94 & 2.35 & 0.012 \\
+5 & 1000 & 11 & 433.88 & 3.61 & 0.007 \\
+10 & 1000 & 10 & 979.61 & 8.32 & 0.009 \\
+10 & 2000 & 11 & 15617.33 & 17.92 & 0.036 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{加速比}
+
+\begin{table}[H]
+\centering
+\caption{不同配置下的加速比}
+\begin{tabular}{@{}ccc@{}}
+\toprule
+\textbf{蛋} & \textbf{楼} & \textbf{加速比} \\
+\midrule
+2 & 100 & 261x \\
+2 & 500 & 2,964x \\
+2 & 1000 & 9,567x \\
+5 & 1000 & 65,740x \\
+10 & 1000 & 112,599x \\
+10 & 2000 & 435,023x \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{最大规模测试}
+
+\begin{table}[H]
+\centering
+\caption{各算法最大规模}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+\textbf{算法} & \textbf{蛋} & \textbf{最大楼层数} & \textbf{耗时} \\
+\midrule
+\multirow{2}{*}{二分DP} & 2 & 500,000 & 3.40s \\
+& 10 & 200,000 & 4.09s \\
+\midrule
+\multirow{2}{*}{交替DP} & 2 & $10^{12}$ & 0.495s \\
+& 10 & $10^{12}$ & 0.0001s \\
+\midrule
+组合数 & 10 & $10^{12}$ & 0.0004s \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{answer 与 f 的关系}
+
+\begin{table}[H]
+\centering
+\caption{answer 随 f 对数增长}
+\begin{tabular}{@{}ccc@{}}
+\toprule
+\textbf{楼层 f} & \textbf{答案(e=2)} & \textbf{log₂(f)} \\
+\midrule
+$10^3$ & 45 & 10 \\
+$10^6$ & 1,414 & 20 \\
+$10^9$ & 44,721 & 30 \\
+$10^{12}$ & 1,414,214 & 40 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{answer 与 e 的关系}
+
+\begin{table}[H]
+\centering
+\caption{answer 随 e 递减}
+\begin{tabular}{@{}ccc@{}}
+\toprule
+\textbf{蛋 e} & \textbf{答案(f=10⁹)} & \textbf{说明} \\
+\midrule
+1 & $10^9$ & 逐层尝试 \\
+2 & 44,721 & $\approx \sqrt{2f}$ \\
+10 & 40 & 接近 $\log_2(f)$ \\
+20 & 30 & $= \log_2(f)$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{边界情况}
+
+\begin{table}[H]
+\centering
+\caption{边界情况测试}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+\textbf{蛋} & \textbf{楼} & \textbf{答案} & \textbf{说明} \\
+\midrule
+0 & 100 & 0 & 无法测试 \\
+1 & 100 & 100 & 必须逐层 \\
+100 & 100 & 7 & 蛋充足，等价二分 \\
+2 & $10^6$ & 1,414 & 百万层 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{与二分查找对比}
+
+\begin{table}[H]
+\centering
+\caption{最优解与二分查找对比}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+\textbf{蛋} & \textbf{楼} & \textbf{最优解} & \textbf{二分查找} & \textbf{说明} \\
+\midrule
+1 & 10 & 10 & 4 & 必须逐层 \\
+2 & 10 & 4 & 4 & 相等 \\
+2 & 100 & 14 & 7 & 蛋不足 \\
+5 & 100 & 7 & 7 & 蛋充足 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{算法对比总结}
+
+\begin{table}[H]
+\centering
+\caption{算法综合对比}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{算法} & \textbf{时间} & \textbf{空间} & \textbf{最大规模} \\
+\midrule
+基础DP & $O(e \cdot f^2)$ & $O(e \cdot f)$ & $\sim10^3$ \\
+二分DP & $O(e \cdot f \cdot \log f)$ & $O(e \cdot f)$ & $\sim5\times10^5$ \\
+交替DP & $O(e \cdot \mathrm{ans})$ & $O(e)$ & $10^{12}$ \\
+组合数 & $O(\mathrm{ans} \cdot \min(e,\mathrm{ans}))$ & $O(1)$ & $10^{12}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{document}

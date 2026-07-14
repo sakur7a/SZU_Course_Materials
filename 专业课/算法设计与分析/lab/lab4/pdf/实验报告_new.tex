@@ -1,0 +1,220 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{float}
+
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\graphicspath{{../images/}}
+
+\title{实验四：动态规划 --- 鸡蛋掉落问题}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{问题描述}
+
+给定 $e$ 个鸡蛋和 $f$ 层楼，找到最小的试验次数，使得在最坏情况下能确定门槛层（鸡蛋恰好摔碎的楼层）。鸡蛋摔碎后不可再用，未碎则可重复使用。
+
+\section{算法}
+
+\subsection{基础DP}
+
+\textbf{状态定义：} $dp[i][j]$ 表示 $i$ 个鸡蛋、$j$ 层楼时的最少试验次数。
+
+\textbf{转移方程：} 在第 $x$ 层扔鸡蛋，碎了需在 $x-1$ 层中用 $i-1$ 个蛋继续，没碎需在 $j-x$ 层中用 $i$ 个蛋继续。取最坏情况再加当前这次：
+
+\begin{equation}
+dp[i][j] = \min_{1 \leq x \leq j} \{ 1 + \max(dp[i-1][x-1],\ dp[i][j-x]) \}
+\end{equation}
+
+\textbf{边界条件：} $dp[1][j]=j$（1个蛋只能逐层试），$dp[i][0]=0$，$dp[i][1]=1$。
+
+\textbf{复杂度：} 三重循环，时间 $O(e \cdot f^2)$，空间 $O(e \cdot f)$。
+
+\subsection{二分查找优化}
+
+观察转移方程中，随着 $x$ 增大，$dp[i-1][x-1]$ 单调递增，$dp[i][j-x]$ 单调递减。两者的最大值呈"V"形，可用二分查找定位最优的 $x$，将内层循环从 $O(f)$ 降到 $O(\log f)$。
+
+\textbf{复杂度：} 时间 $O(e \cdot f \cdot \log f)$，空间 $O(e \cdot f)$。
+
+\subsection{交替DP（逆向思维）}
+
+基础DP的瓶颈在于状态定义---"求最少试验次数"需要遍历所有楼层。换个角度：不问"几层楼需要几次"，而问"几次试验能覆盖几层楼"。
+
+\textbf{状态定义：} $dp[n][e]$ 表示 $n$ 次试验、$e$ 个鸡蛋最多能确定的楼层数。
+
+\textbf{转移方程：} 在某层扔鸡蛋，碎了能确定下方 $dp[n-1][e-1]$ 层，没碎能确定上方 $dp[n-1][e]$ 层，加上当前层：
+
+\begin{equation}
+dp[n][e] = dp[n-1][e-1] + dp[n-1][e] + 1
+\end{equation}
+
+找最小的 $n$ 使 $dp[n][e] \geq f$ 即为答案。
+
+\textbf{为什么高效？} 因为答案（试验次数）远小于楼层数。10个蛋、100万层楼，答案仅21。只需计算到 $n=21$ 就停止。
+
+\textbf{空间优化：} $dp[n][]$ 只依赖 $dp[n-1][]$，可用一维数组从后往前更新，空间降至 $O(e)$。
+
+\textbf{复杂度：} 时间 $O(e \cdot \text{answer})$，空间 $O(e)$。
+
+\subsection{组合数方法}
+
+交替DP的递推式可展开为组合数求和：
+
+\begin{equation}
+dp[n][e] = \sum_{k=1}^{e} \binom{n}{k}
+\end{equation}
+
+含义：$n$ 次试验中恰好碎了 $k$ 次的情况数为 $\binom{n}{k}$，求和即为能覆盖的总楼层数。找最小的 $n$ 使该和 $\geq f$。
+
+\textbf{复杂度：} 时间 $O(\text{answer} \cdot \min(e, \text{answer}))$，空间 $O(1)$。
+
+\subsection{算法对比}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{算法} & \textbf{时间} & \textbf{空间} & \textbf{最大规模} \\
+\midrule
+基础DP & $O(e \cdot f^2)$ & $O(e \cdot f)$ & $\sim 10^3$ \\
+二分DP & $O(e \cdot f \cdot \log f)$ & $O(e \cdot f)$ & $\sim 5 \times 10^5$ \\
+交替DP & $O(e \cdot \text{answer})$ & $O(e)$ & $10^{12}$ \\
+组合数 & $O(\text{answer} \cdot \min(e,\text{answer}))$ & $O(1)$ & $10^{12}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{实验}
+
+\subsection{性能测试}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}cccccc@{}}
+\toprule
+\textbf{蛋} & \textbf{楼} & \textbf{答案} & \textbf{基础DP(ms)} & \textbf{二分DP(ms)} & \textbf{交替DP(ms)} \\
+\midrule
+2 & 100 & 14 & 1.10 & 0.14 & 0.004 \\
+2 & 500 & 32 & 26.97 & 1.02 & 0.009 \\
+2 & 1000 & 45 & 111.94 & 2.35 & 0.012 \\
+5 & 1000 & 11 & 433.88 & 3.61 & 0.007 \\
+10 & 1000 & 10 & 979.61 & 8.32 & 0.009 \\
+10 & 2000 & 11 & 15617.33 & 17.92 & 0.036 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{加速比}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}ccc@{}}
+\toprule
+\textbf{蛋} & \textbf{楼} & \textbf{加速比(基础/交替)} \\
+\midrule
+2 & 100 & 261x \\
+2 & 500 & 2,964x \\
+2 & 1000 & 9,567x \\
+5 & 1000 & 65,740x \\
+10 & 1000 & 112,599x \\
+10 & 2000 & 435,023x \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+加速比随鸡蛋数和楼层数增大而增大，因为基础DP时间随 $f^2$ 增长，而交替DP时间随 answer 线性增长。
+
+\subsection{最大规模测试}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{算法} & \textbf{蛋} & \textbf{最大楼层数} & \textbf{耗时} \\
+\midrule
+二分DP & 2 & 500,000 & 3.40s \\
+二分DP & 10 & 200,000 & 4.09s \\
+交替DP & 2 & $10^{12}$ & 0.495s \\
+交替DP & 10 & $10^{12}$ & 0.0001s \\
+组合数 & 10 & $10^{12}$ & 0.0004s \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{$f$、$e$ 与效率的关系}
+
+\textbf{answer 与 $f$ 的关系：} 当鸡蛋充足（$e \geq \log_2 f$）时，answer 随 $f$ 对数增长；当鸡蛋有限（如 $e=2$）时，$\text{answer} \approx \sqrt{2f}$，呈平方根增长。无论哪种情况，answer 都远小于 $f$，这是交替DP高效的根本原因。
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}cccc@{}}
+\toprule
+\textbf{楼层 $f$} & \textbf{答案($e=2$)} & \boldmath$\sqrt{2f}$ & \boldmath$\log_2(f)$ \\
+\midrule
+$10^3$ & 45 & 45 & 10 \\
+$10^6$ & 1,414 & 1,414 & 20 \\
+$10^9$ & 44,721 & 44,721 & 30 \\
+$10^{12}$ & 1,414,214 & 1,414,214 & 40 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{answer 与 $e$ 的关系：} $e$ 越大 answer 越小，但有下限 $\lceil \log_2(f+1) \rceil$。
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}clc@{}}
+\toprule
+\textbf{蛋 $e$} & \textbf{答案($f=10^9$)} & \textbf{说明} \\
+\midrule
+1 & $10^9$ & 逐层尝试 \\
+2 & 44,721 & $\approx \sqrt{2f}$ \\
+10 & 40 & 接近 $\log_2(f)$ \\
+20 & 30 & $= \log_2(f)$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{边界情况}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}cccl@{}}
+\toprule
+\textbf{蛋} & \textbf{楼} & \textbf{答案} & \textbf{说明} \\
+\midrule
+0 & 100 & 0 & 无法测试 \\
+1 & 100 & 100 & 必须逐层 \\
+100 & 100 & 7 & 蛋充足，等价二分 \\
+2 & $10^6$ & 1,414 & 百万层 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{与二分查找对比}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}cccc@{}}
+\toprule
+\textbf{蛋} & \textbf{楼} & \textbf{最优解} & \textbf{二分查找} \\
+\midrule
+1 & 10 & 10 & 4 \\
+2 & 10 & 4 & 4 \\
+2 & 100 & 14 & 7 \\
+5 & 100 & 7 & 7 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+鸡蛋充足时最优策略就是二分查找；不足时需更保守的策略。
+
+\end{document}
