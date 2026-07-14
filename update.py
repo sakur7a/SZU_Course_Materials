@@ -3,9 +3,17 @@
 
 import os
 import re
+import sys
 import hashlib
 import shutil
 from urllib.parse import quote
+
+# 确保在 Windows GBK 控制台下打印中文/emoji 不会报错
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding='utf-8')
+    except (AttributeError, ValueError):
+        pass
 
 # 仓库信息
 REPO = 'sakur7a/SZU_Course_Materials'
@@ -142,8 +150,10 @@ def generate_md(course_name, course_path, output_path):
 
 
 def main():
-    if not os.path.isdir('docs'):
-        os.mkdir('docs')
+    # docs/ 全部由本脚本从 pages/ 与课程目录生成，先清空避免残留旧文件
+    if os.path.isdir('docs'):
+        shutil.rmtree('docs')
+    os.mkdir('docs')
 
     # 复制 pages/ 目录下的静态页面到 docs/
     if os.path.isdir('pages'):
@@ -243,34 +253,41 @@ def parse_readme_tables():
     return course_info
 
 
-def generate_index(category_courses):
-    """生成 MkDocs 首页，包含课程目录和原 README 内容"""
+def _split_readme_sections(text):
+    """将 README 拆成 (标题, [(二级标题, 正文行列表), ...])。
+
+    只在一级标题（# 标题）和二级标题（## 小节）处切分，
+    三级及以下标题（如课程目录里的 ### 专业课）保留在所属小节正文中。
+    """
+    title = ''
+    sections = []
+    current = None
+    for line in text.split('\n'):
+        m = re.match(r'^(#{1,2})\s+(.*)$', line)
+        if m:
+            level = len(m.group(1))
+            heading = m.group(2).strip()
+            if level == 1 and not title:
+                title = heading
+                continue
+            if level == 2:
+                current = {'heading': heading, 'body': []}
+                sections.append(current)
+                continue
+        if current is not None:
+            current['body'].append(line)
+    return title, sections
+
+
+def generate_course_directory(category_courses, course_info):
+    """根据实际课程目录 + README 表格信息生成首页「课程目录」表格。"""
     lines = []
-
-    # 从 README 解析课程信息
-    course_info = parse_readme_tables()
-
-    # 提取标题和前言
-    lines.append('# 深圳大学 CS 本科课程资料共享\n\n')
-    lines.append('[![GitHub stars](https://img.shields.io/github/stars/{repo}?style=social)](https://github.com/{repo})\n'.format(repo=REPO))
-    lines.append('[![GitHub forks](https://img.shields.io/github/forks/{repo}?style=social)](https://github.com/{repo}/fork)\n'.format(repo=REPO))
-    lines.append('[![GitHub last commit](https://img.shields.io/github/last-commit/{repo})](https://github.com/{repo}/commits/main)\n\n'.format(repo=REPO))
-    lines.append('!!! note "关于"\n')
-    lines.append('    初衷是因为腾班的一些课程比较封闭，前人的经验也很少，希望这个 repo 可以帮到大家。\n')
-    lines.append('    我一般期末考完后会 update，然后可能有一些经验...\n')
-    lines.append('    更多资料可参考：[SZU_Math_and_Computer](https://github.com/Hytidel/SZU_Math_and_Computer)\n\n')
-
-    # 课程目录
-    lines.append('## 课程目录\n\n')
-
     category_labels = {
         '专业课': '### 💻 专业课',
         '通识课': '### 📐 通识课 / 基础课',
         '模版与表格': '### 📋 模版与表格',
         '转专业': '### 🔄 转专业',
     }
-
-    # 专业课和通识课显示时间和内容列
     categories_with_time = {'专业课', '通识课'}
 
     for category in CATEGORY_DIRS:
@@ -296,27 +313,66 @@ def generate_index(category_courses):
                 lines.append('| {} | [查看详情]({}) |\n'.format(name, md_filename))
         lines.append('\n')
 
-    # 许可
-    lines.append('## 许可\n\n')
-    lines.append('大部分是我的实验报告和作业，可能会有些往年的考题或者资料。\n\n')
-    lines.append('有些资料来自网络，如有可能的侵权行为麻烦您联系 sakur7a@outlook.com，带来的不便请您谅解。\n\n')
-    lines.append('资料仅供参考，请自行判断其适用性。\n')
+    return ''.join(lines)
+
+
+def generate_index(category_courses):
+    """生成 MkDocs 首页：正文取自 README.md，仅「课程目录」小节替换为自动生成的表格。"""
+    with open('README.md', 'r', encoding='utf-8') as f:
+        readme_text = f.read()
+
+    course_info = parse_readme_tables()
+    title, sections = _split_readme_sections(readme_text)
+
+    lines = []
+    lines.append('# {}\n\n'.format(title or '深圳大学 CS 本科课程资料'))
+    lines.append('[![GitHub stars](https://img.shields.io/github/stars/{repo}?style=social)](https://github.com/{repo})\n'.format(repo=REPO))
+    lines.append('[![GitHub forks](https://img.shields.io/github/forks/{repo}?style=social)](https://github.com/{repo}/fork)\n'.format(repo=REPO))
+    lines.append('[![GitHub last commit](https://img.shields.io/github/last-commit/{repo})](https://github.com/{repo}/commits/main)\n\n'.format(repo=REPO))
+
+    for section in sections:
+        heading = section['heading']
+        lines.append('## {}\n\n'.format(heading))
+        if heading == '课程目录':
+            lines.append(generate_course_directory(category_courses, course_info))
+        else:
+            body = '\n'.join(section['body']).strip('\n')
+            if body:
+                lines.append(body + '\n\n')
 
     with open('docs/index.md', 'w', encoding='utf-8') as f:
         f.writelines(lines)
 
 
 def write_mkdocs_nav(nav_items):
-    """将 nav 写入 mkdocs.yml"""
+    """仅替换 mkdocs.yml 中的 nav 块，保留其余配置的注释与格式。"""
     import yaml
 
     with open('mkdocs.yml', 'r', encoding='utf-8') as f:
-        config = yaml.safe_load(f)
+        text = f.read()
 
-    config['nav'] = nav_items
+    nav_yaml = yaml.dump({'nav': nav_items}, allow_unicode=True,
+                         default_flow_style=False, sort_keys=False)
+    if not nav_yaml.endswith('\n'):
+        nav_yaml += '\n'
+
+    lines = text.splitlines(keepends=True)
+    nav_start = next((i for i, ln in enumerate(lines)
+                      if re.match(r'^nav\s*:', ln)), None)
+
+    if nav_start is None:
+        new_text = text if text.endswith('\n') else text + '\n'
+        new_text += '\n' + nav_yaml
+    else:
+        nav_end = len(lines)
+        for j in range(nav_start + 1, len(lines)):
+            if re.match(r'^[A-Za-z_]', lines[j]):
+                nav_end = j
+                break
+        new_text = ''.join(lines[:nav_start]) + nav_yaml + ''.join(lines[nav_end:])
 
     with open('mkdocs.yml', 'w', encoding='utf-8') as f:
-        yaml.dump(config, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
+        f.write(new_text)
 
 
 if __name__ == '__main__':
