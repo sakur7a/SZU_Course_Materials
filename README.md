@@ -2,7 +2,9 @@
 
 ## 前言
 
-我一般期末考完后会 update，然后可能有一些经验...没有的课可能是因为不可抗力因素丢失了，或者是我学得不好，可以去另外一些学长的 repo 看一下，比较齐全，po 一下链接：[SZU_Math_and_Computer](https://github.com/Hytidel/SZU_Math_and_Computer)
+我一般期末考完后会 update，然后可能有一些经验...没有的课可能是因为不可抗力因素丢失了，或者是我学得不好，可以去另外一些学长的 repo 看一下，比较齐全，链接：[SZU_Math_and_Computer](https://github.com/Hytidel/SZU_Math_and_Computer)
+
+实验/作业大家可根据自己的学习方式用作参考，请勿直接抄袭，否则后果自负。
 
 ## 课程目录
 
