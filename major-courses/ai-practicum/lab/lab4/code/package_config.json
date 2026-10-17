@@ -1,0 +1,8 @@
+{
+  "lab": 4,
+  "kind": "code",
+  "teacher_checkpoint": "checkpoints/20261017-2325-yolo26m_augmented/weights/best.pt",
+  "original_run_prefix": "20261017-2325",
+  "student_checkpoint": "checkpoints/20261017-2325-yolo26n_distilled/weights/best.pt",
+  "control_checkpoint": "checkpoints/20261017-2325-yolo26n_control/weights/best.pt"
+}
