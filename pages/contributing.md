@@ -23,8 +23,9 @@
    git checkout -b add-my-materials
    ```
 4. 将文件放入对应的课程目录下，如果是新课程请按现有结构创建目录：
-    - **专业课** → `专业课/<课程名>/`
-    - **通识课** → `通识课/<课程名>/`
+    - **专业课** → `major-courses/<english-course-name>/`
+    - **通识课** → `general-courses/<english-course-name>/`
+    - 目录统一使用小写英文和连字符；新课程请在 `update.py` 的 `COURSE_NAMES` 中登记中文显示名称。
 5. 提交并推送
    ```bash
    git add .
@@ -44,17 +45,17 @@
 
 ```
 SZU_Course_Materials/
-├── 专业课/
-│   └── <课程名>/
+├── major-courses/
+│   └── <english-course-name>/
 │       ├── readme.md        # 课程说明（可选）
-│       ├── 往年试卷/
-│       ├── 实验报告/
+│       ├── past-exams/
+│       ├── lab/
 │       └── ...
-├── 通识课/
-│   └── <课程名>/
+├── general-courses/
+│   └── <english-course-name>/
 │       └── ...
-├── 转专业/
-└── 模版与表格/
+├── major-transfer/
+└── templates-and-forms/
 ```
 
 ## 注意事项

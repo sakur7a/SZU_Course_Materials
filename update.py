@@ -21,49 +21,61 @@ TXT_URL_PREFIX = f'https://github.com/{REPO}/blob/main/'
 BIN_URL_PREFIX = f'https://github.com/{REPO}/raw/main/'
 
 # 需要扫描的顶级目录（分类目录）
-CATEGORY_DIRS = ['专业课', '通识课', '模版与表格', '转专业']
+CATEGORY_NAMES = {
+    'major-courses': '专业课',
+    'general-courses': '通识课',
+    'templates-and-forms': '模版与表格',
+    'major-transfer': '转专业',
+}
+CATEGORY_DIRS = list(CATEGORY_NAMES)
 EXCLUDE_DIRS = ['.git', 'docs', '.vscode', 'site', '.github', '__pycache__']
 README_MD = ['README.md', 'readme.md', 'index.md', 'READMD.md']
 TXT_EXTS = ['md', 'txt', 'py', 'cpp', 'c', 'h', 'java', 'asm', 'js', 'ts', 'm']
 
 # 临时隐藏：这些课程目录不参与文档与导航生成
 EXCLUDE_COURSE_ENTRIES = {
-    '专业课/机器学习',
-    '专业课/计算机网络',
+    'major-courses/machine-learning',
+    'major-courses/computer-networks',
+}
+
+# 目录采用英文，网站导航和首页仍显示中文课程名称。
+COURSE_NAMES = {
+    'major-courses/professional-english': '专业英语',
+    'major-courses/ai-ethics': '人工智能伦理',
+    'major-courses/intro-to-ai': '人工智能导论',
+    'major-courses/ai-practicum': '人工智能课程实训',
+    'major-courses/database-systems': '数据库系统',
+    'major-courses/computer-graphics': '计算机图形学',
+    'major-courses/intro-to-computer-security': '计算机安全导论',
+    'major-courses/brain-and-cognitive-science': '脑与认知科学',
+    'major-courses/data-structures': '数据结构',
+    'major-courses/optimization-methods': '最优化方法',
+    'major-courses/machine-learning': '机器学习',
+    'major-courses/computer-networks': '计算机网络',
+    'major-courses/computer-systems-1': '计算机系统（1）',
+    'major-courses/computer-systems-2': '计算机系统（2）',
+    'major-courses/computer-vision': '计算机视觉',
+    'major-courses/digital-circuits': '数字电路',
+    'major-courses/algorithm-design-and-analysis': '算法设计与分析',
+    'general-courses/college-physics': '大学物理',
+    'general-courses/college-physics-lab-1': '大学物理实验（1）',
+    'general-courses/probability-and-statistics': '概率论与数理统计',
+    'general-courses/linear-algebra': '线性代数',
+    'general-courses/advanced-mathematics': '高等数学',
+    'major-transfer/past-exams': '往年原题',
+    'major-transfer/experience': '经验',
 }
 
 # 用于生成稳定的 ASCII 文件名
 _slug_counter = 0
 _slug_map = {}
 
-# 为常见中文目录提供可读 URL（可按需继续补充）
-SLUG_OVERRIDES = {
-    '专业课': 'major-courses',
-    '通识课': 'general-courses',
-    '模版与表格': 'templates-and-forms',
-    '转专业': 'major-transfer',
-    '专业课/专业英语': 'professional-english',
-    '专业课/人工智能导论': 'intro-to-ai',
-    '专业课/人工智能课程实训': 'ai-practicum',
-    '专业课/数据库系统': 'database-systems',
-    '专业课/计算机图形学': 'computer-graphics',
-    '专业课/计算机安全导论': 'intro-to-computer-security',
-    '专业课/脑与认知科学': 'brain-and-cognitive-science',
-    '专业课/数据结构': 'data-structures',
-    '专业课/最优化方法': 'optimization-methods',
-    '专业课/计算机系统（1）': 'computer-systems-1',
-    '专业课/计算机系统（2）': 'computer-systems-2',
-    '专业课/计算机视觉': 'computer-vision',
-    '专业课/数字电路': 'digital-circuits',
-    '专业课/算法设计与分析': 'algorithm-design-and-analysis',
-    '通识课/大学物理': 'college-physics',
-    '通识课/大学物理实验（1）': 'college-physics-lab-1',
-    '通识课/概率论与数理统计': 'probability-and-statistics',
-    '通识课/线性代数': 'linear-algebra',
-    '通识课/高等数学': 'advanced-mathematics',
-    '转专业/往年原题': 'transfer-past-exams',
-    '转专业/经验': 'transfer-experience',
-}
+# 课程页沿用原有的短 URL，不包含分类目录前缀。
+SLUG_OVERRIDES = {path: path.rsplit('/', 1)[-1] for path in COURSE_NAMES}
+SLUG_OVERRIDES.update({
+    'major-transfer/past-exams': 'transfer-past-exams',
+    'major-transfer/experience': 'transfer-experience',
+})
 
 
 def _ascii_slug(text):
@@ -179,7 +191,8 @@ def main():
 
         category_items = []
         category_courses[category] = []
-        sub_entries = sorted(os.listdir(category))
+        sub_entries = sorted(os.listdir(category),
+                             key=lambda entry: COURSE_NAMES.get(category + '/' + entry, entry))
 
         for entry in sub_entries:
             entry_path = os.path.join(category, entry)
@@ -196,9 +209,10 @@ def main():
             slug = to_slug(category + '/' + entry)
             md_filename = '{}.md'.format(slug)
             output_path = os.path.join('docs', md_filename)
-            generate_md(entry, entry_path, output_path)
-            category_items.append({entry: md_filename})
-            category_courses[category].append((entry, md_filename))
+            course_name = COURSE_NAMES.get(category + '/' + entry, entry)
+            generate_md(course_name, entry_path, output_path)
+            category_items.append({course_name: md_filename})
+            category_courses[category].append((course_name, md_filename))
 
         # 如果该分类下没有子目录，检查是否有直接文件
         if not category_items:
@@ -206,11 +220,12 @@ def main():
             slug = to_slug(category)
             md_filename = '{}.md'.format(slug)
             output_path = os.path.join('docs', md_filename)
-            generate_md(category, category, output_path)
-            nav_items.append({category: md_filename})
-            category_courses[category].append((category, md_filename))
+            category_name = CATEGORY_NAMES[category]
+            generate_md(category_name, category, output_path)
+            nav_items.append({category_name: md_filename})
+            category_courses[category].append((category_name, md_filename))
         else:
-            nav_items.append({category: category_items})
+            nav_items.append({CATEGORY_NAMES[category]: category_items})
 
     # 添加额外页面到 nav
     nav_items.append({'贡献指南': 'contributing.md'})
@@ -288,12 +303,12 @@ def generate_course_directory(category_courses, course_info):
     """根据实际课程目录 + README 表格信息生成首页「课程目录」表格。"""
     lines = []
     category_labels = {
-        '专业课': '### 💻 专业课',
-        '通识课': '### 📐 通识课 / 基础课',
-        '模版与表格': '### 📋 模版与表格',
-        '转专业': '### 🔄 转专业',
+        'major-courses': '### 💻 专业课',
+        'general-courses': '### 📐 通识课 / 基础课',
+        'templates-and-forms': '### 📋 模版与表格',
+        'major-transfer': '### 🔄 转专业',
     }
-    categories_with_time = {'专业课', '通识课'}
+    categories_with_time = {'major-courses', 'general-courses'}
 
     for category in CATEGORY_DIRS:
         if category not in category_courses:
