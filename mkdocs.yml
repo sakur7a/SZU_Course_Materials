@@ -44,11 +44,17 @@ nav:
 - 首页: index.md
 - 专业课:
   - 专业英语: professional-english.md
+  - 人工智能伦理: page-e789b92c.md
   - 人工智能导论: intro-to-ai.md
+  - 人工智能课程实训: ai-practicum.md
   - 数字电路: digital-circuits.md
+  - 数据库系统: database-systems.md
   - 数据结构: data-structures.md
   - 最优化方法: optimization-methods.md
   - 算法设计与分析: algorithm-design-and-analysis.md
+  - 脑与认知科学: brain-and-cognitive-science.md
+  - 计算机图形学: computer-graphics.md
+  - 计算机安全导论: intro-to-computer-security.md
   - 计算机系统（1）: computer-systems-1.md
   - 计算机系统（2）: computer-systems-2.md
   - 计算机视觉: computer-vision.md
