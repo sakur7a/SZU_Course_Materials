@@ -1,3 +1,5 @@
+# Preserve the snapshot byte-for-byte across platforms, including hashed metadata.
+* -text
 # Binary scene assets must be checked out byte-for-byte, including PPM textures.
 *.ppm binary
 *.mesh binary
