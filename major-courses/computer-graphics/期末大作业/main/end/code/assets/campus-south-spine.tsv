@@ -1,0 +1,5 @@
+L	south-spine	stone	campus-south-spine-paving.mesh	campus-sidewalk.ppm	1	1	.99
+L	south-spine	stone	campus-south-spine-grass.mesh	grass.ppm	1.03	1.13	.89
+L	south-spine	stone	campus-south-spine-edge.mesh	concrete.ppm	.90	.90	.84
+L	south-spine	stone	campus-zhiyi-gallery.mesh	concrete.ppm	.92	.92	.89
+W	south-spine	campus-south-spine-paving.mesh

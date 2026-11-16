@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "project_max_height_m": 69.9,
+  "project_max_height_note": "设计院项目页所列建筑高度，未取得分栋剖面或标高，不能直接统一套到六个OSM分部。",
+  "residential_start_m": 6.6,
+  "recess_m": 1.15,
+  "bay_width_m": 8.6,
+  "frame_width_m": 0.18,
+  "end_fin_pitch_m": 0.48,
+  "end_fin_width_m": 0.33,
+  "entry_clear_width_m": 3.0,
+  "skywalk_interfaces": [
+    {"id":"xiazheng-skywalk","owner_id":"xiazheng","source_osm":"way/776358619","endpoint":"end","clear_width_m":3.2,"clear_height_m":2.2,"inside_length_m":3.0,"outside_overlap_m":0.45,"platform_thickness_m":0.18},
+    {"id":"dongzhu-skywalk","owner_id":"dongzhu","source_osm":"way/776358645","endpoint":"end","clear_width_m":3.2,"clear_height_m":2.2,"inside_length_m":3.0,"outside_overlap_m":0.45,"platform_thickness_m":0.18},
+    {"id":"qiuse-skywalk","owner_id":"qiuse","source_osm":"way/776358645","endpoint":"start","clear_width_m":3.2,"clear_height_m":2.2,"inside_length_m":3.0,"outside_overlap_m":0.45,"platform_thickness_m":0.18}
+  ],
+  "skywalk_note": "三条接口线位取OSM，桥面高程读取已生成的campus-bridge.mesh；门洞宽高、约3米入楼平台、护栏和局部构造为保持可探索连通的估计，未还原真实楼内完整平面。",
+  "buildings": [
+    {"id":"chundi","name":"春笛","osm":"way/292598302","floors":17,"group":"north-u","solar":true,"sign":false},
+    {"id":"xiazheng","name":"夏筝","osm":"way/292598304","floors":17,"group":"north-u","solar":true,"sign":true,"romanized":"XIAZHENG"},
+    {"id":"gaoyin","name":"高音","osm":"way/292598303","floors":9,"group":"north-u","solar":false,"sign":false},
+    {"id":"qiuse","name":"秋瑟","osm":"relation/13233284","floors":17,"group":"south-u","solar":true,"sign":false},
+    {"id":"dongzhu","name":"冬筑","osm":"way/220880938","floors":17,"group":"south-u","solar":true,"sign":false,
+     "open_facade_segments_xz_m":[
+       [[560.57868,331.01002],[580.52188,316.64974]],
+       [[580.52188,316.64974],[597.27828,308.80168]],
+       [[597.27828,308.80168],[608.73020,303.66983]],
+       [[608.73020,303.66983],[619.12328,299.00552]]
+     ],
+     "facade_override_note":"guide-2023-08.png的带名冬筑航拍及architect-dorm-00.jpg支持庭院侧长翼为错排框洞。该长侧在OSM中拆成24.6/18.5/12.5/11.4米连续短段，明确按外廊处理；不将其他短边或真正自由端统一改成阳台。"},
+    {"id":"diyin","name":"低音","osm":"way/242066977","floors":9,"group":"south-u","solar":false,"sign":false}
+  ],
+  "notes": "楼名与轮廓来自OSM并对照带楼名的2023实拍航拍；高音、低音未找到可辨门牌的公开照片。白色竖向端屏、错排深框外廊、栏杆、两层基座和屋顶板状设备参考照片。凹进深度、构件尺寸、入口精确位置、层高与屋顶设备类型均为视觉估计；2026春笛夏筝已修缮，2023照片不保证所有细节仍为当前状态。"
+}

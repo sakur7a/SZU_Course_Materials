@@ -1,0 +1,192 @@
+{
+  "routes": [
+    {
+      "name": "学生活动中心至石头坞一带的学生西路",
+      "osm_way": "231664133",
+      "center_xz_m": [74.4, 50.8],
+      "half_length_m": 55.0,
+      "target_grade": 0.12,
+      "note": "抑制粗地形与石头坞平台接缝造成的突降，整体高差保留；参数不是实测坡度。"
+    },
+    {
+      "name": "师范学院楼西侧道路",
+      "osm_way": "232598300",
+      "center_xz_m": [-424.3, -155.7],
+      "half_length_m": 60.0,
+      "target_grade": 0.12,
+      "road_edge_buildings": ["way/231067701", "way/231067706", "way/231067851"],
+      "retain_base_buildings": ["way/231067701", "way/231067706", "way/231067708", "way/231067851"],
+      "foundation_group": "teachers",
+      "note": "路边地形与附近教学楼之间的关系为视觉估计，实际道路坡度和基础待核实。"
+    },
+    {
+      "name": "北夏馆与至柔馆一带的道路",
+      "osm_way": "231676386",
+      "center_xz_m": [132.0, -524.8],
+      "half_length_m": 60.0,
+      "target_grade": 0.12,
+      "road_edge_buildings": ["way/230957349", "way/237893509"],
+      "retain_base_buildings": ["way/230957349", "way/237893509"],
+      "foundation_group": "northsports",
+      "detail_bounds_m": [80.0, 220.0, -620.0, -470.0],
+      "detail_spacing_m": 2.5,
+      "note": "保留场馆和球场，缓和道路处的粗高程尖峰；具体高程和坡度不是测量值。"
+    },
+    {
+      "name": "立德门、时光广场与汇德楼周边道路",
+      "osm_way": "220071403",
+      "center_xz_m": [-287.1, -38.8],
+      "half_length_m": 55.0,
+      "target_grade": 0.12,
+      "detail_bounds_m": [-460.0, -250.0, -230.0, -10.0],
+      "detail_spacing_m": 2.5,
+      "protect_time_square": true,
+      "lock_protected_profile": true,
+      "road_edge_buildings": ["way/231067701", "way/231067706", "way/231067851", "way/231067848", "way/231067853"],
+      "road_edge_buffer_m": 12.0,
+      "retain_base_buildings": ["way/231067848", "way/231067853"],
+      "foundation_group": "teachers",
+      "protected_roads": [
+        {"osm_way": "231983448", "buffer_m": 4.5},
+        {"osm_way": "231407864", "buffer_m": 4.5}
+      ],
+      "additional_roads": [
+        {
+          "osm_way": "220071398",
+          "center_xz_m": [-284.0, -65.7],
+          "half_length_m": 55.0,
+          "target_grade": 0.12,
+          "lock_protected_profile": true
+        },
+        {
+          "osm_way": "232598300",
+          "center_xz_m": [-379.0, -94.0],
+          "half_length_m": 60.0,
+          "target_grade": 0.15,
+          "lock_protected_profile": true,
+          "keep_endpoint_fit": true,
+          "fit_spacing_m": 1.0,
+          "core_weight": 8.0,
+          "edge_weight": 3.0
+        }
+      ],
+      "note": "将广场两侧道路与汇德楼B座外围弯路放在同一细分地形中，保护主路、连接路与建筑原有估计标高；坡度、铺装及基础均为近似。"
+    },
+    {
+      "name": "南区秋瑟旁的校道",
+      "osm_way": "722200013",
+      "center_xz_m": [524.1, 239.2],
+      "half_length_m": 40.0,
+      "target_grade": 0.12,
+      "road_edge_buildings": ["relation/13233284"],
+      "retain_base_buildings": ["relation/13233284"],
+      "foundation_group": "southdorm",
+      "detail_bounds_m": [480.0, 590.0, 210.0, 280.0],
+      "detail_spacing_m": 2.5,
+      "note": "缓和宿舍旁粗高程造成的短距离陡折，保留楼体和附近连桥；坡度并非实测。"
+    },
+    {
+      "name": "风槐斋与银桦斋之间至深大东路",
+      "osm_way": "232096326",
+      "center_xz_m": [259.0, -43.4],
+      "half_length_m": 55.0,
+      "target_grade": 0.12,
+      "detail_bounds_m": [150.0, 320.0, -110.0, 10.0],
+      "detail_spacing_m": 2.5,
+      "road_edge_buildings": ["way/231572980"],
+      "road_edge_buffer_m": 15.0,
+      "retain_base_buildings": ["way/231572980", "way/231796341", "way/231796344", "way/677820638"],
+      "foundation_group": "windzhai",
+      "protected_roads": [{"osm_way": "488453361", "buffer_m": 4.5}],
+      "lock_protected_profile": true,
+      "keep_endpoint_fit": true,
+      "fit_spacing_m": 1.0,
+      "core_weight": 8.0,
+      "edge_weight": 4.0,
+      "note": "保护深大东路路口及沿线楼体，平滑通往斋区的估计坡面；实际高程和坡度待核实。"
+    },
+    {
+      "name": "田径场东侧至汇研楼附近道路",
+      "osm_way": "239834471",
+      "center_xz_m": [501.0, -506.0],
+      "half_length_m": 55.0,
+      "target_grade": 0.12,
+      "detail_bounds_m": [450.0, 570.0, -560.0, -430.0],
+      "detail_spacing_m": 2.5,
+      "road_edge_buildings": ["way/1085792762"],
+      "fit_spacing_m": 1.0,
+      "core_weight": 8.0,
+      "edge_weight": 4.0,
+      "additional_roads": [
+        {
+          "osm_way": "239872140",
+          "center_xz_m": [487.0, -497.0],
+          "half_length_m": 45.0,
+          "target_grade": 0.12,
+          "fit_spacing_m": 1.0,
+          "core_weight": 8.0,
+          "edge_weight": 4.0
+        }
+      ],
+      "note": "联合平滑田径场旁两条近邻道路，保留田径场与汇研楼主体；线位、高程和坡度仍为估计。"
+    },
+    {
+      "name": "汇文楼办公区与H5之间的支路",
+      "osm_way": "801959630",
+      "center_xz_m": [-264.0, -609.0],
+      "half_length_m": 30.0,
+      "target_grade": 0.23,
+      "detail_bounds_m": [-320.0, -220.0, -680.0, -560.0],
+      "detail_spacing_m": 2.5,
+      "road_edge_buildings": ["relation/3105897"],
+      "retain_base_buildings": ["relation/3105897", "relation/3105896"],
+      "foundation_group": "huiwenroad",
+      "protected_roads": [{"osm_way": "319099130", "buffer_m": 4.0}],
+      "lock_protected_profile": true,
+      "keep_endpoint_fit": true,
+      "fit_spacing_m": 1.0,
+      "core_weight": 8.0,
+      "edge_weight": 4.0,
+      "note": "保留支路与回车区域之间的估计高差，减小中部突兀折坡；具体坡度未经实测。"
+    },
+    {
+      "name": "教育学部北侧至交叉路口",
+      "osm_way": "237892845",
+      "center_xz_m": [-291.4, -317.0],
+      "half_length_m": 55.0,
+      "target_grade": 0.12,
+      "detail_bounds_m": [-360.0, -220.0, -410.0, -260.0],
+      "detail_spacing_m": 2.5,
+      "road_edge_buildings": ["way/231405992"],
+      "retain_base_buildings": ["way/231405992"],
+      "foundation_group": "facultyroad",
+      "protected_roads": [
+        {"osm_way": "231676802", "buffer_m": 4.5},
+        {"osm_way": "231983448", "buffer_m": 4.5}
+      ],
+      "lock_protected_profile": true,
+      "keep_endpoint_fit": true,
+      "fit_spacing_m": 1.0,
+      "core_weight": 8.0,
+      "edge_weight": 4.0,
+      "note": "缓和路段短距离陡折，并保护两个相交道路及临路建筑；实际高程未经测量。"
+    },
+    {
+      "name": "元平体育馆后侧环路",
+      "osm_way": "231676381",
+      "center_xz_m": [168.0, -419.0],
+      "half_length_m": 65.0,
+      "target_grade": 0.12,
+      "detail_bounds_m": [100.0, 280.0, -460.0, -340.0],
+      "detail_spacing_m": 2.5,
+      "road_edge_buildings": ["way/230956722"],
+      "road_edge_buffer_m": 14.0,
+      "keep_endpoint_fit": true,
+      "fit_spacing_m": 1.0,
+      "core_weight": 8.0,
+      "edge_weight": 3.0,
+      "landscape_smoothing_steps": 30,
+      "note": "保留场馆、泳池及环路的连接，缓和模型中路面和人行道的异常起伏；实际坡度未经实测。"
+    }
+  ]
+}

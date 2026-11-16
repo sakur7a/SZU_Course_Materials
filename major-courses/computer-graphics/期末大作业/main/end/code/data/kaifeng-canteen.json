@@ -1,0 +1,26 @@
+{
+  "name": "凯风餐厅（新西南餐厅）",
+  "osm_way": "230935723",
+  "front_edge_node_indexes": [22, 23],
+  "entry_center_m": 18.5,
+  "entry_width_m": 2.4,
+  "entry_height_m": 2.35,
+  "height_m": 14.4,
+  "entry_sign": {
+    "width_m": 4.8,
+    "height_m": 1.10,
+    "bottom_m": 2.40,
+    "basis": "2023年荔知现场照片可见浅色凯风餐厅横牌；字样可核，尺寸与配准为估计。"
+  },
+  "railing_height_m": 1.05,
+  "railing_picket_spacing_m": 0.18,
+  "external_stair": {
+    "tread_count": 18,
+    "tread_run_m": 0.58,
+    "bottom_offset_m": -0.05,
+    "top_offset_m": 3.55,
+    "landing_start_m": 31.8,
+    "basis": "2020外景显示金属细竖杆、斜扶手及通往外廊的平台；踏步数量、尺寸、定位与标高为估计，几何连接约束不等于现场测量。"
+  },
+  "note": "主体依据2019/2020年外景，入口参考2023年现场近照，浅色横牌替代旧红雨棚。入口宽高按照片比例估计，位置沿用现有OSM配准；窗位、14.4米总高、楼梯、铺装及内部仍未实测，不能视作2026现状复刻。见kaifeng-sources.md。"
+}

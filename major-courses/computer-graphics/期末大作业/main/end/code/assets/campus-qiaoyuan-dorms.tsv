@@ -1,0 +1,45 @@
+# L: building material layer; W: walkable entrance surface
+L	qiaomu	stone	campus-qiaoyuan-qiaomu-wall.mesh	qiaoyuan-dorm-grey-tile.ppm	0.72	0.74	0.71
+L	qiaomu	stone	campus-qiaoyuan-qiaomu-slab.mesh	-	0.88	0.89	0.86
+L	qiaomu	stone	campus-qiaoyuan-qiaomu-shadow.mesh	-	0.23	0.28	0.29
+L	qiaomu	glass	campus-qiaoyuan-qiaomu-glass.mesh	-	0.38	0.51	0.54
+L	qiaomu	metal	campus-qiaoyuan-qiaomu-metal.mesh	-	0.61	0.66	0.65
+L	qiaomu	stone	campus-qiaoyuan-qiaomu-yellow.mesh	-	0.92	0.77	0.35
+L	qiaomu	roof	campus-qiaoyuan-qiaomu-roof.mesh	-	0.87	0.88	0.84
+L	qiaomu	glass	campus-qiaoyuan-qiaomu-solar.mesh	-	0.26	0.39	0.49
+L	qiaomu	sign	campus-qiaoyuan-qiaomu-sign.mesh	qiaoyuan-qiaomu-sign.ppm	1	1	1
+L	qiaolin	stone	campus-qiaoyuan-qiaolin-wall.mesh	qiaoyuan-dorm-grey-tile.ppm	0.72	0.74	0.71
+L	qiaolin	stone	campus-qiaoyuan-qiaolin-slab.mesh	-	0.88	0.89	0.86
+L	qiaolin	stone	campus-qiaoyuan-qiaolin-shadow.mesh	-	0.23	0.28	0.29
+L	qiaolin	glass	campus-qiaoyuan-qiaolin-glass.mesh	-	0.38	0.51	0.54
+L	qiaolin	metal	campus-qiaoyuan-qiaolin-metal.mesh	-	0.61	0.66	0.65
+L	qiaolin	stone	campus-qiaoyuan-qiaolin-yellow.mesh	-	0.92	0.77	0.35
+L	qiaolin	roof	campus-qiaoyuan-qiaolin-roof.mesh	-	0.87	0.88	0.84
+L	qiaolin	glass	campus-qiaoyuan-qiaolin-solar.mesh	-	0.26	0.39	0.49
+L	qiaolin	sign	campus-qiaoyuan-qiaolin-sign.mesh	qiaoyuan-qiaolin-sign.ppm	1	1	1
+L	qiaosen	stone	campus-qiaoyuan-qiaosen-wall.mesh	-	0.72	0.74	0.71
+L	qiaosen	stone	campus-qiaoyuan-qiaosen-slab.mesh	-	0.88	0.89	0.86
+L	qiaosen	stone	campus-qiaoyuan-qiaosen-shadow.mesh	-	0.23	0.28	0.29
+L	qiaosen	glass	campus-qiaoyuan-qiaosen-glass.mesh	-	0.38	0.51	0.54
+L	qiaosen	metal	campus-qiaoyuan-qiaosen-metal.mesh	-	0.61	0.66	0.65
+L	qiaosen	roof	campus-qiaoyuan-qiaosen-roof.mesh	-	0.87	0.88	0.84
+L	qiaosen	sign	campus-qiaoyuan-qiaosen-sign.mesh	qiaoyuan-qiaosen-sign.ppm	1	1	1
+L	qiaoxiang	stone	campus-qiaoyuan-qiaoxiang-wall.mesh	-	0.72	0.74	0.71
+L	qiaoxiang	stone	campus-qiaoyuan-qiaoxiang-slab.mesh	-	0.88	0.89	0.86
+L	qiaoxiang	stone	campus-qiaoyuan-qiaoxiang-shadow.mesh	-	0.23	0.28	0.29
+L	qiaoxiang	glass	campus-qiaoyuan-qiaoxiang-glass.mesh	-	0.38	0.51	0.54
+L	qiaoxiang	metal	campus-qiaoyuan-qiaoxiang-metal.mesh	-	0.61	0.66	0.65
+L	qiaoxiang	roof	campus-qiaoyuan-qiaoxiang-roof.mesh	-	0.87	0.88	0.84
+L	qiaoxiang	sign	campus-qiaoyuan-qiaoxiang-sign.mesh	qiaoyuan-qiaoxiang-sign.ppm	1	1	1
+L	qiaowu	stone	campus-qiaoyuan-qiaowu-wall.mesh	-	0.72	0.74	0.71
+L	qiaowu	stone	campus-qiaoyuan-qiaowu-slab.mesh	-	0.88	0.89	0.86
+L	qiaowu	stone	campus-qiaoyuan-qiaowu-shadow.mesh	-	0.23	0.28	0.29
+L	qiaowu	glass	campus-qiaoyuan-qiaowu-glass.mesh	-	0.38	0.51	0.54
+L	qiaowu	metal	campus-qiaoyuan-qiaowu-metal.mesh	-	0.61	0.66	0.65
+L	qiaowu	roof	campus-qiaoyuan-qiaowu-roof.mesh	-	0.87	0.88	0.84
+L	qiaowu	sign	campus-qiaoyuan-qiaowu-sign.mesh	qiaoyuan-qiaowu-sign.ppm	1	1	1
+W	qiaomu	campus-qiaoyuan-qiaomu-walk.mesh
+W	qiaolin	campus-qiaoyuan-qiaolin-walk.mesh
+W	qiaosen	campus-qiaoyuan-qiaosen-walk.mesh
+W	qiaoxiang	campus-qiaoyuan-qiaoxiang-walk.mesh
+W	qiaowu	campus-qiaoyuan-qiaowu-walk.mesh

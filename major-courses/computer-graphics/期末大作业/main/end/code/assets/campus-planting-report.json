@@ -1,0 +1,9 @@
+{
+  "shrub_vertices": 0,
+  "shrub_points": [],
+  "tree_instances": 0,
+  "accepted_tree_ids": [],
+  "tree_annotations": [],
+  "rejected": [],
+  "note": "估计与示意位置不能作为实测；来源及置信度见 data/planting-annotations.json"
+}

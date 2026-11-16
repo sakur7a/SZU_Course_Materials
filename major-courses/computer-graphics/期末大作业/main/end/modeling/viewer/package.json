@@ -1,0 +1,23 @@
+{
+  "name": "modeling-asset-viewer",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "validate-glb": "node scripts/validate-glb.mjs"
+  },
+  "dependencies": {
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.6",
+    "@types/three": "0.187.0",
+    "gltf-validator": "2.0.0-dev.3.10",
+    "playwright": "1.56.1",
+    "typescript": "5.9.3",
+    "vite": "8.3.6"
+  }
+}

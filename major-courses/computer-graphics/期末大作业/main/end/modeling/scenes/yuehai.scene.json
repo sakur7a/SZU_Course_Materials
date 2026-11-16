@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "units": "m",
+  "coordinate_system": "RH_Y_UP",
+  "assets": [
+    {
+      "asset_id": "lide-gate",
+      "source_manifest_sha256": "76d6cb3bcb663c70b66a9ba12a8d8bcdb68eb630ed8cb56c2a22d4c4e25a16c7",
+      "placement": {
+        "translation": [
+          -410.0,
+          18.317385864257812,
+          -54.0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "replaces_legacy_gate": "lide"
+    }
+  ]
+}

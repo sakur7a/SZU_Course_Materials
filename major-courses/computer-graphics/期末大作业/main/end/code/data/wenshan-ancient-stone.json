@@ -1,0 +1,10 @@
+{
+  "name": "古石今人",
+  "position_xz_m": [-290.0, 350.0],
+  "front_direction_degrees": 72.0,
+  "width_m": 4.8,
+  "height_m": 2.35,
+  "depth_m": 1.25,
+  "position_confidence": "估算：公开资料指向文山湖客舍与听山餐厅附近，尚无实测坐标及朝向。",
+  "shape_confidence": "按正反面照片估计轮廓与比例；题字使用字体近似，不是原书法摹本。"
+}

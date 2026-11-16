@@ -1,0 +1,12 @@
+{
+  "coordinate_system": "RH_Y_UP",
+  "units": "m",
+  "note": "Inspection views use unscaled local metres. Walk is outside the gate looking east; the terrain at its X/Z is -0.00727234 m and eye height is 1.7 m above it.",
+  "views": {
+    "hero": {"eye": [-40.0, 13.0, -22.0], "target": [2.0, 4.2, 0.0]},
+    "front": {"eye": [-42.0, 8.0, 0.0], "target": [1.0, 5.0, 0.0]},
+    "top": {"eye": [0.0, 90.0, 0.01], "target": [0.0, 0.0, 0.0]},
+    "inside": {"eye": [55.0, 16.0, 30.0], "target": [1.0, 4.0, 0.0]},
+    "walk": {"eye": [-22.0, 1.69272766, -3.0], "target": [0.0, 3.6, 0.0]}
+  }
+}

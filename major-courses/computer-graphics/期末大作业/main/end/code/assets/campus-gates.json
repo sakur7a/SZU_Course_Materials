@@ -1,0 +1,974 @@
+[
+  {
+    "id": "liye",
+    "name": "立业门",
+    "center_xz_m": [
+      -699.51,
+      528.56
+    ],
+    "view_eye": [
+      -717.51,
+      13.831674575805664,
+      542.56
+    ],
+    "view_target": [
+      -697.51,
+      10.631674575805665,
+      527.56
+    ],
+    "layers": [
+      {
+        "material": "stone",
+        "mesh": "campus-gate-liye-stone.mesh",
+        "color": [
+          0.69,
+          0.71,
+          0.68
+        ],
+        "vertices": 108
+      },
+      {
+        "material": "metal",
+        "mesh": "campus-gate-liye-metal.mesh",
+        "color": [
+          0.3,
+          0.35,
+          0.35
+        ],
+        "vertices": 3768
+      },
+      {
+        "material": "metal",
+        "mesh": "campus-gate-liye-metal-red.mesh",
+        "color": [
+          0.48,
+          0.15,
+          0.16
+        ],
+        "vertices": 72
+      },
+      {
+        "material": "metal",
+        "mesh": "campus-gate-liye-metal-yellow.mesh",
+        "color": [
+          0.95,
+          0.76,
+          0.09
+        ],
+        "vertices": 696
+      },
+      {
+        "material": "glass",
+        "mesh": "campus-gate-liye-glass.mesh",
+        "color": [
+          0.61,
+          0.75,
+          0.75
+        ],
+        "vertices": 144
+      },
+      {
+        "material": "roof",
+        "mesh": "campus-gate-liye-roof.mesh",
+        "color": [
+          0.85,
+          0.87,
+          0.83
+        ],
+        "vertices": 252
+      },
+      {
+        "material": "sign",
+        "mesh": "campus-gate-liye-sign.mesh",
+        "color": [
+          1,
+          1,
+          1
+        ],
+        "vertices": 12
+      }
+    ],
+    "sign_texture": "gate-liye-sign.ppm",
+    "model_status": "mapped_booth_with_photo_details",
+    "notes": "入口采用OSM node/2398019533，岗亭采用way/241588751轮廓；2026校方新闻门口监控可辨酒红色门禁设备、黄黑短柱、收拢伸缩门及黄黑减速带。具体布置、尺寸、岗亭窗格、屋檐和门名牌仍为可替换估计，未虚构大型门楼；监控白色水印未当作建筑字样。",
+    "exclude_osm_buildings": [
+      "way/241588751"
+    ],
+    "bounds_xyz_m": [
+      [
+        -704.489990234375,
+        8.728588104248047,
+        516.5250244140625
+      ],
+      [
+        -693.5499877929688,
+        12.630587577819824,
+        539.9600219726562
+      ]
+    ],
+    "top_y_m": 12.630587577819824
+  },
+  {
+    "id": "zhiyuan",
+    "name": "致远门",
+    "center_xz_m": [
+      192.8939,
+      394.8186
+    ],
+    "view_eye": [
+      177.24022687758327,
+      4.599999904632568,
+      383.33110602713856
+    ],
+    "view_target": [
+      194.22795736570012,
+      3.6999999046325684,
+      396.3086640741328
+    ],
+    "layers": [
+      {
+        "material": "stone",
+        "mesh": "campus-gate-zhiyuan-stone.mesh",
+        "color": [
+          0.81,
+          0.83,
+          0.8
+        ],
+        "vertices": 4584
+      },
+      {
+        "material": "metal",
+        "mesh": "campus-gate-zhiyuan-metal.mesh",
+        "color": [
+          0.44,
+          0.49,
+          0.49
+        ],
+        "vertices": 1686
+      },
+      {
+        "material": "glass",
+        "mesh": "campus-gate-zhiyuan-glass.mesh",
+        "color": [
+          0.55,
+          0.7,
+          0.7
+        ],
+        "vertices": 24
+      },
+      {
+        "material": "roof",
+        "mesh": "campus-gate-zhiyuan-roof.mesh",
+        "color": [
+          0.9,
+          0.91,
+          0.87
+        ],
+        "vertices": 288
+      },
+      {
+        "material": "sign",
+        "mesh": "campus-gate-zhiyuan-sign.mesh",
+        "color": [
+          1,
+          1,
+          1
+        ],
+        "vertices": 66
+      }
+    ],
+    "sign_texture": "gate-zhiyuan-sign.ppm",
+    "notes": "OSM明确命名门节点，校方说明位于白石路。保留旧模型前场范围，按航拍表现两处分流岛及旁侧人行入口；升降柱为降下的示意状态。岗亭具体位置、铺装分格、门禁数量、形制和尺寸未实测，不代表当前通行配置。",
+    "booth_position_xz_m": [
+      200.25331646171193,
+      385.94791855249645
+    ],
+    "skipped_road_conflicts": 0,
+    "bounds_xyz_m": [
+      [
+        173.59451293945312,
+        2.0199999809265137,
+        376.0262451171875
+      ],
+      [
+        212.1932830810547,
+        6.009999752044678,
+        413.6109619140625
+      ]
+    ],
+    "top_y_m": 6.009999752044678
+  },
+  {
+    "id": "zhixin",
+    "name": "致新门",
+    "center_xz_m": [
+      610.2105,
+      201.4224
+    ],
+    "view_eye": [
+      626.1816739244267,
+      5.398469924926758,
+      190.3805883970197
+    ],
+    "view_target": [
+      608.3663644510556,
+      4.509950256347656,
+      202.1964568952728
+    ],
+    "layers": [
+      {
+        "material": "stone",
+        "mesh": "campus-gate-zhixin-stone.mesh",
+        "color": [
+          0.81,
+          0.83,
+          0.8
+        ],
+        "vertices": 300
+      },
+      {
+        "material": "metal",
+        "mesh": "campus-gate-zhixin-metal.mesh",
+        "color": [
+          0.44,
+          0.49,
+          0.49
+        ],
+        "vertices": 1428
+      },
+      {
+        "material": "glass",
+        "mesh": "campus-gate-zhixin-glass.mesh",
+        "color": [
+          0.55,
+          0.7,
+          0.7
+        ],
+        "vertices": 24
+      },
+      {
+        "material": "roof",
+        "mesh": "campus-gate-zhixin-roof.mesh",
+        "color": [
+          0.9,
+          0.91,
+          0.87
+        ],
+        "vertices": 288
+      },
+      {
+        "material": "sign",
+        "mesh": "campus-gate-zhixin-sign.mesh",
+        "color": [
+          1,
+          1,
+          1
+        ],
+        "vertices": 66
+      }
+    ],
+    "sign_texture": "gate-zhixin-sign.ppm",
+    "notes": "校方迎新文件确认为南区北门、岗园路入口。门位是OSM门节点；航拍显示入口夹在宿舍楼端部和岗园路之间。尚无足够地面照片确认门头外貌，因此只制作小岗亭、开放道闸、行人设备与短翼栏杆；门牌和设备样式为识别性近似。",
+    "booth_position_xz_m": [
+      613.2976269121674,
+      208.26050261901446
+    ],
+    "skipped_road_conflicts": 0,
+    "bounds_xyz_m": [
+      [
+        604.602294921875,
+        2.397871255874634,
+        188.109619140625
+      ],
+      [
+        615.8187255859375,
+        6.704804420471191,
+        214.73516845703125
+      ]
+    ],
+    "top_y_m": 6.704804420471191
+  },
+  {
+    "id": "zhihe",
+    "name": "致和门",
+    "center_xz_m": [
+      -5.0,
+      606.0
+    ],
+    "view_eye": [
+      -23.767478576805644,
+      4.589420318603516,
+      601.0218730561444
+    ],
+    "view_target": [
+      -3.2139544552579062,
+      3.712548112869263,
+      606.9000229508779
+    ],
+    "layers": [
+      {
+        "material": "stone",
+        "mesh": "campus-gate-zhihe-stone.mesh",
+        "color": [
+          0.81,
+          0.83,
+          0.8
+        ],
+        "vertices": 240
+      },
+      {
+        "material": "metal",
+        "mesh": "campus-gate-zhihe-metal.mesh",
+        "color": [
+          0.44,
+          0.49,
+          0.49
+        ],
+        "vertices": 1320
+      },
+      {
+        "material": "glass",
+        "mesh": "campus-gate-zhihe-glass.mesh",
+        "color": [
+          0.55,
+          0.7,
+          0.7
+        ],
+        "vertices": 24
+      },
+      {
+        "material": "roof",
+        "mesh": "campus-gate-zhihe-roof.mesh",
+        "color": [
+          0.9,
+          0.91,
+          0.87
+        ],
+        "vertices": 180
+      },
+      {
+        "material": "sign",
+        "mesh": "campus-gate-zhihe-sign.mesh",
+        "color": [
+          1,
+          1,
+          1
+        ],
+        "vertices": 18
+      }
+    ],
+    "sign_texture": "gate-zhihe-sign.ppm",
+    "notes": "校方2026年7月后勤通知写明致和门（未开通），不能误记为致知门。位置依据白石路侧两条分流道路和2023校园地图近似。模型保留中间空隙便于检查；岗亭、栏杆和门牌是尚待地面照片核对的简化形制，不能据此判断现实是否开放。",
+    "booth_position_xz_m": [
+      -5.535813663422628,
+      605.7299931147367
+    ],
+    "skipped_road_conflicts": 2,
+    "bounds_xyz_m": [
+      [
+        -12.685194969177246,
+        1.9429857730865479,
+        590.7836303710938
+      ],
+      [
+        2.685194969177246,
+        6.008772373199463,
+        621.2163696289062
+      ]
+    ],
+    "top_y_m": 6.008772373199463
+  },
+  {
+    "id": "zhicheng",
+    "name": "致诚门",
+    "center_xz_m": [
+      281.7028,
+      640.4462
+    ],
+    "view_eye": [
+      300.7028,
+      4.5,
+      636.4462
+    ],
+    "view_target": [
+      279.7028,
+      3.6,
+      640.4462
+    ],
+    "layers": [
+      {
+        "material": "stone",
+        "mesh": "campus-gate-zhicheng-stone.mesh",
+        "color": [
+          0.81,
+          0.83,
+          0.8
+        ],
+        "vertices": 330
+      },
+      {
+        "material": "metal",
+        "mesh": "campus-gate-zhicheng-metal.mesh",
+        "color": [
+          0.44,
+          0.49,
+          0.49
+        ],
+        "vertices": 1332
+      },
+      {
+        "material": "glass",
+        "mesh": "campus-gate-zhicheng-glass.mesh",
+        "color": [
+          0.55,
+          0.7,
+          0.7
+        ],
+        "vertices": 24
+      },
+      {
+        "material": "roof",
+        "mesh": "campus-gate-zhicheng-roof.mesh",
+        "color": [
+          0.9,
+          0.91,
+          0.87
+        ],
+        "vertices": 288
+      },
+      {
+        "material": "sign",
+        "mesh": "campus-gate-zhicheng-sign.mesh",
+        "color": [
+          1,
+          1,
+          1
+        ],
+        "vertices": 66
+      }
+    ],
+    "sign_texture": "gate-zhicheng-sign.ppm",
+    "notes": "校方高等研究院交通说明将致诚门称作东门。门禁锚定两条车行道上的OSM东门节点，位于高新南九道路口向校内约37米处，不把校界路口误当门体。航拍可见分流道路和内侧浅色小体量；屋盖、岗亭分格和设备尺寸按比例近似，未取得施工图。",
+    "booth_position_xz_m": [
+      281.50280000000004,
+      640.4462
+    ],
+    "skipped_road_conflicts": 0,
+    "bounds_xyz_m": [
+      [
+        278.2027893066406,
+        1.9199998378753662,
+        624.4718017578125
+      ],
+      [
+        284.7027893066406,
+        5.909999847412109,
+        660.481201171875
+      ]
+    ],
+    "top_y_m": 5.909999847412109
+  },
+  {
+    "id": "zhiheng",
+    "name": "致恒门",
+    "center_xz_m": [
+      162.3977,
+      806.3188
+    ],
+    "view_eye": [
+      166.682246422082,
+      8.268988609313965,
+      825.2566631835016
+    ],
+    "view_target": [
+      162.36770037514296,
+      4.249097919464111,
+      804.31902500703
+    ],
+    "layers": [
+      {
+        "material": "stone",
+        "mesh": "campus-gate-zhiheng-stone.mesh",
+        "color": [
+          0.81,
+          0.83,
+          0.8
+        ],
+        "vertices": 360
+      },
+      {
+        "material": "metal",
+        "mesh": "campus-gate-zhiheng-metal.mesh",
+        "color": [
+          0.44,
+          0.49,
+          0.49
+        ],
+        "vertices": 1428
+      },
+      {
+        "material": "glass",
+        "mesh": "campus-gate-zhiheng-glass.mesh",
+        "color": [
+          0.55,
+          0.7,
+          0.7
+        ],
+        "vertices": 24
+      },
+      {
+        "material": "roof",
+        "mesh": "campus-gate-zhiheng-roof.mesh",
+        "color": [
+          0.9,
+          0.91,
+          0.87
+        ],
+        "vertices": 288
+      },
+      {
+        "material": "sign",
+        "mesh": "campus-gate-zhiheng-sign.mesh",
+        "color": [
+          1,
+          1,
+          1
+        ],
+        "vertices": 66
+      }
+    ],
+    "sign_texture": "gate-zhiheng-sign.ppm",
+    "notes": "校方迎新通知确认致恒门连接高新南十道。门位取南向服务道路与校园边界的交点。航拍处于楼影中，无法可靠辨认完整门头，因此保留小岗亭、低矮翼墙与开放道闸等简化构件，不增加无证据的大门楼。具体外貌、设备与开通状态仍待核对。",
+    "booth_position_xz_m": [
+      155.27899901879917,
+      805.1254449228119
+    ],
+    "skipped_road_conflicts": 0,
+    "bounds_xyz_m": [
+      [
+        147.96432495117188,
+        2.0018310546875,
+        803.2516479492188
+      ],
+      [
+        176.83108520507812,
+        6.748552322387695,
+        807.5270385742188
+      ]
+    ],
+    "top_y_m": 6.748552322387695
+  },
+  {
+    "id": "lide",
+    "name": "立德门",
+    "center_xz_m": [
+      -410.0,
+      -54.0
+    ],
+    "view_eye": [
+      -448.0,
+      24.717385864257814,
+      -78.0
+    ],
+    "view_target": [
+      -408.0,
+      23.317385864257812,
+      -54.0
+    ],
+    "layers": [
+      {
+        "material": "stone",
+        "mesh": "campus-gate-lide-stone.mesh",
+        "color": [
+          0.69,
+          0.71,
+          0.68
+        ],
+        "vertices": 396
+      },
+      {
+        "material": "metal",
+        "mesh": "campus-gate-lide-metal.mesh",
+        "color": [
+          0.3,
+          0.35,
+          0.35
+        ],
+        "vertices": 31656
+      },
+      {
+        "material": "glass",
+        "mesh": "campus-gate-lide-glass.mesh",
+        "color": [
+          0.61,
+          0.75,
+          0.75
+        ],
+        "vertices": 252
+      },
+      {
+        "material": "roof",
+        "mesh": "campus-gate-lide-roof.mesh",
+        "color": [
+          0.85,
+          0.87,
+          0.83
+        ],
+        "vertices": 756
+      },
+      {
+        "material": "sign",
+        "mesh": "campus-gate-lide-sign.mesh",
+        "color": [
+          1,
+          1,
+          1
+        ],
+        "vertices": 12
+      }
+    ],
+    "sign_texture": "gate-lide-sign.ppm",
+    "model_status": "photo_based_approximation",
+    "notes": "双高墙和开口、水平细缝、竖排校名与蓝门牌依据校方照片；悬挑岗亭与中央分流参考2022航拍。窗格、门禁设备、尺寸及现时状态为估计，门杆保持抬起供场景探索。",
+    "exclude_osm_buildings": [],
+    "bounds_xyz_m": [
+      [
+        -412.79998779296875,
+        18.031105041503906,
+        -75.75
+      ],
+      [
+        -401.1000061035156,
+        31.48227310180664,
+        -32.25
+      ]
+    ],
+    "top_y_m": 31.48227310180664
+  },
+  {
+    "id": "lizhi",
+    "name": "立志门",
+    "center_xz_m": [
+      -44.0,
+      -706.0
+    ],
+    "view_eye": [
+      -47.4,
+      25.80458183288574,
+      -697.5
+    ],
+    "view_target": [
+      -44.0,
+      24.204581832885744,
+      -706.0
+    ],
+    "layers": [
+      {
+        "material": "stone",
+        "mesh": "campus-gate-lizhi-stone.mesh",
+        "color": [
+          0.69,
+          0.71,
+          0.68
+        ],
+        "vertices": 36
+      },
+      {
+        "material": "metal",
+        "mesh": "campus-gate-lizhi-metal.mesh",
+        "color": [
+          0.3,
+          0.35,
+          0.35
+        ],
+        "vertices": 48
+      },
+      {
+        "material": "sign",
+        "mesh": "campus-gate-lizhi-sign.mesh",
+        "color": [
+          1,
+          1,
+          1
+        ],
+        "vertices": 12
+      }
+    ],
+    "sign_texture": "gate-lizhi-sign.ppm",
+    "model_status": "location_marker",
+    "notes": "2023校园手绘图标有立志门，但附近OSM入校连接线way/1271852288仍标construction，地面照片不足。当前仅在深南大道侧凹口附近建立明确写有位置参考的标记牌，位置、入口现状和永久外貌后续核实；不代表实景门楼。",
+    "exclude_osm_buildings": [],
+    "bounds_xyz_m": [
+      [
+        -45.32500076293945,
+        22.604581832885742,
+        -706.0560302734375
+      ],
+      [
+        -42.67499923706055,
+        25.004581451416016,
+        -705.9439697265625
+      ]
+    ],
+    "top_y_m": 25.004581451416016
+  },
+  {
+    "id": "ligong",
+    "name": "立功门",
+    "center_xz_m": [
+      286.07184,
+      -688.52533
+    ],
+    "view_eye": [
+      309.07184,
+      27.726265716552735,
+      -710.52533
+    ],
+    "view_target": [
+      295.07184,
+      24.226265716552735,
+      -682.52533
+    ],
+    "layers": [
+      {
+        "material": "stone",
+        "mesh": "campus-gate-ligong-stone.mesh",
+        "color": [
+          0.79,
+          0.8,
+          0.76
+        ],
+        "vertices": 882
+      },
+      {
+        "material": "metal",
+        "mesh": "campus-gate-ligong-metal.mesh",
+        "color": [
+          0.39,
+          0.45,
+          0.44
+        ],
+        "vertices": 2364
+      },
+      {
+        "material": "glass",
+        "mesh": "campus-gate-ligong-glass.mesh",
+        "color": [
+          0.58,
+          0.72,
+          0.71
+        ],
+        "vertices": 426
+      },
+      {
+        "material": "roof",
+        "mesh": "campus-gate-ligong-roof.mesh",
+        "color": [
+          0.91,
+          0.92,
+          0.87
+        ],
+        "vertices": 516
+      },
+      {
+        "material": "sign",
+        "mesh": "campus-gate-ligong-sign.mesh",
+        "color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "vertices": 78
+      }
+    ],
+    "sign_texture": "gate-ligong-sign.ppm",
+    "notes": "北门位置取 OSM node/2400176747；圆弧玻璃岗亭与金属闸机参考2020年实拍，设施位置、数量及尺度为估计。未把迎新临时帐篷作为永久建筑，未将无法确认门别的镂空大门照片套用于此门。",
+    "confidence": "entrance_node_confirmed_booth_layout_estimated",
+    "bounds_xyz_m": [
+      [
+        293.4428405761719,
+        21.893104553222656,
+        -681.5523071289062
+      ],
+      [
+        304.0400085449219,
+        25.163105010986328,
+        -674.7000122070312
+      ]
+    ],
+    "top_y_m": 25.163105010986328
+  },
+  {
+    "id": "lixin",
+    "name": "立心门",
+    "center_xz_m": [
+      630.2,
+      -508.7
+    ],
+    "view_eye": [
+      652.6000000000001,
+      25.460918807983397,
+      -506.9
+    ],
+    "view_target": [
+      626.6,
+      22.760918807983398,
+      -511.4
+    ],
+    "layers": [
+      {
+        "material": "stone",
+        "mesh": "campus-gate-lixin-stone.mesh",
+        "color": [
+          0.79,
+          0.8,
+          0.76
+        ],
+        "vertices": 3852
+      },
+      {
+        "material": "metal",
+        "mesh": "campus-gate-lixin-metal.mesh",
+        "color": [
+          0.39,
+          0.45,
+          0.44
+        ],
+        "vertices": 6432
+      },
+      {
+        "material": "glass",
+        "mesh": "campus-gate-lixin-glass.mesh",
+        "color": [
+          0.58,
+          0.72,
+          0.71
+        ],
+        "vertices": 60
+      },
+      {
+        "material": "roof",
+        "mesh": "campus-gate-lixin-roof.mesh",
+        "color": [
+          0.91,
+          0.92,
+          0.87
+        ],
+        "vertices": 1374
+      },
+      {
+        "material": "sign",
+        "mesh": "campus-gate-lixin-sign.mesh",
+        "color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "vertices": 1608
+      }
+    ],
+    "sign_texture": "gate-lixin-sign.ppm",
+    "notes": "立心门对应粤海小东门。位置取校园手绘图及 OSM way/239834465 与 steps/239872139 的校界连接附近；高德POI只作区域参考，不能直接当WGS坐标。2023年6月同组实拍确认白灰塔体、低檐、入口内部电梯、宽台阶和藤架网栏通廊；模型踏步按当前估计地形接地，级数、升降方向、平台高差及其与汇研楼的关系仍待现场校准。未还原真实电梯运行与室内房间。",
+    "confidence": "photo_form_confirmed_position_and_levels_estimated",
+    "walking_mesh": "campus-gate-lixin-walk.mesh",
+    "bounds_xyz_m": [
+      [
+        611.343994140625,
+        17.16346549987793,
+        -523.3880004882812
+      ],
+      [
+        635.9000244140625,
+        27.955900192260742,
+        -502.7799987792969
+      ]
+    ],
+    "top_y_m": 27.955900192260742
+  },
+  {
+    "id": "liyan",
+    "name": "立言门",
+    "center_xz_m": [
+      137.0,
+      337.0
+    ],
+    "view_eye": [
+      152.685954,
+      4.801614570617676,
+      353.821142
+    ],
+    "view_target": [
+      136.318002,
+      3.4016145706176757,
+      336.268646
+    ],
+    "layers": [
+      {
+        "material": "stone",
+        "mesh": "campus-gate-liyan-stone.mesh",
+        "color": [
+          0.79,
+          0.8,
+          0.76
+        ],
+        "vertices": 120
+      },
+      {
+        "material": "metal",
+        "mesh": "campus-gate-liyan-metal.mesh",
+        "color": [
+          0.39,
+          0.45,
+          0.44
+        ],
+        "vertices": 546
+      },
+      {
+        "material": "glass",
+        "mesh": "campus-gate-liyan-glass.mesh",
+        "color": [
+          0.58,
+          0.72,
+          0.71
+        ],
+        "vertices": 30
+      },
+      {
+        "material": "roof",
+        "mesh": "campus-gate-liyan-roof.mesh",
+        "color": [
+          0.91,
+          0.92,
+          0.87
+        ],
+        "vertices": 138
+      },
+      {
+        "material": "sign",
+        "mesh": "campus-gate-liyan-sign.mesh",
+        "color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "vertices": 126
+      }
+    ],
+    "sign_texture": "gate-liyan-sign.ppm",
+    "notes": "门区以 OSM way/231085451 定位，2024年校方讲习班交通指南标注的立言门照片确认中央岗亭、黄黑分流岛、蓝色设备和高杆；既有召南桥继续单独绘制。设施数量、尺寸、确切朝向及现场通行状态未测量。",
+    "confidence": "photo_and_road_position_supported_dimensions_estimated",
+    "bounds_xyz_m": [
+      [
+        130.61647033691406,
+        2.000880241394043,
+        331.0462341308594
+      ],
+      [
+        143.4517364501953,
+        5.171614646911621,
+        343.0210876464844
+      ]
+    ],
+    "top_y_m": 5.171614646911621
+  }
+]

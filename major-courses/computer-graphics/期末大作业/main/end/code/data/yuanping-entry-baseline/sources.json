@@ -1,0 +1,16 @@
+{
+  "purpose": "Original Yuanping geometry input for bounded entrance and stair reconstruction",
+  "files": {
+    "campus-yuanping-base.mesh": "7b9b7d6e7d5b56ee13fe01e19334452d06272d0e284582d71fefeab59200cc47",
+    "campus-yuanping-foundation.mesh": "961a0f5598311f0b131c0016b299e37ea172abf9e3ce29730c88d626eca29a3d",
+    "campus-yuanping-garden.mesh": "5e3e60783539058d90d39db61803cd4ab426d215723d0ddf4e19a514da879a3c",
+    "campus-yuanping-glass.mesh": "59d56695a47ebcba9c81ecc22932fc81590bc7d7df5f206fac23117717d5ac79",
+    "campus-yuanping-name.mesh": "799804df0a3a4f4c025bea8fe6148d023392a81c6a049f36e9f7c5e668a8def2",
+    "campus-yuanping-relief.mesh": "809a7839df34a63edff3d45ad4bf848ca6d356b055d3a1171a0afa411f9369db",
+    "campus-yuanping-roof.mesh": "093b5c6089dca755eda9512f14206342d14acc41fc31136e95fa0ccee4968ac2",
+    "campus-yuanping-seal.mesh": "3bafa353780c390f613e2edc487f3b30fc69f8a53eb75505c72ba65813d308a7",
+    "campus-yuanping-shell.mesh": "4e896243b492f5d2974aa69860b3494224eed0e84ed339adbc093c896d009036",
+    "campus-yuanping-steps.mesh": "058c43d965a2d90eb7b553a7ec24715200347d8238c5a2ed22b3d297e3f7f87a",
+    "campus-yuanping-truss.mesh": "2e4abeb9a2b7e4cc084e7886bb3548325ea8e01ce0ac4ddbd3d0ec247575677b"
+  }
+}

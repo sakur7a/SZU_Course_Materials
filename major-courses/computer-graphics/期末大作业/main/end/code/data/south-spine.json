@@ -1,0 +1,33 @@
+{
+  "id": "south-spine",
+  "name": "致理—致艺公共通道与中庭",
+  "work_area_osm": "way/724264876",
+  "grass_osm": ["way/1272413428","way/1272413429","way/1272413430","way/1272413431","way/1272413432","way/1272413433","way/1273174462","way/1273174463","way/1273174466","way/1273174467","way/1273971269","way/1273971270","way/1273971274","way/1273971275","way/1273971276","way/1273971277"],
+  "building_exclusions": ["way/629940889","way/629940890","way/776358621","way/629940891","way/654873808","way/654873809","way/776358622","way/776358623","way/629940892","way/722200010"],
+  "relative_lower_paths": ["way/984606888","way/1228974942","way/1228974943","way/1229833602"],
+  "upper_paths": ["way/776358635","way/1272661381","way/1273971271"],
+  "mapped_upper_stairs": ["way/1272661382","way/1273971272"],
+  "paving_offset_m": 0.06,
+  "grass_offset_m": 0.03,
+  "edge_width_estimate_m": 0.16,
+  "edge_height_estimate_m": 0.10,
+  "building_clearance_m": 0.18,
+  "building_opening_requests": [
+    {
+      "osm": "way/776358621",
+      "description": "致艺三层裙房朝中庭的两段长边；设计团队及工务署实拍支持低层架空、半开敞平台与内院互通。公共函数应处理墙体及柱列，景观模块不复制建筑。",
+      "boundary_polyline_xz_m": [[307.76264,401.631428],[345.75752,366.231668],[372.51636,312.742408]],
+      "inset_estimate_m": 2.8,
+      "first_slab_top_above_base_estimate_m": 3.3,
+      "existing_passage_osm": "way/776358640",
+      "existing_passage_deck_y_m": 4.35,
+      "clear_height_estimate_m": 2.75,
+      "notes": "开敞范围有照片依据，退让深度、柱距和净高仍须校准；保留原base及二三层体量，不将整栋首层无条件清空。"
+    }
+  ],
+  "pending_features": [
+    {"osm":"way/1266340894","status":"mapped_steps_unmodeled","notes":"位于致艺北塔西侧约7米的独立场地阶梯，OSM标incline=down；当前全局地形两端仅差约0.024米。未确认实际层高或与gov07外梯的唯一对应，不据此硬造一层高外梯。"},
+    {"status":"white_folded_elements_pending","notes":"工务署2017中庭照片可见草地中的几何白色折面及深色小盖板，尚未核实其逐个地面位置、材质和用途；本模块不擅称采光天窗或新增无依据装饰。"}
+  ],
+  "notes": "工作边界与斜向绿地来自OSM并对照工务署2017照片、设计团队2021建筑说明；薄层铺装、低护边的材质及尺寸为视觉估计。layer=-1只作相对上下层线索，不代表固定地下深度。本模块只沿height_at细分贴合，不改变地形，不重复绘制既有高架连廊和楼梯。"
+}

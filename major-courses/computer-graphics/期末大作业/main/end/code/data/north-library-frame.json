@@ -1,0 +1,15 @@
+{
+  "center_xz": [
+    -126.4,
+    -102.9
+  ],
+  "rotation_y_degrees": 11.0,
+  "first_floor_top": 0.24,
+  "second_floor_bottom": 3.75,
+  "second_floor_top": 4.35,
+  "first_floor_half_extent": 30.2,
+  "front_glass_z": 22.5,
+  "front_columns_z": 27.5,
+  "main_stair_axis_x": 1.63,
+  "note": "Shared estimated building frame; base Y must be sampled from current rendered terrain at center."
+}

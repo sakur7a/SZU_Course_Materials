@@ -1,0 +1,14 @@
+{
+  "adjustments": [
+    {
+      "osm_way": "722200013",
+      "avoid_building": "relation/13233284",
+      "start_m": 18.0,
+      "end_m": 54.0,
+      "blend_m": 14.0,
+      "offset_m": -5.0,
+      "min_center_clearance_m": 3.35,
+      "note": "OSM 道路中心线与秋瑟建筑轮廓几乎相切；将局部线位平滑移离墙体以保留估计车道宽度，两端仍连接原道路。修正量不是实地测绘。"
+    }
+  ]
+}

@@ -1,0 +1,622 @@
+{
+  "schema_version": 1,
+  "description": "Read-only local snapshot of the existing approximate campus scene; excludes the old Lide gate body.",
+  "units": "m",
+  "coordinate_system": "RH_Y_UP",
+  "writable": false,
+  "origin_yup": [
+    -410.0,
+    18.317385864257812,
+    -54.0
+  ],
+  "origin_calculation": "At world X=-410, Z=-54, barycentric interpolation of the rendered campus-terrain.mesh triangle; no camera-height offset.",
+  "coordinates": {
+    "mesh_vertices": "local Y-up = source campus world Y-up - origin_yup",
+    "world_from_mesh": "local_yup + origin_yup",
+    "blender_z_up_from_local": "(x,y,z)_Yup -> (x,-z,y)_Blender",
+    "axes": "X east, Y up, Z south; right-handed"
+  },
+  "bounds_world": {
+    "x": [
+      -438.0,
+      -378.0
+    ],
+    "z": [
+      -82.0,
+      -22.0
+    ]
+  },
+  "clip": "Each intersecting source triangle is polygon-clipped to the X/Z rectangle; xyz, normals and UV are linearly interpolated. Degenerate 3D faces are discarded.",
+  "height_sampling": {
+    "mesh": "meshes/terrain.mesh",
+    "method": "Barycentric interpolation in local X/Z on nonvertical triangles; add origin_yup[1] for world height. Do not extrapolate.",
+    "note": "This is rendered terrain, not necessarily the uppermost walk/road surface or a surveyed elevation."
+  },
+  "layers": [
+    {
+      "id": "terrain",
+      "mesh": "meshes/terrain.mesh",
+      "mesh_sha256": "534a89204e654666b9e966cc6cb615dd4d2bf4c5e7199e23bce2a52c26424e6c",
+      "texture": "textures/campus-ground.png",
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "role": "terrain",
+      "writable": false,
+      "source_mesh": {
+        "path": "main/end/code/assets/campus-terrain.mesh",
+        "sha256": "d27e86c2a9f30fda4e02cf052d213c55e590664af7483013379a0785a3af8b90"
+      },
+      "source_texture": {
+        "path": "main/end/code/assets/campus-ground.ppm",
+        "sha256": "e84acc9ac047960ede6b4ef73f016186dff3a1851dd4f9a85daaadc0b5959ccf"
+      },
+      "source_candidate_triangles": 1250,
+      "triangles": 1346,
+      "note": null
+    },
+    {
+      "id": "road-surface",
+      "mesh": "meshes/road-surface.mesh",
+      "mesh_sha256": "712b7f499d677da71d0404054a2554912a3f327397b7f77f63148e072e096d89",
+      "texture": "textures/campus-asphalt.png",
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "role": "vehicle_surface",
+      "writable": false,
+      "source_mesh": {
+        "path": "main/end/code/assets/campus-road-surface.mesh",
+        "sha256": "ef083c670728352fee6a33c018dd20cf45ea76867dea89fcae8c33a9a0d13d31"
+      },
+      "source_texture": {
+        "path": "main/end/code/assets/campus-asphalt.ppm",
+        "sha256": "65a9aabe29da0cff56ba392dfc3f890d0e4026652417b303cf3b62e383951430"
+      },
+      "source_candidate_triangles": 317,
+      "triangles": 332,
+      "note": null
+    },
+    {
+      "id": "road-markings",
+      "mesh": "meshes/road-markings.mesh",
+      "mesh_sha256": "5c1969429c7eb214dc2b637d893b2c83a91124b652276df808b8aeb2e2fde85c",
+      "texture": null,
+      "color": [
+        0.92,
+        0.93,
+        0.88
+      ],
+      "role": "road_markings",
+      "writable": false,
+      "source_mesh": {
+        "path": "main/end/code/assets/campus-road-markings.mesh",
+        "sha256": "d4d7c940963d6ba829eb359bd3e88dad384b772340dcf717d989c85cf560a05d"
+      },
+      "source_texture": {
+        "path": "main/end/code/assets/white.ppm",
+        "sha256": "ab3d1bbe688ba26f575013fc60b5cbe90f63889b34b4118d7f2bf7a23c1aa961"
+      },
+      "source_candidate_triangles": 171,
+      "triangles": 174,
+      "note": "WHITE is exactly RGB (255,255,255); constant color is equivalent"
+    },
+    {
+      "id": "road-curbs",
+      "mesh": "meshes/road-curbs.mesh",
+      "mesh_sha256": "09211ec58b961eae5450302c7ec9af45bd817c5c5ef3cd556382270944028f6c",
+      "texture": "textures/concrete.png",
+      "color": [
+        0.88,
+        0.89,
+        0.85
+      ],
+      "role": "road_curb",
+      "writable": false,
+      "source_mesh": {
+        "path": "main/end/code/assets/campus-road-curbs.mesh",
+        "sha256": "771ff200706658877e7bdc318ca26f993caf31bf6f65dcaaabcd0528b0b15fcc"
+      },
+      "source_texture": {
+        "path": "main/end/code/assets/concrete.ppm",
+        "sha256": "fdca905fcabab39d4f22b992b32606f90306c20fe8d2f7b4959a214b5c4419c0"
+      },
+      "source_candidate_triangles": 222,
+      "triangles": 237,
+      "note": null
+    },
+    {
+      "id": "network-sidewalk",
+      "mesh": "meshes/network-sidewalk.mesh",
+      "mesh_sha256": "f39e3ccb971145461080473e8813079a5dc982f39eb636d7281a92570c2484cf",
+      "texture": "textures/campus-sidewalk.png",
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "role": "sidewalk",
+      "writable": false,
+      "source_mesh": {
+        "path": "main/end/code/assets/campus-network-sidewalk.mesh",
+        "sha256": "70afab25288a293932c3ce7b83da9e17d4c3cd6321d70fbad66d69d52c3abcb9"
+      },
+      "source_texture": {
+        "path": "main/end/code/assets/campus-sidewalk.ppm",
+        "sha256": "a7e1b9ace7898325d899ae2abb6fbd90d4ffeeba1ccd4183b4baa005253f64a9"
+      },
+      "source_candidate_triangles": 344,
+      "triangles": 367,
+      "note": null
+    },
+    {
+      "id": "network-paths",
+      "mesh": "meshes/network-paths.mesh",
+      "mesh_sha256": "1335039852bb4258402a727f53bb8103cfec9a98a2b07bb66843b237e1ca0efd",
+      "texture": "textures/paving.png",
+      "color": [
+        0.97,
+        0.96,
+        0.92
+      ],
+      "role": "pedestrian_path",
+      "writable": false,
+      "source_mesh": {
+        "path": "main/end/code/assets/campus-network-paths.mesh",
+        "sha256": "57b344e76ed67771adf48921f1a6128f78ee57765d07d0d65aa04bfb6cc7a825"
+      },
+      "source_texture": {
+        "path": "main/end/code/assets/paving.ppm",
+        "sha256": "05c26706ae8ab07a0226df882afacb0924eba40ed53d95ae39ce376c329bce7c"
+      },
+      "source_candidate_triangles": 130,
+      "triangles": 139,
+      "note": null
+    },
+    {
+      "id": "lide-walk",
+      "mesh": "meshes/lide-walk.mesh",
+      "mesh_sha256": "a661f4bd4d55eb03a2a3333b2a695a431b2e3f6a55f4c3860f0438e8a8161baf",
+      "texture": "textures/qiaoyuan-brick.png",
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "role": "gate_brick_paving",
+      "writable": false,
+      "source_mesh": {
+        "path": "main/end/code/assets/campus-lide-walk.mesh",
+        "sha256": "af88d139f84ee4138abaf1b039562960f7a8eec658f72d1420e2c4f1074b5022"
+      },
+      "source_texture": {
+        "path": "main/end/code/assets/qiaoyuan-brick.ppm",
+        "sha256": "c06874004a019661201cfde6ae00e5fbed8e4aa1d2365c9abb5d41dface19d0f"
+      },
+      "source_candidate_triangles": 122,
+      "triangles": 122,
+      "note": null
+    },
+    {
+      "id": "lide-walk-edge",
+      "mesh": "meshes/lide-walk-edge.mesh",
+      "mesh_sha256": "83d13b534ac0f3b34b031152366b30bedef86aec17956ea6ca2f37419d14afdf",
+      "texture": "textures/concrete.png",
+      "color": [
+        0.84,
+        0.83,
+        0.78
+      ],
+      "role": "gate_paving_edge",
+      "writable": false,
+      "source_mesh": {
+        "path": "main/end/code/assets/campus-lide-walk-edge.mesh",
+        "sha256": "bc930622c721a7e8f9bcea77a19780937f7efdfcca03c7a3e56bedb1b04cd12d"
+      },
+      "source_texture": {
+        "path": "main/end/code/assets/concrete.ppm",
+        "sha256": "fdca905fcabab39d4f22b992b32606f90306c20fe8d2f7b4959a214b5c4419c0"
+      },
+      "source_candidate_triangles": 189,
+      "triangles": 188,
+      "note": null
+    },
+    {
+      "id": "corridor-bed",
+      "mesh": "meshes/corridor-bed.mesh",
+      "mesh_sha256": "9f50162d18eed9a90ffdf81f2e3cd208fe1cef99fe4440e8fb520b237dd57282",
+      "texture": "textures/grass.png",
+      "color": [
+        0.54,
+        0.6,
+        0.39
+      ],
+      "role": "planting_bed",
+      "writable": false,
+      "source_mesh": {
+        "path": "main/end/code/assets/campus-lide-corridor-bed.mesh",
+        "sha256": "09db4f27c98fb91fae1b812e5a0656872833bd2ed5fbf7b3f6e47279ac622a4b"
+      },
+      "source_texture": {
+        "path": "main/end/code/assets/grass.ppm",
+        "sha256": "06f0d8bde2e574efa44bafeae51ec357f235b1447f4d8c20d23e67639683515b"
+      },
+      "source_candidate_triangles": 55,
+      "triangles": 55,
+      "note": null
+    },
+    {
+      "id": "corridor-curbs",
+      "mesh": "meshes/corridor-curbs.mesh",
+      "mesh_sha256": "297290f3981704d3546845335353bc91ff1f46e47abfae6ca0b29e5309ebfc6b",
+      "texture": "textures/concrete.png",
+      "color": [
+        0.86,
+        0.85,
+        0.8
+      ],
+      "role": "planting_curb",
+      "writable": false,
+      "source_mesh": {
+        "path": "main/end/code/assets/campus-lide-corridor-curbs.mesh",
+        "sha256": "b7997ed0d6bc20a0e0228deba66466b79b5379a9e1b44407d4d522f62f0b2760"
+      },
+      "source_texture": {
+        "path": "main/end/code/assets/concrete.ppm",
+        "sha256": "fdca905fcabab39d4f22b992b32606f90306c20fe8d2f7b4959a214b5c4419c0"
+      },
+      "source_candidate_triangles": 1460,
+      "triangles": 1460,
+      "note": null
+    },
+    {
+      "id": "network-verges",
+      "mesh": "meshes/network-verges.mesh",
+      "mesh_sha256": "d66a61752298abd562e0d21fc4184198455133867eaeed3f7374240db00b082c",
+      "texture": "textures/grass.png",
+      "color": [
+        0.67,
+        0.82,
+        0.6
+      ],
+      "role": "road_verge",
+      "writable": false,
+      "source_mesh": {
+        "path": "main/end/code/assets/campus-network-verges.mesh",
+        "sha256": "a8dd9ace533175c8893b84045fc5220a47b0f1e2579cf95a335f12b2ae27bbde"
+      },
+      "source_texture": {
+        "path": "main/end/code/assets/grass.ppm",
+        "sha256": "06f0d8bde2e574efa44bafeae51ec357f235b1447f4d8c20d23e67639683515b"
+      },
+      "source_candidate_triangles": 46,
+      "triangles": 47,
+      "note": null
+    }
+  ],
+  "textures": {
+    "campus-asphalt": {
+      "path": "textures/campus-asphalt.png",
+      "sha256": "cf3f2080730058bccebe42e553ebc1bcd262ef67e7d9ba45236be7b9e2c7abec",
+      "source": {
+        "path": "main/end/code/assets/campus-asphalt.ppm",
+        "sha256": "65a9aabe29da0cff56ba392dfc3f890d0e4026652417b303cf3b62e383951430"
+      },
+      "source_dimensions": [
+        256,
+        256
+      ],
+      "output_dimensions": [
+        256,
+        256
+      ],
+      "source_pixels": "PPM first stored row is uploaded as OpenGL bottom row",
+      "png_pixels": "vertical row reversal; PNG top row is source final row",
+      "wrap": "repeat",
+      "base_level_resampling": "none",
+      "crop_left_bottom_width_height": null,
+      "mipmaps": "regenerated by the consumer; cropped terrain mip levels may differ from the full texture"
+    },
+    "campus-ground": {
+      "path": "textures/campus-ground.png",
+      "sha256": "36a9d6d38a39d0a1d379c8428cdb610493ba749d59541defcdca5349b7eb12ae",
+      "source": {
+        "path": "main/end/code/assets/campus-ground.ppm",
+        "sha256": "e84acc9ac047960ede6b4ef73f016186dff3a1851dd4f9a85daaadc0b5959ccf"
+      },
+      "source_dimensions": [
+        4096,
+        4096
+      ],
+      "output_dimensions": [
+        167,
+        151
+      ],
+      "source_pixels": "PPM first stored row is uploaded as OpenGL bottom row",
+      "png_pixels": "vertical row reversal; PNG top row is source final row",
+      "wrap": "repeat",
+      "base_level_resampling": "none",
+      "crop_left_bottom_width_height": [
+        973,
+        1810,
+        167,
+        151
+      ],
+      "mipmaps": "regenerated by the consumer; cropped terrain mip levels may differ from the full texture"
+    },
+    "campus-sidewalk": {
+      "path": "textures/campus-sidewalk.png",
+      "sha256": "30adcae6c015ef8a3d464563f461e60e58dbea5951238d19612da86b2348fe5e",
+      "source": {
+        "path": "main/end/code/assets/campus-sidewalk.ppm",
+        "sha256": "a7e1b9ace7898325d899ae2abb6fbd90d4ffeeba1ccd4183b4baa005253f64a9"
+      },
+      "source_dimensions": [
+        256,
+        256
+      ],
+      "output_dimensions": [
+        256,
+        256
+      ],
+      "source_pixels": "PPM first stored row is uploaded as OpenGL bottom row",
+      "png_pixels": "vertical row reversal; PNG top row is source final row",
+      "wrap": "repeat",
+      "base_level_resampling": "none",
+      "crop_left_bottom_width_height": null,
+      "mipmaps": "regenerated by the consumer; cropped terrain mip levels may differ from the full texture"
+    },
+    "concrete": {
+      "path": "textures/concrete.png",
+      "sha256": "e5cd5cd52f18cd0ab25cb310b0f5a045e3c1dcb85046096e0c425fa2a2754973",
+      "source": {
+        "path": "main/end/code/assets/concrete.ppm",
+        "sha256": "fdca905fcabab39d4f22b992b32606f90306c20fe8d2f7b4959a214b5c4419c0"
+      },
+      "source_dimensions": [
+        256,
+        256
+      ],
+      "output_dimensions": [
+        256,
+        256
+      ],
+      "source_pixels": "PPM first stored row is uploaded as OpenGL bottom row",
+      "png_pixels": "vertical row reversal; PNG top row is source final row",
+      "wrap": "repeat",
+      "base_level_resampling": "none",
+      "crop_left_bottom_width_height": null,
+      "mipmaps": "regenerated by the consumer; cropped terrain mip levels may differ from the full texture"
+    },
+    "grass": {
+      "path": "textures/grass.png",
+      "sha256": "5c60932ee2a8ecad7b356cf508f90bb962b6be56818cbc7892e87cfe818ef8c5",
+      "source": {
+        "path": "main/end/code/assets/grass.ppm",
+        "sha256": "06f0d8bde2e574efa44bafeae51ec357f235b1447f4d8c20d23e67639683515b"
+      },
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "output_dimensions": [
+        1024,
+        1024
+      ],
+      "source_pixels": "PPM first stored row is uploaded as OpenGL bottom row",
+      "png_pixels": "vertical row reversal; PNG top row is source final row",
+      "wrap": "repeat",
+      "base_level_resampling": "none",
+      "crop_left_bottom_width_height": null,
+      "mipmaps": "regenerated by the consumer; cropped terrain mip levels may differ from the full texture"
+    },
+    "paving": {
+      "path": "textures/paving.png",
+      "sha256": "fb918fc0f14c6d33fea26dfab41c500dc3302f8bf73e4b936d14c7d94577413c",
+      "source": {
+        "path": "main/end/code/assets/paving.ppm",
+        "sha256": "05c26706ae8ab07a0226df882afacb0924eba40ed53d95ae39ce376c329bce7c"
+      },
+      "source_dimensions": [
+        256,
+        256
+      ],
+      "output_dimensions": [
+        256,
+        256
+      ],
+      "source_pixels": "PPM first stored row is uploaded as OpenGL bottom row",
+      "png_pixels": "vertical row reversal; PNG top row is source final row",
+      "wrap": "repeat",
+      "base_level_resampling": "none",
+      "crop_left_bottom_width_height": null,
+      "mipmaps": "regenerated by the consumer; cropped terrain mip levels may differ from the full texture"
+    },
+    "qiaoyuan-brick": {
+      "path": "textures/qiaoyuan-brick.png",
+      "sha256": "02106874dc66a8a7f98ad1d2844833ae97f2880523faa93028781a5ad2db8004",
+      "source": {
+        "path": "main/end/code/assets/qiaoyuan-brick.ppm",
+        "sha256": "c06874004a019661201cfde6ae00e5fbed8e4aa1d2365c9abb5d41dface19d0f"
+      },
+      "source_dimensions": [
+        256,
+        256
+      ],
+      "output_dimensions": [
+        256,
+        256
+      ],
+      "source_pixels": "PPM first stored row is uploaded as OpenGL bottom row",
+      "png_pixels": "vertical row reversal; PNG top row is source final row",
+      "wrap": "repeat",
+      "base_level_resampling": "none",
+      "crop_left_bottom_width_height": null,
+      "mipmaps": "regenerated by the consumer; cropped terrain mip levels may differ from the full texture"
+    }
+  },
+  "anchors": [
+    {
+      "id": "west-vehicle",
+      "world_yup": [
+        -438.0,
+        18.090380859375,
+        -54.0
+      ],
+      "local_yup": [
+        -28.0,
+        -0.2270050048828125,
+        0.0
+      ],
+      "sample_layer": "terrain",
+      "outward_yup": [
+        -1,
+        0,
+        0
+      ],
+      "status": "candidate; routing and clearance require integration verification",
+      "note": "Road is painted into campus-ground on the terrain here."
+    },
+    {
+      "id": "east-vehicle",
+      "world_yup": [
+        -378.0,
+        19.253250122070312,
+        -54.0
+      ],
+      "local_yup": [
+        32.0,
+        0.9358642578125007,
+        0.0
+      ],
+      "sample_layer": "road-surface",
+      "outward_yup": [
+        1,
+        0,
+        0
+      ],
+      "status": "candidate; routing and clearance require integration verification",
+      "note": "Candidate on existing vehicle surface at the context edge."
+    },
+    {
+      "id": "east-sidewalk",
+      "world_yup": [
+        -378.0,
+        19.76702133396146,
+        -64.0
+      ],
+      "local_yup": [
+        32.0,
+        1.4496354697036473,
+        -10.0
+      ],
+      "sample_layer": "network-sidewalk",
+      "outward_yup": [
+        1,
+        0,
+        0
+      ],
+      "status": "candidate; routing and clearance require integration verification",
+      "note": "Candidate on existing sidewalk at the context edge."
+    }
+  ],
+  "replacement_scope": {
+    "old_gate": {
+      "index": "main/end/code/assets/campus-gates.tsv",
+      "index_id": "lide",
+      "action_for_future_integration": "Suppress exactly the five complete L rows with id=lide; no shared layer is disabled by this declaration.",
+      "materials": [
+        "stone",
+        "metal",
+        "glass",
+        "roof",
+        "sign"
+      ],
+      "source_meshes": [
+        {
+          "path": "main/end/code/assets/campus-gate-lide-stone.mesh",
+          "sha256": "c468c0e1ef78e3582f053413289563a01adb73e6e67390ffff6702d83f153cf3"
+        },
+        {
+          "path": "main/end/code/assets/campus-gate-lide-metal.mesh",
+          "sha256": "883775a7c171bf848c63d013652381e58825651f13d7a0b24b933c1de57ae334"
+        },
+        {
+          "path": "main/end/code/assets/campus-gate-lide-glass.mesh",
+          "sha256": "982d6ef248894be851087b04386ddb5c82efe39795b0e5d59d03501f028fac78"
+        },
+        {
+          "path": "main/end/code/assets/campus-gate-lide-roof.mesh",
+          "sha256": "fa18ab2959c765a0cf5a89a9e006a3304708d1e4b552fbecbd6c6643dd3f6642"
+        },
+        {
+          "path": "main/end/code/assets/campus-gate-lide-sign.mesh",
+          "sha256": "5664fe79f125bca772329ad8f54ca9aa59f48a6a35a19bcf9eb03b88a1305dfc"
+        }
+      ]
+    },
+    "context_rectangle_is_not_a_deletion_mask": true,
+    "ground_and_shared_layers": "No ground, roadway, pavement or curb deletion is authorized by this snapshot. Any later replacement must define its exact local footprint, clip shared meshes and handle the base texture before integration.",
+    "baked_road": "The old terrain texture contains the western gate vehicle surface and some markings; suppressing only campus-road-surface.mesh does not erase them."
+  },
+  "omitted": [
+    "The five old gate-body meshes are intentionally excluded to avoid duplicate gate geometry.",
+    "Vegetation geometry, photographs and unrelated buildings are excluded.",
+    "campus-lide-corridor-paving.mesh and -lawn.mesh, and campus-network-stairs.mesh have no triangles in this rectangle."
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "path": "main/end/code/main.cpp",
+        "sha256": "5b0f1b8410eb4d0b83c49744fcf00ead8490184f74ac4cf01472faf3674671a3"
+      },
+      {
+        "path": "main/end/code/assets/campus-gates.tsv",
+        "sha256": "f93973a9ba12ff2f7cd8b35dd5ea893c9e0258fc59d1bbd6a3f5ffc887278de7"
+      },
+      {
+        "path": "main/end/code/assets/campus-gates.json",
+        "sha256": "7cec144118bd829c75d50b5fdac64a97e2b7be933a54cb8d24a4793df2319135"
+      },
+      {
+        "path": "main/end/code/assets/CREDITS.txt",
+        "sha256": "56496032b5a5cfaa4856eb4b520f1fd79355997755dc3f63ac76a31526a5e348"
+      },
+      {
+        "path": "tools/end/extract_lide_context.py",
+        "sha256": "e5376aa0a7748e50f887c3d121eee93d8fb073a4596a184437f0170910b29777"
+      },
+      {
+        "path": "main/end/code/assets/campus-gate-lide-stone.mesh",
+        "sha256": "c468c0e1ef78e3582f053413289563a01adb73e6e67390ffff6702d83f153cf3"
+      },
+      {
+        "path": "main/end/code/assets/campus-gate-lide-metal.mesh",
+        "sha256": "883775a7c171bf848c63d013652381e58825651f13d7a0b24b933c1de57ae334"
+      },
+      {
+        "path": "main/end/code/assets/campus-gate-lide-glass.mesh",
+        "sha256": "982d6ef248894be851087b04386ddb5c82efe39795b0e5d59d03501f028fac78"
+      },
+      {
+        "path": "main/end/code/assets/campus-gate-lide-roof.mesh",
+        "sha256": "fa18ab2959c765a0cf5a89a9e006a3304708d1e4b552fbecbd6c6643dd3f6642"
+      },
+      {
+        "path": "main/end/code/assets/campus-gate-lide-sign.mesh",
+        "sha256": "5664fe79f125bca772329ad8f54ca9aa59f48a6a35a19bcf9eb03b88a1305dfc"
+      },
+      {
+        "path": "main/end/code/assets/white.ppm",
+        "sha256": "ab3d1bbe688ba26f575013fc60b5cbe90f63889b34b4118d7f2bf7a23c1aa961"
+      }
+    ],
+    "attribution": "Existing campus CREDITS.txt: OpenStreetMap contributors / ODbL; terrain from Mapzen Terrain Tiles with SRTM/GMTED2010; grass colour map ambientCG Grass004 / CC0. The generated campus-ground derives in part from this grass map.",
+    "references": "Existing scene is a photo-informed visual approximation, not a land survey; no campus reference photos are included."
+  },
+  "reproduce": "build/modeling-pipeline/venv/Scripts/python.exe tools/end/extract_lide_context.py"
+}

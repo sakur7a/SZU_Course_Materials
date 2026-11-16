@@ -1,0 +1,27 @@
+{
+  "description": "元平正门低平台与两翼二层外梯的局部近似；尺寸、高程、踏步数、门洞和梯顶衔接均未经测量。",
+  "source_notes": "2011 正面照片可见两翼梯段由内低向外高；用户确认楼梯可上二楼。树木遮住梯顶，连接、上层门洞与级数为建模推断。2024 校方照片可辨前场灰色矩形铺块；参见 yuanping-entry-sources.md。",
+  "frame": {
+    "mid": [242.81874, -385.050314],
+    "tangent": [-0.2824418, -0.95928444],
+    "outward": [0.95928444, -0.2824418],
+    "level": 17.956287
+  },
+  "central_landing": {"half_width": 10.0, "door_half_width": 6.4, "depth": [-1.1, 3.0], "height": -0.10},
+  "side_stairs": {
+    "inner": 27.5,
+    "outer": 40.0,
+    "depth": [5.2, 7.4],
+    "count": 26,
+    "landing_inner": 26.0,
+    "landing_outer_depth": 9.0,
+    "ground_clearance": 0.08,
+    "upper_height": 3.15,
+    "upper_end": 42.0,
+    "door_range": [40.25, 41.75],
+    "door_top": 5.45,
+    "upper_walk_depth": [3.90, 5.20]
+  },
+  "paving": {"half_width": 29.0, "depth": [7.4, 10.5], "terrain_offset": 0.045},
+  "road_note": "前场共享铺装保留；独立铺块最远至 depth=10.5，避让中心约 15.95 米的 OSM 车行路段。"
+}

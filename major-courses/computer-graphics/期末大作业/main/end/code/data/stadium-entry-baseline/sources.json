@@ -1,0 +1,9 @@
+{
+  "files": {
+    "campus-stands-base.mesh": "bd2ea9d1c1bfbd1537dab22d06ef287486a91d2e63ae206e7470a65399a99358",
+    "campus-stands-blue.mesh": "e7e74c07860509167d36cd222453e7b8fc92d574a527333d8ddf004f8db32d59",
+    "campus-stands-lines.mesh": "20c15e8f6c4e004beb8efda93161237dd1164fc7929cb85f09fcfbc5cce8bb23",
+    "campus-stadium-surface.mesh": "76e3a69f330d9f1067b55ab921f826a0be0a516c5ea782f8de983e55c5a2001e"
+  },
+  "purpose": "Frozen geometry input for the northwest stadium opening"
+}

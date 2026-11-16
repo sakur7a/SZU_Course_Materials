@@ -1,0 +1,68 @@
+# G: gate view; L: independent material layer; W: walkable surface
+G	liye	立业门	-717.51	13.831674575805664	542.56	-697.51	10.631674575805665	527.56	-699.51	528.56
+L	liye	stone	campus-gate-liye-stone.mesh	-	0.69	0.71	0.68
+L	liye	metal	campus-gate-liye-metal.mesh	-	0.3	0.35	0.35
+L	liye	metal	campus-gate-liye-metal-red.mesh	-	0.48	0.15	0.16
+L	liye	metal	campus-gate-liye-metal-yellow.mesh	-	0.95	0.76	0.09
+L	liye	glass	campus-gate-liye-glass.mesh	-	0.61	0.75	0.75
+L	liye	roof	campus-gate-liye-roof.mesh	-	0.85	0.87	0.83
+L	liye	sign	campus-gate-liye-sign.mesh	gate-liye-sign.ppm	1	1	1
+G	zhiyuan	致远门	177.24022687758327	4.599999904632568	383.33110602713856	194.22795736570012	3.6999999046325684	396.3086640741328	192.8939	394.8186
+L	zhiyuan	stone	campus-gate-zhiyuan-stone.mesh	-	0.81	0.83	0.8
+L	zhiyuan	metal	campus-gate-zhiyuan-metal.mesh	-	0.44	0.49	0.49
+L	zhiyuan	glass	campus-gate-zhiyuan-glass.mesh	-	0.55	0.7	0.7
+L	zhiyuan	roof	campus-gate-zhiyuan-roof.mesh	-	0.9	0.91	0.87
+L	zhiyuan	sign	campus-gate-zhiyuan-sign.mesh	gate-zhiyuan-sign.ppm	1	1	1
+G	zhixin	致新门	626.1816739244267	5.398469924926758	190.3805883970197	608.3663644510556	4.509950256347656	202.1964568952728	610.2105	201.4224
+L	zhixin	stone	campus-gate-zhixin-stone.mesh	-	0.81	0.83	0.8
+L	zhixin	metal	campus-gate-zhixin-metal.mesh	-	0.44	0.49	0.49
+L	zhixin	glass	campus-gate-zhixin-glass.mesh	-	0.55	0.7	0.7
+L	zhixin	roof	campus-gate-zhixin-roof.mesh	-	0.9	0.91	0.87
+L	zhixin	sign	campus-gate-zhixin-sign.mesh	gate-zhixin-sign.ppm	1	1	1
+G	zhihe	致和门	-23.767478576805644	4.589420318603516	601.0218730561444	-3.2139544552579062	3.712548112869263	606.9000229508779	-5.0	606.0
+L	zhihe	stone	campus-gate-zhihe-stone.mesh	-	0.81	0.83	0.8
+L	zhihe	metal	campus-gate-zhihe-metal.mesh	-	0.44	0.49	0.49
+L	zhihe	glass	campus-gate-zhihe-glass.mesh	-	0.55	0.7	0.7
+L	zhihe	roof	campus-gate-zhihe-roof.mesh	-	0.9	0.91	0.87
+L	zhihe	sign	campus-gate-zhihe-sign.mesh	gate-zhihe-sign.ppm	1	1	1
+G	zhicheng	致诚门	300.7028	4.5	636.4462	279.7028	3.6	640.4462	281.7028	640.4462
+L	zhicheng	stone	campus-gate-zhicheng-stone.mesh	-	0.81	0.83	0.8
+L	zhicheng	metal	campus-gate-zhicheng-metal.mesh	-	0.44	0.49	0.49
+L	zhicheng	glass	campus-gate-zhicheng-glass.mesh	-	0.55	0.7	0.7
+L	zhicheng	roof	campus-gate-zhicheng-roof.mesh	-	0.9	0.91	0.87
+L	zhicheng	sign	campus-gate-zhicheng-sign.mesh	gate-zhicheng-sign.ppm	1	1	1
+G	zhiheng	致恒门	166.682246422082	8.268988609313965	825.2566631835016	162.36770037514296	4.249097919464111	804.31902500703	162.3977	806.3188
+L	zhiheng	stone	campus-gate-zhiheng-stone.mesh	-	0.81	0.83	0.8
+L	zhiheng	metal	campus-gate-zhiheng-metal.mesh	-	0.44	0.49	0.49
+L	zhiheng	glass	campus-gate-zhiheng-glass.mesh	-	0.55	0.7	0.7
+L	zhiheng	roof	campus-gate-zhiheng-roof.mesh	-	0.9	0.91	0.87
+L	zhiheng	sign	campus-gate-zhiheng-sign.mesh	gate-zhiheng-sign.ppm	1	1	1
+G	lide	立德门	-448.0	24.717385864257814	-78.0	-408.0	23.317385864257812	-54.0	-410.0	-54.0
+L	lide	stone	campus-gate-lide-stone.mesh	-	0.69	0.71	0.68
+L	lide	metal	campus-gate-lide-metal.mesh	-	0.3	0.35	0.35
+L	lide	glass	campus-gate-lide-glass.mesh	-	0.61	0.75	0.75
+L	lide	roof	campus-gate-lide-roof.mesh	-	0.85	0.87	0.83
+L	lide	sign	campus-gate-lide-sign.mesh	gate-lide-sign.ppm	1	1	1
+G	lizhi	立志门	-47.4	25.80458183288574	-697.5	-44.0	24.204581832885744	-706.0	-44.0	-706.0
+L	lizhi	stone	campus-gate-lizhi-stone.mesh	-	0.69	0.71	0.68
+L	lizhi	metal	campus-gate-lizhi-metal.mesh	-	0.3	0.35	0.35
+L	lizhi	sign	campus-gate-lizhi-sign.mesh	gate-lizhi-sign.ppm	1	1	1
+G	ligong	立功门	309.07184	27.726265716552735	-710.52533	295.07184	24.226265716552735	-682.52533	286.07184	-688.52533
+L	ligong	stone	campus-gate-ligong-stone.mesh	-	0.79	0.8	0.76
+L	ligong	metal	campus-gate-ligong-metal.mesh	-	0.39	0.45	0.44
+L	ligong	glass	campus-gate-ligong-glass.mesh	-	0.58	0.72	0.71
+L	ligong	roof	campus-gate-ligong-roof.mesh	-	0.91	0.92	0.87
+L	ligong	sign	campus-gate-ligong-sign.mesh	gate-ligong-sign.ppm	1.0	1.0	1.0
+G	lixin	立心门	652.6000000000001	25.460918807983397	-506.9	626.6	22.760918807983398	-511.4	630.2	-508.7
+L	lixin	stone	campus-gate-lixin-stone.mesh	-	0.79	0.8	0.76
+L	lixin	metal	campus-gate-lixin-metal.mesh	-	0.39	0.45	0.44
+L	lixin	glass	campus-gate-lixin-glass.mesh	-	0.58	0.72	0.71
+L	lixin	roof	campus-gate-lixin-roof.mesh	-	0.91	0.92	0.87
+L	lixin	sign	campus-gate-lixin-sign.mesh	gate-lixin-sign.ppm	1.0	1.0	1.0
+W	lixin	campus-gate-lixin-walk.mesh
+G	liyan	立言门	152.685954	4.801614570617676	353.821142	136.318002	3.4016145706176757	336.268646	137.0	337.0
+L	liyan	stone	campus-gate-liyan-stone.mesh	-	0.79	0.8	0.76
+L	liyan	metal	campus-gate-liyan-metal.mesh	-	0.39	0.45	0.44
+L	liyan	glass	campus-gate-liyan-glass.mesh	-	0.58	0.72	0.71
+L	liyan	roof	campus-gate-liyan-roof.mesh	-	0.91	0.92	0.87
+L	liyan	sign	campus-gate-liyan-sign.mesh	gate-liyan-sign.ppm	1.0	1.0	1.0

@@ -1,0 +1,109 @@
+[
+  {
+    "osm": "776358616",
+    "length_m": 282.9,
+    "width_m": 7.0,
+    "crossing_m": 137.0,
+    "road_height_estimate_m": 2.0,
+    "deck_height_estimate_m": 8.2,
+    "ends_m": [
+      5.1,
+      4.3
+    ],
+    "min_height_above_terrain_m": 0.35,
+    "max_grade": 0.048,
+    "building_passage_osm": "776358640"
+  },
+  {
+    "osm": "574956548",
+    "length_m": 486.7,
+    "width_m": 15.0,
+    "crossing_m": 250.5,
+    "road_height_estimate_m": 2.0,
+    "deck_height_estimate_m": 16.3,
+    "ends_m": [
+      2.4,
+      15.3
+    ],
+    "min_height_above_terrain_m": 0.35,
+    "max_grade": 0.093,
+    "lower_path_osm": "776358646",
+    "max_deck_separation_estimate_m": 4.15,
+    "south_ground_ramp_osm": "611264728",
+    "south_ground_ramp_length_m": 60.1,
+    "zhai_pedestrian_portal": {
+      "steps": 7,
+      "bottom_y_m": 11.182,
+      "top_y_m": 12.232,
+      "stair_osm": "984608622",
+      "sidewalk_osm": "1282922809",
+      "flight_start_m": 2.3,
+      "flight_end_m": 4.96,
+      "opening_station_m": [
+        478.8,
+        484
+      ]
+    }
+  },
+  {
+    "south_district_mapped_elevated_walkways": 14,
+    "north_district_mapped_lake_bridges": 4,
+    "north_library_walkways": [
+      {
+        "osm": "1274485928",
+        "length_m": 18.01,
+        "width_estimate_m": 4.5,
+        "deck_height_estimate_m": 34.71
+      },
+      {
+        "osm": "231782436",
+        "length_m": 21.14,
+        "width_estimate_m": 4.5,
+        "deck_height_estimate_m": 34.71
+      }
+    ],
+    "mapped_stairs": [
+      {
+        "osm": "237757618",
+        "width_estimate_m": 2.3,
+        "high_estimate_m": 7.85,
+        "low_estimate_m": 2.74,
+        "length_m": 45.18,
+        "steps_estimate": 54
+      },
+      {
+        "osm": "776358647",
+        "width_estimate_m": 2.3,
+        "high_estimate_m": 11.75,
+        "low_estimate_m": 2.12,
+        "length_m": 40.96,
+        "steps_estimate": 49
+      },
+      {
+        "osm": "987586194",
+        "width_estimate_m": 2.3,
+        "high_estimate_m": 6.2,
+        "low_estimate_m": 2.12,
+        "length_m": 22.6,
+        "steps_estimate": 27
+      },
+      {
+        "osm": "1272661382",
+        "width_estimate_m": 2.3,
+        "high_estimate_m": 6.2,
+        "low_estimate_m": 2.12,
+        "length_m": 18.79,
+        "steps_estimate": 23
+      },
+      {
+        "osm": "1273971272",
+        "width_estimate_m": 3.4,
+        "high_estimate_m": 7.92,
+        "low_estimate_m": 2.71,
+        "length_m": 27.21,
+        "steps_estimate": 33
+      }
+    ],
+    "note": "线位来自 OSM，桥面高程、上下层间距、雨棚和支撑细部为照片约束下的近似"
+  }
+]

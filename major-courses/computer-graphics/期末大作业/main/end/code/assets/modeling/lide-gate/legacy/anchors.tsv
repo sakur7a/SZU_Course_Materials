@@ -1,0 +1,4 @@
+A	gate_center	site	0	0	-0	0	0	-0
+A	north_pier	north_gate	0	0	-0	0	-0.117764287	-13
+A	median	median	0	0	-0	5.5	0.0204093941	-0
+A	south_pier	south_gate	0	0	-0	0	0.164887235	13

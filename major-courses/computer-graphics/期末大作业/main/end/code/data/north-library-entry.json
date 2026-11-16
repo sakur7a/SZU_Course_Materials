@@ -1,0 +1,21 @@
+{
+  "description": "汇典楼入口前场局部连接；沿用现有前场地形坡向，不将其称为水平广场。所有尺寸、高程分配和细部为模型估计。",
+  "source_notes": "north-library-entry-sources.md",
+  "road_probe_local_z": 70.7,
+  "road_clearance_m": 0.05,
+  "lower_half_width_m": 3.3,
+  "lower_tread_count": 3,
+  "lower_tread_depth_m": 0.38,
+  "lower_riser_m": 0.10,
+  "forecourt_outer_z": 57.0,
+  "forecourt_inner_z": 41.0,
+  "upper_half_width_m": 9.0,
+  "upper_max_riser_m": 0.18,
+  "existing_path_offset_m": 0.055,
+  "cross_section_spacing_m": 0.25,
+  "routes": {
+    "offsets_m": [-2.5, 0.0, 2.5],
+    "sample_step_m": 0.08,
+    "door_end_local_z": 22.6
+  }
+}

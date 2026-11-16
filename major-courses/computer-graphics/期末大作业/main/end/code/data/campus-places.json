@@ -1,0 +1,696 @@
+{
+  "description": "主要建筑和地区标注。南区、西南优先；名称与位置以项目地图、用户纠正及现有来源为基础。海滨小区和杜鹃山只标范围，不表示细部已还原。",
+  "uncertainty": "商铺顺序采用用户说明；乔相阁对面四店相对次序、茶饮店名与打印店准确位置待核实。标签高度仅为阅读辅助。",
+  "places": [
+    {
+      "id": "juhanzhai",
+      "osm": "way/1558576826",
+      "name": "聚翰斋 · 中国银行、信息中心",
+      "priority": 3,
+      "max_distance_m": 520
+    },
+    {
+      "id": "ziweizhai",
+      "osm": "way/1558576825",
+      "name": "紫薇斋 · 菜鸟驿站",
+      "priority": 3,
+      "max_distance_m": 520
+    },
+    {
+      "id": "hongdouzhai",
+      "osm": "way/1558576824",
+      "name": "红豆斋",
+      "priority": 3,
+      "max_distance_m": 520
+    },
+    {
+      "id": "gaoyin",
+      "osm": "way/292598303",
+      "name": "高音",
+      "priority": 2,
+      "max_distance_m": 2500
+    },
+    {
+      "id": "diyin",
+      "osm": "way/242066977",
+      "name": "低音",
+      "priority": 2,
+      "max_distance_m": 2500
+    },
+    {
+      "id": "zhiteng",
+      "osm": "way/319101983",
+      "name": "致腾楼",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "zhiyuan-building",
+      "osm": "way/319101984",
+      "name": "致原楼",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "zhiyi",
+      "osm": "way/629940889",
+      "name": "致艺楼",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "zhizhen",
+      "osm": "way/629940892",
+      "name": "致真楼",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "zhixin-building",
+      "osm": "way/231086125",
+      "name": "致信楼",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "zhili-l1",
+      "osm": "way/654873809",
+      "name": "致理楼 L1",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "zhili-l2",
+      "osm": "way/654873808",
+      "name": "致理楼 L2",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "zhili-l3",
+      "osm": "way/629940891",
+      "name": "致理楼 L3",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "science-l4",
+      "osm": "way/984606892",
+      "name": "理工楼 L4",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "zhizhi-building",
+      "osm": "way/984606893",
+      "name": "致知楼",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "zhigong",
+      "osm": "way/231086366",
+      "name": "致工楼",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "studio",
+      "osm": "way/722200010",
+      "name": "演播厅",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "south-canteen",
+      "osm": "way/319101979",
+      "name": "南区餐厅",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "qiaoxiang",
+      "osm": "way/629940894",
+      "name": "乔相阁",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "qiaosen",
+      "osm": "way/629940893",
+      "name": "乔森阁",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "qiaowu",
+      "osm": "way/629940895",
+      "name": "乔梧阁",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "qiaomu",
+      "osm": "way/1258216924",
+      "name": "乔木阁",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "qiaolin",
+      "osm": "way/1258216925",
+      "name": "乔林阁",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "kaifeng",
+      "osm": "way/230935723",
+      "name": "凯风餐厅",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "huixing",
+      "osm": "way/230847103",
+      "name": "汇星楼 · 科技楼",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "huidian",
+      "osm": "way/230847105",
+      "name": "汇典楼 · 北馆",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "huizhi",
+      "osm": "way/237484981",
+      "name": "汇智楼 · 南馆",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "huiyuan",
+      "osm": "way/230847104",
+      "name": "汇元楼",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "huiwen",
+      "osm": "way/231406259",
+      "name": "汇文楼",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "huicui",
+      "osm": "way/938357240",
+      "name": "汇萃楼",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "huiyu",
+      "osm": "way/1271852287",
+      "name": "汇语楼",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "wuyuzhang",
+      "osm": "way/1271852286",
+      "name": "吴玉章楼",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "huiyi",
+      "osm": "way/1081134194",
+      "name": "汇意楼",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "huiyan",
+      "osm": "way/1085792762",
+      "name": "汇研楼",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "yuanping",
+      "osm": "way/230956722",
+      "name": "元平体育馆",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "archive",
+      "osm": "way/317029242",
+      "name": "档案馆",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "yanhui",
+      "osm": "way/1455962776",
+      "name": "演会中心",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "huide-b",
+      "osm": "way/231067701",
+      "name": "汇德楼 B 座",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "activity",
+      "osm": "way/231795526",
+      "name": "汇昀楼 · 学生活动中心",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "stone-wharf",
+      "osm": "way/231572974",
+      "name": "石头坞",
+      "priority": 1,
+      "max_distance_m": 3600
+    },
+    {
+      "id": "chundi",
+      "osm": "way/292598302",
+      "name": "春笛",
+      "priority": 3,
+      "max_distance_m": 900
+    },
+    {
+      "id": "xiazheng",
+      "osm": "way/292598304",
+      "name": "夏筝",
+      "priority": 3,
+      "max_distance_m": 900
+    },
+    {
+      "id": "qiuse",
+      "osm": "relation/13233284",
+      "name": "秋瑟",
+      "priority": 3,
+      "max_distance_m": 900
+    },
+    {
+      "id": "dongzhu",
+      "osm": "way/220880938",
+      "name": "冬筑",
+      "priority": 3,
+      "max_distance_m": 900
+    },
+    {
+      "id": "yunxiang",
+      "osm": "way/1272873435",
+      "name": "芸香阁",
+      "priority": 3,
+      "max_distance_m": 900
+    },
+    {
+      "id": "dingxiang",
+      "osm": "way/1272873436",
+      "name": "丁香阁",
+      "priority": 3,
+      "max_distance_m": 900
+    },
+    {
+      "id": "wenxing",
+      "osm": "way/1272873437",
+      "name": "文杏阁",
+      "priority": 3,
+      "max_distance_m": 900
+    },
+    {
+      "id": "haitang",
+      "osm": "way/1272873438",
+      "name": "海棠阁",
+      "priority": 3,
+      "max_distance_m": 900
+    },
+    {
+      "id": "shuying",
+      "osm": "way/1272873439",
+      "name": "疏影阁",
+      "priority": 3,
+      "max_distance_m": 900
+    },
+    {
+      "id": "haizhi",
+      "osm": "way/231065255",
+      "name": "海志楼",
+      "priority": 3,
+      "max_distance_m": 900
+    },
+    {
+      "id": "zitan",
+      "osm": "way/230935209",
+      "name": "紫檀轩",
+      "priority": 3,
+      "max_distance_m": 900
+    },
+    {
+      "id": "shinan",
+      "osm": "way/230935214",
+      "name": "石楠轩",
+      "priority": 3,
+      "max_distance_m": 900
+    },
+    {
+      "id": "sutie",
+      "osm": "way/231065260",
+      "name": "苏铁轩",
+      "priority": 3,
+      "max_distance_m": 900
+    },
+    {
+      "id": "muxi",
+      "osm": "way/231402252",
+      "name": "木犀轩",
+      "priority": 3,
+      "max_distance_m": 900
+    },
+    {
+      "id": "wenshan-canteen",
+      "osm": "way/231436813",
+      "name": "文山湖餐厅",
+      "priority": 3,
+      "max_distance_m": 900
+    },
+    {
+      "id": "ting-shan",
+      "osm": "way/231214221",
+      "name": "听山餐厅",
+      "priority": 3,
+      "max_distance_m": 900
+    },
+    {
+      "id": "old-southwest",
+      "osm": "way/230935221",
+      "name": "老西南餐厅旧址",
+      "priority": 3,
+      "max_distance_m": 900
+    },
+    {
+      "id": "south-campus",
+      "name": "沧海校区 · 南区",
+      "position_xz_m": [
+        330,
+        600
+      ],
+      "height_above_ground_m": 85,
+      "priority": 0,
+      "max_distance_m": 3800,
+      "kind": "district"
+    },
+    {
+      "id": "southwest",
+      "name": "西南生活区 · 阁区",
+      "position_xz_m": [
+        -500,
+        570
+      ],
+      "height_above_ground_m": 62,
+      "priority": 0,
+      "max_distance_m": 3800,
+      "kind": "district"
+    },
+    {
+      "id": "haibin",
+      "name": "海滨小区",
+      "position_xz_m": [
+        -30,
+        460
+      ],
+      "height_above_ground_m": 45,
+      "priority": 2,
+      "max_distance_m": 3800,
+      "kind": "district"
+    },
+    {
+      "id": "dujuan",
+      "name": "杜鹃山",
+      "node": "2406038732",
+      "height_above_ground_m": 15,
+      "priority": 2,
+      "max_distance_m": 3800,
+      "kind": "district"
+    },
+    {
+      "id": "upper-wenshan",
+      "name": "上文山湖",
+      "area": "way/234739309",
+      "height_above_ground_m": 10,
+      "priority": 1,
+      "max_distance_m": 3800,
+      "kind": "water"
+    },
+    {
+      "id": "lower-wenshan",
+      "name": "下文山湖",
+      "height_above_ground_m": 10,
+      "priority": 2,
+      "max_distance_m": 3800,
+      "kind": "water",
+      "area": "relation/3085354"
+    },
+    {
+      "id": "south-sports",
+      "name": "南区运动广场",
+      "position_xz_m": [
+        219.94,
+        182.95
+      ],
+      "height_above_ground_m": 13,
+      "priority": 1,
+      "max_distance_m": 3000,
+      "kind": "sports"
+    },
+    {
+      "id": "stadium",
+      "name": "田径运动场",
+      "position_xz_m": [
+        410,
+        -525
+      ],
+      "height_above_ground_m": 14,
+      "priority": 1,
+      "max_distance_m": 3800,
+      "kind": "sports"
+    },
+    {
+      "id": "golf",
+      "name": "高尔夫练习场",
+      "position_xz_m": [
+        440,
+        -697
+      ],
+      "height_above_ground_m": 16,
+      "priority": 2,
+      "max_distance_m": 3800,
+      "kind": "sports"
+    },
+    {
+      "id": "tianren",
+      "name": "天人广场",
+      "position_xz_m": [
+        -95,
+        15
+      ],
+      "height_above_ground_m": 8,
+      "priority": 1,
+      "max_distance_m": 3600,
+      "kind": "landmark"
+    },
+    {
+      "id": "timesquare",
+      "name": "时光广场",
+      "position_xz_m": [
+        -269,
+        -52
+      ],
+      "height_above_ground_m": 8,
+      "priority": 1,
+      "max_distance_m": 3600,
+      "kind": "landmark"
+    },
+    {
+      "id": "zhaonan",
+      "name": "召南桥",
+      "position_xz_m": [
+        185,
+        338
+      ],
+      "height_above_ground_m": 12,
+      "priority": 1,
+      "max_distance_m": 2400,
+      "kind": "landmark"
+    },
+    {
+      "id": "zhounan",
+      "name": "周南桥",
+      "position_xz_m": [
+        412,
+        139
+      ],
+      "height_above_ground_m": 14,
+      "priority": 1,
+      "max_distance_m": 2400,
+      "kind": "landmark"
+    },
+    {
+      "id": "shop-manner",
+      "name": "Manner",
+      "position_xz_m": [
+        -432.8,
+        527
+      ],
+      "height_above_ground_m": 5,
+      "priority": 4,
+      "max_distance_m": 150,
+      "kind": "shop"
+    },
+    {
+      "id": "shop-youjian",
+      "name": "优剪",
+      "position_xz_m": [
+        -432.8,
+        536.1
+      ],
+      "height_above_ground_m": 5,
+      "priority": 4,
+      "max_distance_m": 150,
+      "kind": "shop"
+    },
+    {
+      "id": "shop-fruit",
+      "name": "果果切",
+      "position_xz_m": [
+        -432.8,
+        544.1
+      ],
+      "height_above_ground_m": 5,
+      "priority": 4,
+      "max_distance_m": 150,
+      "kind": "shop"
+    },
+    {
+      "id": "shop-seven",
+      "name": "7-Eleven",
+      "position_xz_m": [
+        -432.8,
+        556.6
+      ],
+      "height_above_ground_m": 5,
+      "priority": 4,
+      "max_distance_m": 150,
+      "kind": "shop"
+    },
+    {
+      "id": "shop-tea",
+      "name": "茶饮小食",
+      "position_xz_m": [
+        -432.8,
+        569.1
+      ],
+      "height_above_ground_m": 5,
+      "priority": 4,
+      "max_distance_m": 150,
+      "kind": "shop"
+    },
+    {
+      "id": "shop-print",
+      "name": "图文打印",
+      "position_xz_m": [
+        -432.8,
+        579.2
+      ],
+      "height_above_ground_m": 5,
+      "priority": 4,
+      "max_distance_m": 150,
+      "kind": "shop"
+    },
+    {
+      "id": "shop-repair",
+      "name": "修车铺",
+      "position_xz_m": [
+        -432.8,
+        590.1
+      ],
+      "height_above_ground_m": 5,
+      "priority": 4,
+      "max_distance_m": 150,
+      "kind": "shop"
+    },
+    {
+      "id": "shop-sf",
+      "name": "顺丰驿站",
+      "position_xz_m": [
+        -419.4,
+        592.1
+      ],
+      "height_above_ground_m": 5,
+      "priority": 3,
+      "max_distance_m": 200,
+      "kind": "shop"
+    },
+    {
+      "id": "shop-lawson",
+      "name": "罗森",
+      "position_xz_m": [
+        -288,
+        507.3
+      ],
+      "height_above_ground_m": 5,
+      "priority": 4,
+      "max_distance_m": 150,
+      "kind": "shop"
+    },
+    {
+      "id": "shop-glasses",
+      "name": "博士眼镜",
+      "position_xz_m": [
+        -278.4,
+        505
+      ],
+      "height_above_ground_m": 5,
+      "priority": 4,
+      "max_distance_m": 150,
+      "kind": "shop"
+    },
+    {
+      "id": "shop-creative",
+      "name": "深大文创店",
+      "position_xz_m": [
+        -268.7,
+        502.6
+      ],
+      "height_above_ground_m": 5,
+      "priority": 4,
+      "max_distance_m": 150,
+      "kind": "shop"
+    },
+    {
+      "id": "shop-barber",
+      "name": "理发店",
+      "position_xz_m": [
+        -259.1,
+        500.4
+      ],
+      "height_above_ground_m": 5,
+      "priority": 4,
+      "max_distance_m": 150,
+      "kind": "shop"
+    }
+  ]
+}

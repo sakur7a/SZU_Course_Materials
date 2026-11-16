@@ -1,0 +1,20 @@
+{
+  "description": "局部候选道路替换。默认关闭；位置、车道宽度及照片时效未实测，需审查后才可启用。",
+  "overrides": [
+    {
+      "id": "lide-south-osm2world-proposal",
+      "enabled": false,
+      "confidence": "illustrative",
+      "source_way": "way/220071403",
+      "source_photo": "https://www.thepaper.cn/newsDetail_forward_18845502",
+      "candidate_path": "road-overrides/lide-south-osm2world.geojson",
+      "range_m": [75.0, 120.0],
+      "mask_half_width_m": 4.5,
+      "transition_m": 5.0,
+      "max_inset_m": 0.5,
+      "max_removed_fraction": 0.20,
+      "max_added_area_m2": 10.0,
+      "note": "该照片可确认长草坪两侧的道路，但无法精确读出宽度；OSM2World 默认宽度不代表实测。"
+    }
+  ]
+}

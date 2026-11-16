@@ -1,0 +1,20 @@
+{
+  "coordinate_system": "项目本地 X/Z，单位米；原点及投影见 generate_campus.py",
+  "notes": "保留立德门原灌木区域的来源。现由 lide-corridor.json 的连续花坛替代离散株点。",
+  "regions": [
+    {
+      "id": "lide-entrance-shrubs",
+      "kind": "shrub_cluster",
+      "confidence": "illustrative",
+      "source": "https://sfl.szu.edu.cn/xysh/xyfg.htm",
+      "evidence": "立德门地面照片可见门岗右侧低矮灌木和草地；植物具体位置未测绘。",
+      "polygon_xz_m": [[-413,-27.3],[-397,-27.3],[-397,-23.5],[-413,-23.5]],
+      "count": 0,
+      "seed": 20261104,
+      "min_spacing_m": 0.85,
+      "radius_m": [0.36,0.50],
+      "height_m": [0.55,0.85]
+    }
+  ],
+  "tree_points": []
+}

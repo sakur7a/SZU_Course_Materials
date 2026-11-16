@@ -1,0 +1,7 @@
+{
+  "road_graph_vertices": 4691,
+  "road_graph_segments": 4780,
+  "terrain_cells_changed_over_5cm": 3975,
+  "max_terrain_adjustment_m": 2.5,
+  "note": "OSM 地面车行线上的估计纵坡与横向整形，保留山地大尺度起伏；不是测绘高程"
+}

@@ -1,0 +1,57 @@
+{
+  "coordinate_system": "Campus local metres: x=(lon-113.9318)*102800; z=(22.5355-lat)*111320",
+  "notes": "楼名绑定沿用 campus-places.json，不能从 OSM 重复的乔相阁名称重新推断。照片用于观察，发布纹理由程序和本机字体自绘。除列明校方数字外，立面开间、朝向、入口、屋顶体量和构件尺寸均为近似。",
+  "buildings": [
+    {
+      "id": "qiaomu", "name": "乔木阁", "osm": "way/1258216924", "phase": 1,
+      "floors": 12, "nominal_height_m": 39.6, "height_status": "12层为学校记录；39.6米按3.3米层高估计",
+      "ground_floor_m": 3.3, "standard_floor_m": 3.3, "balcony_depth_m": 1.25, "bay_pitch_m": 3.8,
+      "entry_hint_xz_m": [-400.0, 585.0], "entry_clear_width_m": 2.6, "entry_clear_height_m": 2.85,
+      "solar": true, "solar_angle_degrees": -3.6, "solar_panel_size_m": [2.8, 2.1],
+      "features": ["灰色小面砖与深色凹阳台", "黄色竖向色带", "层间灰白板带", "斜Y形轮廓和一期相连部分", "有支架的倾斜屋顶太阳能板"],
+      "notes": "航拍明确标注乔木阁；朝庭院的灰色阳台、白灰横带、黄竖条和太阳能阵列可辨。开间数量、窗台防护现状、板块数量及入口准确位置未实测。"
+    },
+    {
+      "id": "qiaolin", "name": "乔林阁", "osm": "way/1258216925", "phase": 1,
+      "floors": 12, "nominal_height_m": 39.6, "height_status": "12层为学校记录；39.6米按3.3米层高估计",
+      "ground_floor_m": 3.3, "standard_floor_m": 3.3, "balcony_depth_m": 1.25, "bay_pitch_m": 3.8,
+      "entry_hint_xz_m": [-399.0, 590.0], "entry_clear_width_m": 2.6, "entry_clear_height_m": 2.85,
+      "solar": true, "solar_angle_degrees": -3.6, "solar_panel_size_m": [2.8, 2.1],
+      "features": ["与乔木近似对称的一期轮廓", "灰色凹阳台与白灰横带", "黄色竖条", "屋顶太阳能阵列"],
+      "notes": "楼名与12层记录可核；灰砖、黄竖条与屋顶阵列由同组航拍概括，不假定每面与乔木完全相同。"
+    },
+    {
+      "id": "qiaosen", "name": "乔森阁", "osm": "way/629940893", "phase": 2,
+      "floors": 20, "nominal_height_m": 78.25, "height_status": "学校2020预算记载20层、建筑高78.25米、标准层高3.3米",
+      "ground_floor_m": 5.2, "standard_floor_m": 3.3, "residential_roof_m": 67.9,
+      "crown_beam_m": 74.5, "crown_top_m": 78.25,
+      "balcony_depth_m": 1.45, "bay_pitch_m": 7.5,
+      "entry_hint_xz_m": [-343.0, 559.0], "entry_clear_width_m": 2.6, "entry_clear_height_m": 3.25,
+      "solar": false,
+      "features": ["白灰折线阳台与实体楼板", "逐层竖栏和百叶板交替", "深色内凹门窗", "白色竖向端塔", "顶部开敞梁架与侧面玻璃条窗", "黑字门名"],
+      "notes": "当前绑定沿用用户地图与 campus-places.json，不采信 OSM 重复乔相名。学校同组照片可辨乔森门名字样。首层5.2米及屋面67.9米、梁架74.5米是为同时保留3.3米楼层节奏和78.25米总高的视觉分配，不是竣工分层标高。"
+    },
+    {
+      "id": "qiaoxiang", "name": "乔相阁", "osm": "way/629940894", "phase": 2,
+      "floors": 20, "nominal_height_m": 78.25, "height_status": "学校2020预算记载20层、建筑高78.25米、标准层高3.3米",
+      "ground_floor_m": 5.2, "standard_floor_m": 3.3, "residential_roof_m": 67.9,
+      "crown_beam_m": 74.5, "crown_top_m": 78.25,
+      "balcony_depth_m": 1.45, "bay_pitch_m": 7.5,
+      "entry_hint_xz_m": [-273.0, 540.0], "entry_clear_width_m": 2.6, "entry_clear_height_m": 3.25,
+      "solar": false,
+      "features": ["折线阳台、白灰横向楼板", "竖向栏杆及交替百叶板", "开放屋顶梁架", "园路入口净空"],
+      "notes": "首层保留根生成器传入的既有校巴花园园路开口。三栋同组外观按照片概括，不能据组照认定每栋每面窗格完全相同；屋顶和首层的标高分配为估计。"
+    },
+    {
+      "id": "qiaowu", "name": "乔梧阁", "osm": "way/629940895", "phase": 2,
+      "floors": 20, "nominal_height_m": 78.25, "height_status": "学校2020预算记载20层、建筑高78.25米、标准层高3.3米",
+      "ground_floor_m": 5.2, "standard_floor_m": 3.3, "residential_roof_m": 67.9,
+      "crown_beam_m": 74.5, "crown_top_m": 78.25,
+      "balcony_depth_m": 1.45, "bay_pitch_m": 7.5,
+      "entry_hint_xz_m": [-219.0, 508.0], "entry_clear_width_m": 2.6, "entry_clear_height_m": 3.25,
+      "solar": false, "sign_style": "red_plaque",
+      "features": ["浅灰白阳台与凹窗", "交替栏杆和百叶板", "屋顶开敞梁架", "照片所见红底浅字门牌"],
+      "notes": "学校组照显示乔梧红底门牌，不把该牌样式强加给另外两栋。楼体主体采用同组照片特征，精确入口、窗位及顶部附属体量待核实。"
+    }
+  ]
+}

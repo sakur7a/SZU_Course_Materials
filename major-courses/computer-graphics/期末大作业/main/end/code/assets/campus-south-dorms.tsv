@@ -1,0 +1,54 @@
+# L: building material layer; W: walkable entrance surface
+L	chundi	stone	campus-dorm-chundi-wall.mesh	concrete.ppm	0.82	0.83	0.79
+L	chundi	stone	campus-dorm-chundi-frame.mesh	white.ppm	0.94	0.95	0.91
+L	chundi	glass	campus-dorm-chundi-glass.mesh	glass.ppm	0.58	0.68	0.68
+L	chundi	metal	campus-dorm-chundi-metal.mesh	white.ppm	0.43	0.47	0.46
+L	chundi	roof	campus-dorm-chundi-roof.mesh	concrete.ppm	0.72	0.74	0.71
+L	chundi	glass	campus-dorm-chundi-solar.mesh	glass.ppm	0.72	0.8	0.81
+L	chundi	stone	campus-dorm-chundi-paving.mesh	concrete.ppm	0.68	0.7	0.65
+L	xiazheng	stone	campus-dorm-xiazheng-wall.mesh	concrete.ppm	0.82	0.83	0.79
+L	xiazheng	stone	campus-dorm-xiazheng-frame.mesh	white.ppm	0.94	0.95	0.91
+L	xiazheng	glass	campus-dorm-xiazheng-glass.mesh	glass.ppm	0.58	0.68	0.68
+L	xiazheng	metal	campus-dorm-xiazheng-metal.mesh	white.ppm	0.43	0.47	0.46
+L	xiazheng	roof	campus-dorm-xiazheng-roof.mesh	concrete.ppm	0.72	0.74	0.71
+L	xiazheng	glass	campus-dorm-xiazheng-solar.mesh	glass.ppm	0.72	0.8	0.81
+L	xiazheng	sign	campus-dorm-xiazheng-sign.mesh	dorm-xiazheng-sign.ppm	1	1	1
+L	xiazheng	stone	campus-dorm-xiazheng-paving.mesh	concrete.ppm	0.68	0.7	0.65
+L	gaoyin	stone	campus-dorm-gaoyin-wall.mesh	concrete.ppm	0.82	0.83	0.79
+L	gaoyin	stone	campus-dorm-gaoyin-frame.mesh	white.ppm	0.94	0.95	0.91
+L	gaoyin	glass	campus-dorm-gaoyin-glass.mesh	glass.ppm	0.58	0.68	0.68
+L	gaoyin	metal	campus-dorm-gaoyin-metal.mesh	white.ppm	0.43	0.47	0.46
+L	gaoyin	roof	campus-dorm-gaoyin-roof.mesh	concrete.ppm	0.72	0.74	0.71
+L	gaoyin	stone	campus-dorm-gaoyin-paving.mesh	concrete.ppm	0.68	0.7	0.65
+L	qiuse	stone	campus-dorm-qiuse-wall.mesh	concrete.ppm	0.82	0.83	0.79
+L	qiuse	stone	campus-dorm-qiuse-frame.mesh	white.ppm	0.94	0.95	0.91
+L	qiuse	glass	campus-dorm-qiuse-glass.mesh	glass.ppm	0.58	0.68	0.68
+L	qiuse	metal	campus-dorm-qiuse-metal.mesh	white.ppm	0.43	0.47	0.46
+L	qiuse	roof	campus-dorm-qiuse-roof.mesh	concrete.ppm	0.72	0.74	0.71
+L	qiuse	glass	campus-dorm-qiuse-solar.mesh	glass.ppm	0.72	0.8	0.81
+L	qiuse	stone	campus-dorm-qiuse-paving.mesh	concrete.ppm	0.68	0.7	0.65
+L	dongzhu	stone	campus-dorm-dongzhu-wall.mesh	concrete.ppm	0.82	0.83	0.79
+L	dongzhu	stone	campus-dorm-dongzhu-frame.mesh	white.ppm	0.94	0.95	0.91
+L	dongzhu	glass	campus-dorm-dongzhu-glass.mesh	glass.ppm	0.58	0.68	0.68
+L	dongzhu	metal	campus-dorm-dongzhu-metal.mesh	white.ppm	0.43	0.47	0.46
+L	dongzhu	roof	campus-dorm-dongzhu-roof.mesh	concrete.ppm	0.72	0.74	0.71
+L	dongzhu	glass	campus-dorm-dongzhu-solar.mesh	glass.ppm	0.72	0.8	0.81
+L	dongzhu	stone	campus-dorm-dongzhu-paving.mesh	concrete.ppm	0.68	0.7	0.65
+L	diyin	stone	campus-dorm-diyin-wall.mesh	concrete.ppm	0.82	0.83	0.79
+L	diyin	stone	campus-dorm-diyin-frame.mesh	white.ppm	0.94	0.95	0.91
+L	diyin	glass	campus-dorm-diyin-glass.mesh	glass.ppm	0.58	0.68	0.68
+L	diyin	metal	campus-dorm-diyin-metal.mesh	white.ppm	0.43	0.47	0.46
+L	diyin	roof	campus-dorm-diyin-roof.mesh	concrete.ppm	0.72	0.74	0.71
+L	diyin	stone	campus-dorm-diyin-paving.mesh	concrete.ppm	0.68	0.7	0.65
+W	chundi	campus-dorm-chundi-walk.mesh
+W	xiazheng	campus-dorm-xiazheng-walk.mesh
+W	xiazheng-skywalk	campus-dorm-xiazheng-skywalk.mesh
+W	gaoyin	campus-dorm-gaoyin-walk.mesh
+W	qiuse	campus-dorm-qiuse-walk.mesh
+W	qiuse-skywalk	campus-dorm-qiuse-skywalk.mesh
+W	dongzhu	campus-dorm-dongzhu-walk.mesh
+W	dongzhu-skywalk	campus-dorm-dongzhu-skywalk.mesh
+W	diyin	campus-dorm-diyin-walk.mesh
+G	xiazheng-skywalk	夏筝高架入口	541.0749948454138	10.301918855670309	206.2209918863261	540.0767982224456	10.471560331089105	199.79809507087785	540.0767982224456	199.79809507087785
+G	qiuse-skywalk	秋瑟高架入口	534.2690977722274	10.116605852642017	267.3584507499099	535.9194912830795	11.923933686113877	261.07736296611677	535.9194912830795	261.07736296611677
+G	dongzhu-skywalk	冬筑高架入口	512.0560030664926	7.9999998092651365	314.4307116903219	508.4993543641833	7.9999998092651365	319.87089529387015	508.4993543641833	319.87089529387015

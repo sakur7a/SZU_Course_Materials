@@ -1,0 +1,1757 @@
+{
+  "buildings": [
+    {
+      "id": "chundi",
+      "name": "春笛",
+      "osm": "way/292598302",
+      "group": "north-u",
+      "base_y_m": 2.020216464996338,
+      "height_m": 56.099999999999994,
+      "floors": 17,
+      "height_source": "OSM 17层，层高估算3.3米；设计院项目最大69.9米尚未分解到本OSM分部，保留既有高度估计",
+      "project_max_height_m": 69.9,
+      "bounds_xyz_m": [
+        [
+          490.9008483886719,
+          0.02021646499633789,
+          100.73346710205078
+        ],
+        [
+          567.4457397460938,
+          59.14021682739258,
+          151.65122985839844
+        ]
+      ],
+      "layers": [
+        {
+          "id": "chundi",
+          "role": "wall",
+          "material": "stone",
+          "mesh": "campus-dorm-chundi-wall.mesh",
+          "texture": "concrete.ppm",
+          "color": [
+            0.82,
+            0.83,
+            0.79
+          ],
+          "vertices": 966
+        },
+        {
+          "id": "chundi",
+          "role": "frame",
+          "material": "stone",
+          "mesh": "campus-dorm-chundi-frame.mesh",
+          "texture": "white.ppm",
+          "color": [
+            0.94,
+            0.95,
+            0.91
+          ],
+          "vertices": 36711
+        },
+        {
+          "id": "chundi",
+          "role": "glass",
+          "material": "glass",
+          "mesh": "campus-dorm-chundi-glass.mesh",
+          "texture": "glass.ppm",
+          "color": [
+            0.58,
+            0.68,
+            0.68
+          ],
+          "vertices": 2154
+        },
+        {
+          "id": "chundi",
+          "role": "metal",
+          "material": "metal",
+          "mesh": "campus-dorm-chundi-metal.mesh",
+          "texture": "white.ppm",
+          "color": [
+            0.43,
+            0.47,
+            0.46
+          ],
+          "vertices": 58242
+        },
+        {
+          "id": "chundi",
+          "role": "roof",
+          "material": "roof",
+          "mesh": "campus-dorm-chundi-roof.mesh",
+          "texture": "concrete.ppm",
+          "color": [
+            0.72,
+            0.74,
+            0.71
+          ],
+          "vertices": 39
+        },
+        {
+          "id": "chundi",
+          "role": "solar",
+          "material": "glass",
+          "mesh": "campus-dorm-chundi-solar.mesh",
+          "texture": "glass.ppm",
+          "color": [
+            0.72,
+            0.8,
+            0.81
+          ],
+          "vertices": 672
+        },
+        {
+          "id": "chundi",
+          "role": "paving",
+          "material": "stone",
+          "mesh": "campus-dorm-chundi-paving.mesh",
+          "texture": "concrete.ppm",
+          "color": [
+            0.68,
+            0.7,
+            0.65
+          ],
+          "vertices": 570
+        }
+      ],
+      "walking_mesh": "campus-dorm-chundi-walk.mesh",
+      "skywalks": [],
+      "elevated_walking_meshes": [],
+      "walking_vertices": 570,
+      "entry_xz_m": [
+        518.7272890601781,
+        123.90856761304397
+      ],
+      "entry_paths_xz_m": [
+        [
+          [
+            484.8449805220606,
+            62.631092000130025
+          ],
+          [
+            561.9674765223998,
+            202.11013199975844
+          ]
+        ]
+      ],
+      "entry_clear_width_m": 3.0,
+      "entry_clear_height_m": 6.3999999999999995,
+      "balcony_bays": 255,
+      "end_fins": 114,
+      "solar_panels": 112,
+      "features": [
+        "staggered_recessed_frames",
+        "metal_rails",
+        "vertical_end_screens",
+        "open_lower_levels"
+      ],
+      "notes": "楼名与轮廓来自OSM并对照带楼名的2023实拍航拍；高音、低音未找到可辨门牌的公开照片。白色竖向端屏、错排深框外廊、栏杆、两层基座和屋顶板状设备参考照片。凹进深度、构件尺寸、入口精确位置、层高与屋顶设备类型均为视觉估计；2026春笛夏筝已修缮，2023照片不保证所有细节仍为当前状态。"
+    },
+    {
+      "id": "xiazheng",
+      "name": "夏筝",
+      "osm": "way/292598304",
+      "group": "north-u",
+      "base_y_m": 4.6136794090271,
+      "height_m": 56.099999999999994,
+      "floors": 17,
+      "height_source": "OSM 17层，层高估算3.3米；设计院项目最大69.9米尚未分解到本OSM分部，保留既有高度估计",
+      "project_max_height_m": 69.9,
+      "bounds_xyz_m": [
+        [
+          530.0265502929688,
+          2.6136794090270996,
+          160.2674102783203
+        ],
+        [
+          590.1234130859375,
+          61.733680725097656,
+          204.63955688476562
+        ]
+      ],
+      "layers": [
+        {
+          "id": "xiazheng",
+          "role": "wall",
+          "material": "stone",
+          "mesh": "campus-dorm-xiazheng-wall.mesh",
+          "texture": "concrete.ppm",
+          "color": [
+            0.82,
+            0.83,
+            0.79
+          ],
+          "vertices": 1236
+        },
+        {
+          "id": "xiazheng",
+          "role": "frame",
+          "material": "stone",
+          "mesh": "campus-dorm-xiazheng-frame.mesh",
+          "texture": "white.ppm",
+          "color": [
+            0.94,
+            0.95,
+            0.91
+          ],
+          "vertices": 28941
+        },
+        {
+          "id": "xiazheng",
+          "role": "glass",
+          "material": "glass",
+          "mesh": "campus-dorm-xiazheng-glass.mesh",
+          "texture": "glass.ppm",
+          "color": [
+            0.58,
+            0.68,
+            0.68
+          ],
+          "vertices": 1626
+        },
+        {
+          "id": "xiazheng",
+          "role": "metal",
+          "material": "metal",
+          "mesh": "campus-dorm-xiazheng-metal.mesh",
+          "texture": "white.ppm",
+          "color": [
+            0.43,
+            0.47,
+            0.46
+          ],
+          "vertices": 42654
+        },
+        {
+          "id": "xiazheng",
+          "role": "roof",
+          "material": "roof",
+          "mesh": "campus-dorm-xiazheng-roof.mesh",
+          "texture": "concrete.ppm",
+          "color": [
+            0.72,
+            0.74,
+            0.71
+          ],
+          "vertices": 57
+        },
+        {
+          "id": "xiazheng",
+          "role": "solar",
+          "material": "glass",
+          "mesh": "campus-dorm-xiazheng-solar.mesh",
+          "texture": "glass.ppm",
+          "color": [
+            0.72,
+            0.8,
+            0.81
+          ],
+          "vertices": 666
+        },
+        {
+          "id": "xiazheng",
+          "role": "sign",
+          "material": "sign",
+          "mesh": "campus-dorm-xiazheng-sign.mesh",
+          "texture": "dorm-xiazheng-sign.ppm",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "vertices": 6
+        },
+        {
+          "id": "xiazheng",
+          "role": "paving",
+          "material": "stone",
+          "mesh": "campus-dorm-xiazheng-paving.mesh",
+          "texture": "concrete.ppm",
+          "color": [
+            0.68,
+            0.7,
+            0.65
+          ],
+          "vertices": 936
+        }
+      ],
+      "walking_mesh": "campus-dorm-xiazheng-walk.mesh",
+      "skywalks": [
+        {
+          "id": "xiazheng-skywalk",
+          "owner_id": "xiazheng",
+          "source_osm": "way/776358619",
+          "endpoint": "end",
+          "clear_width_m": 3.2,
+          "clear_height_m": 2.2,
+          "inside_length_m": 3.0,
+          "outside_overlap_m": 0.45,
+          "platform_thickness_m": 0.18,
+          "edge_xz_m": [
+            540.4607200005103,
+            202.2684399998964
+          ],
+          "inward_xz": [
+            -0.15356871122587415,
+            -0.9881379716074188
+          ],
+          "deck_y_m": 8.671560331089104,
+          "platform_top_y_m": 8.683560331089105,
+          "platform_width_m": 3.5,
+          "path_xz_m": [
+            [
+              540.529825920562,
+              202.71310208711975
+            ],
+            [
+              540.4607200005103,
+              202.2684399998964
+            ],
+            [
+              540.0000138668327,
+              199.30402608507416
+            ]
+          ],
+          "platform_polygon_xz_m": [
+            [
+              538.800584470249,
+              202.98184733176504
+            ],
+            [
+              538.2707724165197,
+              199.57277132971944
+            ],
+            [
+              541.7292553171457,
+              199.03528084042887
+            ],
+            [
+              542.259067370875,
+              202.44435684247446
+            ]
+          ],
+          "approach_profile": [
+            {
+              "s_m": -0.45,
+              "bridge_y_m": 8.64816938408946,
+              "platform_y_m": 8.66016938408946
+            },
+            {
+              "s_m": -0.30000000000000004,
+              "bridge_y_m": 8.655966366422675,
+              "platform_y_m": 8.667966366422675
+            },
+            {
+              "s_m": -0.15000000000000002,
+              "bridge_y_m": 8.66376334875589,
+              "platform_y_m": 8.67576334875589
+            },
+            {
+              "s_m": -0.0,
+              "bridge_y_m": 8.671560331089104,
+              "platform_y_m": 8.683560331089105
+            }
+          ],
+          "view_eye_deck_y_m": 8.501918855670308,
+          "view_eye": [
+            541.0749948454138,
+            10.301918855670309,
+            206.2209918863261
+          ],
+          "view_target": [
+            540.0767982224456,
+            10.471560331089105,
+            199.79809507087785
+          ],
+          "notes": "三条接口线位取OSM，桥面高程读取已生成的campus-bridge.mesh；门洞宽高、约3米入楼平台、护栏和局部构造为保持可探索连通的估计，未还原真实楼内完整平面。",
+          "walking_mesh": "campus-dorm-xiazheng-skywalk.mesh",
+          "walking_vertices": 96
+        }
+      ],
+      "elevated_walking_meshes": [
+        "campus-dorm-xiazheng-skywalk.mesh"
+      ],
+      "walking_vertices": 648,
+      "entry_xz_m": [
+        543.6256904158419,
+        176.62226840449338
+      ],
+      "entry_paths_xz_m": [
+        [
+          [
+            524.9660749272798,
+            132.61998610545788
+          ],
+          [
+            574.0002697990717,
+            248.25026189421055
+          ]
+        ]
+      ],
+      "entry_clear_width_m": 3.0,
+      "entry_clear_height_m": 6.3999999999999995,
+      "balcony_bays": 172,
+      "end_fins": 158,
+      "solar_panels": 111,
+      "features": [
+        "staggered_recessed_frames",
+        "metal_rails",
+        "vertical_end_screens",
+        "open_lower_levels"
+      ],
+      "notes": "楼名与轮廓来自OSM并对照带楼名的2023实拍航拍；高音、低音未找到可辨门牌的公开照片。白色竖向端屏、错排深框外廊、栏杆、两层基座和屋顶板状设备参考照片。凹进深度、构件尺寸、入口精确位置、层高与屋顶设备类型均为视觉估计；2026春笛夏筝已修缮，2023照片不保证所有细节仍为当前状态。"
+    },
+    {
+      "id": "gaoyin",
+      "name": "高音",
+      "osm": "way/292598303",
+      "group": "north-u",
+      "base_y_m": 2.2311906814575195,
+      "height_m": 29.7,
+      "floors": 9,
+      "height_source": "OSM 9层，层高估算3.3米；设计院项目最大69.9米尚未分解到本OSM分部，保留既有高度估计",
+      "project_max_height_m": 69.9,
+      "bounds_xyz_m": [
+        [
+          555.7265014648438,
+          0.23119068145751953,
+          118.87863159179688
+        ],
+        [
+          582.187255859375,
+          32.39118957519531,
+          165.38812255859375
+        ]
+      ],
+      "layers": [
+        {
+          "id": "gaoyin",
+          "role": "wall",
+          "material": "stone",
+          "mesh": "campus-dorm-gaoyin-wall.mesh",
+          "texture": "concrete.ppm",
+          "color": [
+            0.82,
+            0.83,
+            0.79
+          ],
+          "vertices": 672
+        },
+        {
+          "id": "gaoyin",
+          "role": "frame",
+          "material": "stone",
+          "mesh": "campus-dorm-gaoyin-frame.mesh",
+          "texture": "white.ppm",
+          "color": [
+            0.94,
+            0.95,
+            0.91
+          ],
+          "vertices": 10122
+        },
+        {
+          "id": "gaoyin",
+          "role": "glass",
+          "material": "glass",
+          "mesh": "campus-dorm-gaoyin-glass.mesh",
+          "texture": "glass.ppm",
+          "color": [
+            0.58,
+            0.68,
+            0.68
+          ],
+          "vertices": 768
+        },
+        {
+          "id": "gaoyin",
+          "role": "metal",
+          "material": "metal",
+          "mesh": "campus-dorm-gaoyin-metal.mesh",
+          "texture": "white.ppm",
+          "color": [
+            0.43,
+            0.47,
+            0.46
+          ],
+          "vertices": 17352
+        },
+        {
+          "id": "gaoyin",
+          "role": "roof",
+          "material": "roof",
+          "mesh": "campus-dorm-gaoyin-roof.mesh",
+          "texture": "concrete.ppm",
+          "color": [
+            0.72,
+            0.74,
+            0.71
+          ],
+          "vertices": 30
+        },
+        {
+          "id": "gaoyin",
+          "role": "paving",
+          "material": "stone",
+          "mesh": "campus-dorm-gaoyin-paving.mesh",
+          "texture": "concrete.ppm",
+          "color": [
+            0.68,
+            0.7,
+            0.65
+          ],
+          "vertices": 384
+        }
+      ],
+      "walking_mesh": "campus-dorm-gaoyin-walk.mesh",
+      "skywalks": [],
+      "elevated_walking_meshes": [],
+      "walking_vertices": 384,
+      "entry_xz_m": [
+        575.190480112018,
+        140.62307100231877
+      ],
+      "entry_paths_xz_m": [
+        [
+          [
+            512.5525374966969,
+            163.20926752057565
+          ],
+          [
+            625.4380266574365,
+            122.50464447919907
+          ]
+        ]
+      ],
+      "entry_clear_width_m": 3.0,
+      "entry_clear_height_m": 6.3999999999999995,
+      "balcony_bays": 80,
+      "end_fins": 0,
+      "solar_panels": 0,
+      "features": [
+        "staggered_recessed_frames",
+        "metal_rails",
+        "vertical_end_screens",
+        "open_lower_levels"
+      ],
+      "notes": "楼名与轮廓来自OSM并对照带楼名的2023实拍航拍；高音、低音未找到可辨门牌的公开照片。白色竖向端屏、错排深框外廊、栏杆、两层基座和屋顶板状设备参考照片。凹进深度、构件尺寸、入口精确位置、层高与屋顶设备类型均为视觉估计；2026春笛夏筝已修缮，2023照片不保证所有细节仍为当前状态。"
+    },
+    {
+      "id": "qiuse",
+      "name": "秋瑟",
+      "osm": "relation/13233284",
+      "group": "south-u",
+      "base_y_m": 7.093954086303711,
+      "height_m": 56.099999999999994,
+      "floors": 17,
+      "height_source": "OSM 17层，层高估算3.3米；设计院项目最大69.9米尚未分解到本OSM分部，保留既有高度估计",
+      "project_max_height_m": 69.9,
+      "bounds_xyz_m": [
+        [
+          527.2920532226562,
+          4.164825916290283,
+          221.7049102783203
+        ],
+        [
+          612.965576171875,
+          64.21395111083984,
+          264.345947265625
+        ]
+      ],
+      "layers": [
+        {
+          "id": "qiuse",
+          "role": "wall",
+          "material": "stone",
+          "mesh": "campus-dorm-qiuse-wall.mesh",
+          "texture": "concrete.ppm",
+          "color": [
+            0.82,
+            0.83,
+            0.79
+          ],
+          "vertices": 1509
+        },
+        {
+          "id": "qiuse",
+          "role": "frame",
+          "material": "stone",
+          "mesh": "campus-dorm-qiuse-frame.mesh",
+          "texture": "white.ppm",
+          "color": [
+            0.94,
+            0.95,
+            0.91
+          ],
+          "vertices": 39897
+        },
+        {
+          "id": "qiuse",
+          "role": "glass",
+          "material": "glass",
+          "mesh": "campus-dorm-qiuse-glass.mesh",
+          "texture": "glass.ppm",
+          "color": [
+            0.58,
+            0.68,
+            0.68
+          ],
+          "vertices": 2316
+        },
+        {
+          "id": "qiuse",
+          "role": "metal",
+          "material": "metal",
+          "mesh": "campus-dorm-qiuse-metal.mesh",
+          "texture": "white.ppm",
+          "color": [
+            0.43,
+            0.47,
+            0.46
+          ],
+          "vertices": 60132
+        },
+        {
+          "id": "qiuse",
+          "role": "roof",
+          "material": "roof",
+          "mesh": "campus-dorm-qiuse-roof.mesh",
+          "texture": "concrete.ppm",
+          "color": [
+            0.72,
+            0.74,
+            0.71
+          ],
+          "vertices": 75
+        },
+        {
+          "id": "qiuse",
+          "role": "solar",
+          "material": "glass",
+          "mesh": "campus-dorm-qiuse-solar.mesh",
+          "texture": "glass.ppm",
+          "color": [
+            0.72,
+            0.8,
+            0.81
+          ],
+          "vertices": 864
+        },
+        {
+          "id": "qiuse",
+          "role": "paving",
+          "material": "stone",
+          "mesh": "campus-dorm-qiuse-paving.mesh",
+          "texture": "concrete.ppm",
+          "color": [
+            0.68,
+            0.7,
+            0.65
+          ],
+          "vertices": 1191
+        }
+      ],
+      "walking_mesh": "campus-dorm-qiuse-walk.mesh",
+      "skywalks": [
+        {
+          "id": "qiuse-skywalk",
+          "owner_id": "qiuse",
+          "source_osm": "way/776358645",
+          "endpoint": "start",
+          "clear_width_m": 3.2,
+          "clear_height_m": 2.2,
+          "inside_length_m": 3.0,
+          "outside_overlap_m": 0.45,
+          "platform_thickness_m": 0.18,
+          "edge_xz_m": [
+            535.3721200002099,
+            263.5167039998162
+          ],
+          "inward_xz": [
+            0.21894851314785063,
+            -0.97573641347976
+          ],
+          "deck_y_m": 10.123933686113876,
+          "platform_top_y_m": 10.135933686113876,
+          "platform_width_m": 3.5,
+          "path_xz_m": [
+            [
+              535.2735931692933,
+              263.95578538588205
+            ],
+            [
+              535.3721200002099,
+              263.5167039998162
+            ],
+            [
+              536.0289655396534,
+              260.5894947593769
+            ]
+          ],
+          "platform_polygon_xz_m": [
+            [
+              533.5660544457038,
+              263.5726254878733
+            ],
+            [
+              534.3214268160639,
+              260.2063348613682
+            ],
+            [
+              537.736504263243,
+              260.97265465738565
+            ],
+            [
+              536.9811318928829,
+              264.3389452838908
+            ]
+          ],
+          "approach_profile": [
+            {
+              "s_m": -0.45,
+              "bridge_y_m": 9.92678884642369,
+              "platform_y_m": 9.93878884642369
+            },
+            {
+              "s_m": -0.30000000000000004,
+              "bridge_y_m": 9.992503792987083,
+              "platform_y_m": 10.004503792987084
+            },
+            {
+              "s_m": -0.15000000000000002,
+              "bridge_y_m": 10.058218739550487,
+              "platform_y_m": 10.070218739550487
+            },
+            {
+              "s_m": -0.0,
+              "bridge_y_m": 10.123933686113876,
+              "platform_y_m": 10.135933686113876
+            }
+          ],
+          "view_eye_deck_y_m": 8.316605852642017,
+          "view_eye": [
+            534.2690977722274,
+            10.116605852642017,
+            267.3584507499099
+          ],
+          "view_target": [
+            535.9194912830795,
+            11.923933686113877,
+            261.07736296611677
+          ],
+          "notes": "三条接口线位取OSM，桥面高程读取已生成的campus-bridge.mesh；门洞宽高、约3米入楼平台、护栏和局部构造为保持可探索连通的估计，未还原真实楼内完整平面。",
+          "walking_mesh": "campus-dorm-qiuse-skywalk.mesh",
+          "walking_vertices": 96
+        }
+      ],
+      "elevated_walking_meshes": [
+        "campus-dorm-qiuse-skywalk.mesh"
+      ],
+      "walking_vertices": 903,
+      "entry_xz_m": [
+        566.7750389197229,
+        232.5199349586117
+      ],
+      "entry_paths_xz_m": [
+        [
+          [
+            551.5817348022886,
+            160.0462290382182
+          ],
+          [
+            586.9296689955393,
+            328.6597029616035
+          ]
+        ]
+      ],
+      "entry_clear_width_m": 3.0,
+      "entry_clear_height_m": 6.3999999999999995,
+      "balcony_bays": 246,
+      "end_fins": 203,
+      "solar_panels": 144,
+      "features": [
+        "staggered_recessed_frames",
+        "metal_rails",
+        "vertical_end_screens",
+        "open_lower_levels"
+      ],
+      "notes": "楼名与轮廓来自OSM并对照带楼名的2023实拍航拍；高音、低音未找到可辨门牌的公开照片。白色竖向端屏、错排深框外廊、栏杆、两层基座和屋顶板状设备参考照片。凹进深度、构件尺寸、入口精确位置、层高与屋顶设备类型均为视觉估计；2026春笛夏筝已修缮，2023照片不保证所有细节仍为当前状态。"
+    },
+    {
+      "id": "dongzhu",
+      "name": "冬筑",
+      "osm": "way/220880938",
+      "group": "south-u",
+      "base_y_m": 2.0,
+      "height_m": 56.099999999999994,
+      "floors": 17,
+      "height_source": "OSM 17层，层高估算3.3米；设计院项目最大69.9米尚未分解到本OSM分部，保留既有高度估计",
+      "project_max_height_m": 69.9,
+      "bounds_xyz_m": [
+        [
+          494.6838684082031,
+          0.0,
+          295.3764953613281
+        ],
+        [
+          636.239501953125,
+          59.119998931884766,
+          365.786376953125
+        ]
+      ],
+      "layers": [
+        {
+          "id": "dongzhu",
+          "role": "wall",
+          "material": "stone",
+          "mesh": "campus-dorm-dongzhu-wall.mesh",
+          "texture": "concrete.ppm",
+          "color": [
+            0.82,
+            0.83,
+            0.79
+          ],
+          "vertices": 2382
+        },
+        {
+          "id": "dongzhu",
+          "role": "frame",
+          "material": "stone",
+          "mesh": "campus-dorm-dongzhu-frame.mesh",
+          "texture": "white.ppm",
+          "color": [
+            0.94,
+            0.95,
+            0.91
+          ],
+          "vertices": 76668
+        },
+        {
+          "id": "dongzhu",
+          "role": "glass",
+          "material": "glass",
+          "mesh": "campus-dorm-dongzhu-glass.mesh",
+          "texture": "glass.ppm",
+          "color": [
+            0.58,
+            0.68,
+            0.68
+          ],
+          "vertices": 4542
+        },
+        {
+          "id": "dongzhu",
+          "role": "metal",
+          "material": "metal",
+          "mesh": "campus-dorm-dongzhu-metal.mesh",
+          "texture": "white.ppm",
+          "color": [
+            0.43,
+            0.47,
+            0.46
+          ],
+          "vertices": 113958
+        },
+        {
+          "id": "dongzhu",
+          "role": "roof",
+          "material": "roof",
+          "mesh": "campus-dorm-dongzhu-roof.mesh",
+          "texture": "concrete.ppm",
+          "color": [
+            0.72,
+            0.74,
+            0.71
+          ],
+          "vertices": 129
+        },
+        {
+          "id": "dongzhu",
+          "role": "solar",
+          "material": "glass",
+          "mesh": "campus-dorm-dongzhu-solar.mesh",
+          "texture": "glass.ppm",
+          "color": [
+            0.72,
+            0.8,
+            0.81
+          ],
+          "vertices": 438
+        },
+        {
+          "id": "dongzhu",
+          "role": "paving",
+          "material": "stone",
+          "mesh": "campus-dorm-dongzhu-paving.mesh",
+          "texture": "concrete.ppm",
+          "color": [
+            0.68,
+            0.7,
+            0.65
+          ],
+          "vertices": 909
+        }
+      ],
+      "walking_mesh": "campus-dorm-dongzhu-walk.mesh",
+      "skywalks": [
+        {
+          "id": "dongzhu-skywalk",
+          "owner_id": "dongzhu",
+          "source_osm": "way/776358645",
+          "endpoint": "end",
+          "clear_width_m": 3.2,
+          "clear_height_m": 2.2,
+          "inside_length_m": 3.0,
+          "outside_overlap_m": 0.45,
+          "platform_thickness_m": 0.18,
+          "edge_xz_m": [
+            509.8777200002985,
+            317.7852040000357
+          ],
+          "inward_xz": [
+            -0.5513462544460664,
+            0.8342765175337811
+          ],
+          "deck_y_m": 6.199999809265137,
+          "platform_top_y_m": 6.211999809265136,
+          "platform_width_m": 3.5,
+          "path_xz_m": [
+            [
+              510.1258258147992,
+              317.4097795671455
+            ],
+            [
+              509.8777200002985,
+              317.7852040000357
+            ],
+            [
+              508.2236812369603,
+              320.28803355263705
+            ]
+          ],
+          "platform_polygon_xz_m": [
+            [
+              511.5858097204833,
+              318.3746355124261
+            ],
+            [
+              509.68366514264443,
+              321.25288949791764
+            ],
+            [
+              506.7636973312762,
+              319.32317760735646
+            ],
+            [
+              508.6658419091151,
+              316.4449236218649
+            ]
+          ],
+          "approach_profile": [
+            {
+              "s_m": -0.45,
+              "bridge_y_m": 6.199999809265137,
+              "platform_y_m": 6.211999809265136
+            },
+            {
+              "s_m": -0.30000000000000004,
+              "bridge_y_m": 6.199999809265137,
+              "platform_y_m": 6.211999809265136
+            },
+            {
+              "s_m": -0.15000000000000002,
+              "bridge_y_m": 6.199999809265137,
+              "platform_y_m": 6.211999809265136
+            },
+            {
+              "s_m": -0.0,
+              "bridge_y_m": 6.199999809265137,
+              "platform_y_m": 6.211999809265136
+            }
+          ],
+          "view_eye_deck_y_m": 6.199999809265137,
+          "view_eye": [
+            512.0560030664926,
+            7.9999998092651365,
+            314.4307116903219
+          ],
+          "view_target": [
+            508.4993543641833,
+            7.9999998092651365,
+            319.87089529387015
+          ],
+          "notes": "三条接口线位取OSM，桥面高程读取已生成的campus-bridge.mesh；门洞宽高、约3米入楼平台、护栏和局部构造为保持可探索连通的估计，未还原真实楼内完整平面。",
+          "walking_mesh": "campus-dorm-dongzhu-skywalk.mesh",
+          "walking_vertices": 96
+        }
+      ],
+      "elevated_walking_meshes": [
+        "campus-dorm-dongzhu-skywalk.mesh"
+      ],
+      "walking_vertices": 621,
+      "entry_xz_m": [
+        592.4674997685947,
+        334.64848429653887
+      ],
+      "entry_paths_xz_m": [
+        [
+          [
+            566.0826077835526,
+            183.2993311175902
+          ],
+          [
+            615.2782963244132,
+            465.4958928823919
+          ]
+        ]
+      ],
+      "entry_clear_width_m": 3.0,
+      "entry_clear_height_m": 6.3999999999999995,
+      "balcony_bays": 538,
+      "end_fins": 159,
+      "solar_panels": 73,
+      "features": [
+        "staggered_recessed_frames",
+        "metal_rails",
+        "vertical_end_screens",
+        "open_lower_levels"
+      ],
+      "notes": "楼名与轮廓来自OSM并对照带楼名的2023实拍航拍；高音、低音未找到可辨门牌的公开照片。白色竖向端屏、错排深框外廊、栏杆、两层基座和屋顶板状设备参考照片。凹进深度、构件尺寸、入口精确位置、层高与屋顶设备类型均为视觉估计；2026春笛夏筝已修缮，2023照片不保证所有细节仍为当前状态。"
+    },
+    {
+      "id": "diyin",
+      "name": "低音",
+      "osm": "way/242066977",
+      "group": "south-u",
+      "base_y_m": 2.0,
+      "height_m": 29.7,
+      "floors": 9,
+      "height_source": "OSM 9层，层高估算3.3米；设计院项目最大69.9米尚未分解到本OSM分部，保留既有高度估计",
+      "project_max_height_m": 69.9,
+      "bounds_xyz_m": [
+        [
+          603.0145263671875,
+          0.0,
+          251.72792053222656
+        ],
+        [
+          630.5340576171875,
+          32.15999984741211,
+          299.0055236816406
+        ]
+      ],
+      "layers": [
+        {
+          "id": "diyin",
+          "role": "wall",
+          "material": "stone",
+          "mesh": "campus-dorm-diyin-wall.mesh",
+          "texture": "concrete.ppm",
+          "color": [
+            0.82,
+            0.83,
+            0.79
+          ],
+          "vertices": 741
+        },
+        {
+          "id": "diyin",
+          "role": "frame",
+          "material": "stone",
+          "mesh": "campus-dorm-diyin-frame.mesh",
+          "texture": "white.ppm",
+          "color": [
+            0.94,
+            0.95,
+            0.91
+          ],
+          "vertices": 10959
+        },
+        {
+          "id": "diyin",
+          "role": "glass",
+          "material": "glass",
+          "mesh": "campus-dorm-diyin-glass.mesh",
+          "texture": "glass.ppm",
+          "color": [
+            0.58,
+            0.68,
+            0.68
+          ],
+          "vertices": 828
+        },
+        {
+          "id": "diyin",
+          "role": "metal",
+          "material": "metal",
+          "mesh": "campus-dorm-diyin-metal.mesh",
+          "texture": "white.ppm",
+          "color": [
+            0.43,
+            0.47,
+            0.46
+          ],
+          "vertices": 18486
+        },
+        {
+          "id": "diyin",
+          "role": "roof",
+          "material": "roof",
+          "mesh": "campus-dorm-diyin-roof.mesh",
+          "texture": "concrete.ppm",
+          "color": [
+            0.72,
+            0.74,
+            0.71
+          ],
+          "vertices": 39
+        },
+        {
+          "id": "diyin",
+          "role": "paving",
+          "material": "stone",
+          "mesh": "campus-dorm-diyin-paving.mesh",
+          "texture": "concrete.ppm",
+          "color": [
+            0.68,
+            0.7,
+            0.65
+          ],
+          "vertices": 348
+        }
+      ],
+      "walking_mesh": "campus-dorm-diyin-walk.mesh",
+      "skywalks": [],
+      "elevated_walking_meshes": [],
+      "walking_vertices": 348,
+      "entry_xz_m": [
+        621.9403553254663,
+        274.02558250566744
+      ],
+      "entry_paths_xz_m": [
+        [
+          [
+            672.6314866664125,
+            254.691499847434
+          ],
+          [
+            560.5100205135941,
+            297.4557001526239
+          ]
+        ]
+      ],
+      "entry_clear_width_m": 3.0,
+      "entry_clear_height_m": 6.3999999999999995,
+      "balcony_bays": 84,
+      "end_fins": 3,
+      "solar_panels": 0,
+      "features": [
+        "staggered_recessed_frames",
+        "metal_rails",
+        "vertical_end_screens",
+        "open_lower_levels"
+      ],
+      "notes": "楼名与轮廓来自OSM并对照带楼名的2023实拍航拍；高音、低音未找到可辨门牌的公开照片。白色竖向端屏、错排深框外廊、栏杆、两层基座和屋顶板状设备参考照片。凹进深度、构件尺寸、入口精确位置、层高与屋顶设备类型均为视觉估计；2026春笛夏筝已修缮，2023照片不保证所有细节仍为当前状态。"
+    }
+  ],
+  "layers": [
+    {
+      "id": "chundi",
+      "role": "wall",
+      "material": "stone",
+      "mesh": "campus-dorm-chundi-wall.mesh",
+      "texture": "concrete.ppm",
+      "color": [
+        0.82,
+        0.83,
+        0.79
+      ],
+      "vertices": 966
+    },
+    {
+      "id": "chundi",
+      "role": "frame",
+      "material": "stone",
+      "mesh": "campus-dorm-chundi-frame.mesh",
+      "texture": "white.ppm",
+      "color": [
+        0.94,
+        0.95,
+        0.91
+      ],
+      "vertices": 36711
+    },
+    {
+      "id": "chundi",
+      "role": "glass",
+      "material": "glass",
+      "mesh": "campus-dorm-chundi-glass.mesh",
+      "texture": "glass.ppm",
+      "color": [
+        0.58,
+        0.68,
+        0.68
+      ],
+      "vertices": 2154
+    },
+    {
+      "id": "chundi",
+      "role": "metal",
+      "material": "metal",
+      "mesh": "campus-dorm-chundi-metal.mesh",
+      "texture": "white.ppm",
+      "color": [
+        0.43,
+        0.47,
+        0.46
+      ],
+      "vertices": 58242
+    },
+    {
+      "id": "chundi",
+      "role": "roof",
+      "material": "roof",
+      "mesh": "campus-dorm-chundi-roof.mesh",
+      "texture": "concrete.ppm",
+      "color": [
+        0.72,
+        0.74,
+        0.71
+      ],
+      "vertices": 39
+    },
+    {
+      "id": "chundi",
+      "role": "solar",
+      "material": "glass",
+      "mesh": "campus-dorm-chundi-solar.mesh",
+      "texture": "glass.ppm",
+      "color": [
+        0.72,
+        0.8,
+        0.81
+      ],
+      "vertices": 672
+    },
+    {
+      "id": "chundi",
+      "role": "paving",
+      "material": "stone",
+      "mesh": "campus-dorm-chundi-paving.mesh",
+      "texture": "concrete.ppm",
+      "color": [
+        0.68,
+        0.7,
+        0.65
+      ],
+      "vertices": 570
+    },
+    {
+      "id": "xiazheng",
+      "role": "wall",
+      "material": "stone",
+      "mesh": "campus-dorm-xiazheng-wall.mesh",
+      "texture": "concrete.ppm",
+      "color": [
+        0.82,
+        0.83,
+        0.79
+      ],
+      "vertices": 1236
+    },
+    {
+      "id": "xiazheng",
+      "role": "frame",
+      "material": "stone",
+      "mesh": "campus-dorm-xiazheng-frame.mesh",
+      "texture": "white.ppm",
+      "color": [
+        0.94,
+        0.95,
+        0.91
+      ],
+      "vertices": 28941
+    },
+    {
+      "id": "xiazheng",
+      "role": "glass",
+      "material": "glass",
+      "mesh": "campus-dorm-xiazheng-glass.mesh",
+      "texture": "glass.ppm",
+      "color": [
+        0.58,
+        0.68,
+        0.68
+      ],
+      "vertices": 1626
+    },
+    {
+      "id": "xiazheng",
+      "role": "metal",
+      "material": "metal",
+      "mesh": "campus-dorm-xiazheng-metal.mesh",
+      "texture": "white.ppm",
+      "color": [
+        0.43,
+        0.47,
+        0.46
+      ],
+      "vertices": 42654
+    },
+    {
+      "id": "xiazheng",
+      "role": "roof",
+      "material": "roof",
+      "mesh": "campus-dorm-xiazheng-roof.mesh",
+      "texture": "concrete.ppm",
+      "color": [
+        0.72,
+        0.74,
+        0.71
+      ],
+      "vertices": 57
+    },
+    {
+      "id": "xiazheng",
+      "role": "solar",
+      "material": "glass",
+      "mesh": "campus-dorm-xiazheng-solar.mesh",
+      "texture": "glass.ppm",
+      "color": [
+        0.72,
+        0.8,
+        0.81
+      ],
+      "vertices": 666
+    },
+    {
+      "id": "xiazheng",
+      "role": "sign",
+      "material": "sign",
+      "mesh": "campus-dorm-xiazheng-sign.mesh",
+      "texture": "dorm-xiazheng-sign.ppm",
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "vertices": 6
+    },
+    {
+      "id": "xiazheng",
+      "role": "paving",
+      "material": "stone",
+      "mesh": "campus-dorm-xiazheng-paving.mesh",
+      "texture": "concrete.ppm",
+      "color": [
+        0.68,
+        0.7,
+        0.65
+      ],
+      "vertices": 936
+    },
+    {
+      "id": "gaoyin",
+      "role": "wall",
+      "material": "stone",
+      "mesh": "campus-dorm-gaoyin-wall.mesh",
+      "texture": "concrete.ppm",
+      "color": [
+        0.82,
+        0.83,
+        0.79
+      ],
+      "vertices": 672
+    },
+    {
+      "id": "gaoyin",
+      "role": "frame",
+      "material": "stone",
+      "mesh": "campus-dorm-gaoyin-frame.mesh",
+      "texture": "white.ppm",
+      "color": [
+        0.94,
+        0.95,
+        0.91
+      ],
+      "vertices": 10122
+    },
+    {
+      "id": "gaoyin",
+      "role": "glass",
+      "material": "glass",
+      "mesh": "campus-dorm-gaoyin-glass.mesh",
+      "texture": "glass.ppm",
+      "color": [
+        0.58,
+        0.68,
+        0.68
+      ],
+      "vertices": 768
+    },
+    {
+      "id": "gaoyin",
+      "role": "metal",
+      "material": "metal",
+      "mesh": "campus-dorm-gaoyin-metal.mesh",
+      "texture": "white.ppm",
+      "color": [
+        0.43,
+        0.47,
+        0.46
+      ],
+      "vertices": 17352
+    },
+    {
+      "id": "gaoyin",
+      "role": "roof",
+      "material": "roof",
+      "mesh": "campus-dorm-gaoyin-roof.mesh",
+      "texture": "concrete.ppm",
+      "color": [
+        0.72,
+        0.74,
+        0.71
+      ],
+      "vertices": 30
+    },
+    {
+      "id": "gaoyin",
+      "role": "paving",
+      "material": "stone",
+      "mesh": "campus-dorm-gaoyin-paving.mesh",
+      "texture": "concrete.ppm",
+      "color": [
+        0.68,
+        0.7,
+        0.65
+      ],
+      "vertices": 384
+    },
+    {
+      "id": "qiuse",
+      "role": "wall",
+      "material": "stone",
+      "mesh": "campus-dorm-qiuse-wall.mesh",
+      "texture": "concrete.ppm",
+      "color": [
+        0.82,
+        0.83,
+        0.79
+      ],
+      "vertices": 1509
+    },
+    {
+      "id": "qiuse",
+      "role": "frame",
+      "material": "stone",
+      "mesh": "campus-dorm-qiuse-frame.mesh",
+      "texture": "white.ppm",
+      "color": [
+        0.94,
+        0.95,
+        0.91
+      ],
+      "vertices": 39897
+    },
+    {
+      "id": "qiuse",
+      "role": "glass",
+      "material": "glass",
+      "mesh": "campus-dorm-qiuse-glass.mesh",
+      "texture": "glass.ppm",
+      "color": [
+        0.58,
+        0.68,
+        0.68
+      ],
+      "vertices": 2316
+    },
+    {
+      "id": "qiuse",
+      "role": "metal",
+      "material": "metal",
+      "mesh": "campus-dorm-qiuse-metal.mesh",
+      "texture": "white.ppm",
+      "color": [
+        0.43,
+        0.47,
+        0.46
+      ],
+      "vertices": 60132
+    },
+    {
+      "id": "qiuse",
+      "role": "roof",
+      "material": "roof",
+      "mesh": "campus-dorm-qiuse-roof.mesh",
+      "texture": "concrete.ppm",
+      "color": [
+        0.72,
+        0.74,
+        0.71
+      ],
+      "vertices": 75
+    },
+    {
+      "id": "qiuse",
+      "role": "solar",
+      "material": "glass",
+      "mesh": "campus-dorm-qiuse-solar.mesh",
+      "texture": "glass.ppm",
+      "color": [
+        0.72,
+        0.8,
+        0.81
+      ],
+      "vertices": 864
+    },
+    {
+      "id": "qiuse",
+      "role": "paving",
+      "material": "stone",
+      "mesh": "campus-dorm-qiuse-paving.mesh",
+      "texture": "concrete.ppm",
+      "color": [
+        0.68,
+        0.7,
+        0.65
+      ],
+      "vertices": 1191
+    },
+    {
+      "id": "dongzhu",
+      "role": "wall",
+      "material": "stone",
+      "mesh": "campus-dorm-dongzhu-wall.mesh",
+      "texture": "concrete.ppm",
+      "color": [
+        0.82,
+        0.83,
+        0.79
+      ],
+      "vertices": 2382
+    },
+    {
+      "id": "dongzhu",
+      "role": "frame",
+      "material": "stone",
+      "mesh": "campus-dorm-dongzhu-frame.mesh",
+      "texture": "white.ppm",
+      "color": [
+        0.94,
+        0.95,
+        0.91
+      ],
+      "vertices": 76668
+    },
+    {
+      "id": "dongzhu",
+      "role": "glass",
+      "material": "glass",
+      "mesh": "campus-dorm-dongzhu-glass.mesh",
+      "texture": "glass.ppm",
+      "color": [
+        0.58,
+        0.68,
+        0.68
+      ],
+      "vertices": 4542
+    },
+    {
+      "id": "dongzhu",
+      "role": "metal",
+      "material": "metal",
+      "mesh": "campus-dorm-dongzhu-metal.mesh",
+      "texture": "white.ppm",
+      "color": [
+        0.43,
+        0.47,
+        0.46
+      ],
+      "vertices": 113958
+    },
+    {
+      "id": "dongzhu",
+      "role": "roof",
+      "material": "roof",
+      "mesh": "campus-dorm-dongzhu-roof.mesh",
+      "texture": "concrete.ppm",
+      "color": [
+        0.72,
+        0.74,
+        0.71
+      ],
+      "vertices": 129
+    },
+    {
+      "id": "dongzhu",
+      "role": "solar",
+      "material": "glass",
+      "mesh": "campus-dorm-dongzhu-solar.mesh",
+      "texture": "glass.ppm",
+      "color": [
+        0.72,
+        0.8,
+        0.81
+      ],
+      "vertices": 438
+    },
+    {
+      "id": "dongzhu",
+      "role": "paving",
+      "material": "stone",
+      "mesh": "campus-dorm-dongzhu-paving.mesh",
+      "texture": "concrete.ppm",
+      "color": [
+        0.68,
+        0.7,
+        0.65
+      ],
+      "vertices": 909
+    },
+    {
+      "id": "diyin",
+      "role": "wall",
+      "material": "stone",
+      "mesh": "campus-dorm-diyin-wall.mesh",
+      "texture": "concrete.ppm",
+      "color": [
+        0.82,
+        0.83,
+        0.79
+      ],
+      "vertices": 741
+    },
+    {
+      "id": "diyin",
+      "role": "frame",
+      "material": "stone",
+      "mesh": "campus-dorm-diyin-frame.mesh",
+      "texture": "white.ppm",
+      "color": [
+        0.94,
+        0.95,
+        0.91
+      ],
+      "vertices": 10959
+    },
+    {
+      "id": "diyin",
+      "role": "glass",
+      "material": "glass",
+      "mesh": "campus-dorm-diyin-glass.mesh",
+      "texture": "glass.ppm",
+      "color": [
+        0.58,
+        0.68,
+        0.68
+      ],
+      "vertices": 828
+    },
+    {
+      "id": "diyin",
+      "role": "metal",
+      "material": "metal",
+      "mesh": "campus-dorm-diyin-metal.mesh",
+      "texture": "white.ppm",
+      "color": [
+        0.43,
+        0.47,
+        0.46
+      ],
+      "vertices": 18486
+    },
+    {
+      "id": "diyin",
+      "role": "roof",
+      "material": "roof",
+      "mesh": "campus-dorm-diyin-roof.mesh",
+      "texture": "concrete.ppm",
+      "color": [
+        0.72,
+        0.74,
+        0.71
+      ],
+      "vertices": 39
+    },
+    {
+      "id": "diyin",
+      "role": "paving",
+      "material": "stone",
+      "mesh": "campus-dorm-diyin-paving.mesh",
+      "texture": "concrete.ppm",
+      "color": [
+        0.68,
+        0.7,
+        0.65
+      ],
+      "vertices": 348
+    }
+  ],
+  "walking_meshes": [
+    {
+      "id": "chundi",
+      "mesh": "campus-dorm-chundi-walk.mesh",
+      "vertices": 570
+    },
+    {
+      "id": "xiazheng",
+      "mesh": "campus-dorm-xiazheng-walk.mesh",
+      "vertices": 648
+    },
+    {
+      "id": "xiazheng-skywalk",
+      "owner_id": "xiazheng",
+      "mesh": "campus-dorm-xiazheng-skywalk.mesh",
+      "vertices": 96,
+      "source_osm": "way/776358619",
+      "deck_y_m": 8.671560331089104
+    },
+    {
+      "id": "gaoyin",
+      "mesh": "campus-dorm-gaoyin-walk.mesh",
+      "vertices": 384
+    },
+    {
+      "id": "qiuse",
+      "mesh": "campus-dorm-qiuse-walk.mesh",
+      "vertices": 903
+    },
+    {
+      "id": "qiuse-skywalk",
+      "owner_id": "qiuse",
+      "mesh": "campus-dorm-qiuse-skywalk.mesh",
+      "vertices": 96,
+      "source_osm": "way/776358645",
+      "deck_y_m": 10.123933686113876
+    },
+    {
+      "id": "dongzhu",
+      "mesh": "campus-dorm-dongzhu-walk.mesh",
+      "vertices": 621
+    },
+    {
+      "id": "dongzhu-skywalk",
+      "owner_id": "dongzhu",
+      "mesh": "campus-dorm-dongzhu-skywalk.mesh",
+      "vertices": 96,
+      "source_osm": "way/776358645",
+      "deck_y_m": 6.199999809265137
+    },
+    {
+      "id": "diyin",
+      "mesh": "campus-dorm-diyin-walk.mesh",
+      "vertices": 348
+    }
+  ],
+  "exclude_osm_buildings": [
+    "way/292598302",
+    "way/292598304",
+    "way/292598303",
+    "relation/13233284",
+    "way/220880938",
+    "way/242066977"
+  ]
+}

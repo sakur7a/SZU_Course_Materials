@@ -1,0 +1,20 @@
+{
+  "description": "西南生活区商铺排列依据使用者的现场记忆；坐标、店宽、招牌和具体业态为近似，不能当作测绘成果。",
+  "road_side": [
+    {"id": "manner", "name": "Manner", "start_z": 522.0, "end_z": 532.0},
+    {"id": "youjian", "name": "优剪", "start_z": 532.2, "end_z": 540.0},
+    {"id": "fruit", "name": "果果切", "start_z": 540.2, "end_z": 548.0},
+    {"id": "seven", "name": "7-Eleven", "start_z": 548.2, "end_z": 565.0},
+    {"id": "tea", "name": "茶饮·小食（待核实）", "start_z": 565.2, "end_z": 573.0},
+    {"id": "print", "name": "图文打印", "start_z": 573.2, "end_z": 585.3},
+    {"id": "repair", "name": "修车铺", "start_z": 585.5, "end_z": 594.8}
+  ],
+  "across_from_repair": {"id": "sf", "name": "顺丰驿站", "start_z": 588.0, "end_z": 596.2},
+  "opposite_qiaoxiang": [
+    {"id": "lawson", "name": "罗森"},
+    {"id": "glasses", "name": "博士眼镜"},
+    {"id": "szu", "name": "深圳大学品牌文化店"},
+    {"id": "barber", "name": "Hair Code 理发店"}
+  ],
+  "uncertainty": "茶店或小吃店的具体名称、打印店的准确位置、罗森相对于其他三店的位置以及各店面尺寸均未核实。"
+}

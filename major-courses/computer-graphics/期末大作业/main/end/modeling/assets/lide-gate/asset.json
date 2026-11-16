@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "asset_id": "lide-gate",
+  "asset_version": "0.1.0",
+  "name": "深圳大学粤海校区立德门",
+  "synthetic": false,
+  "source_mode": "procedural",
+  "source": "source/build.py",
+  "units": "m",
+  "coordinate_system": "RH_Z_UP",
+  "description": "Photo-based approximation of the existing Lide Gate; dimensions and present-day access equipment are estimated.",
+  "anchors": [
+    {"id": "gate_center", "node": "site", "local_blender": [0.0, 0.0, 0.0]},
+    {"id": "north_pier", "node": "north_gate", "local_blender": [0.0, 0.0, 0.0]},
+    {"id": "median", "node": "median", "local_blender": [0.0, 0.0, 0.0]},
+    {"id": "south_pier", "node": "south_gate", "local_blender": [0.0, 0.0, 0.0]}
+  ],
+  "validation_requirements": {"mask": false, "min_hierarchy_depth": 4},
+  "interaction": {
+    "node": "barrier_arm_pivot",
+    "axis": [1.0, 0.0, 0.0],
+    "range_deg": [0.0, 85.0],
+    "default": "raised",
+    "note": "An illustrative control of one estimated median barrier, not evidence of current access state. The Blender rotation axis is local +X; it remains +X after the Z-up to Y-up conversion."
+  },
+  "hierarchy_probe": {"parent": "north_gate", "descendant": "north_outer_wall", "rotation_deg": 15.0},
+  "views": {
+    "hero": {"eye": [-40.0, 13.0, -22.0], "target": [2.0, 4.2, 0.0]},
+    "front": {"eye": [-42.0, 8.0, 0.0], "target": [1.0, 5.0, 0.0]},
+    "top": {"eye": [0.0, 90.0, 0.01], "target": [0.0, 0.0, 0.0]},
+    "inside": {"eye": [55.0, 16.0, 30.0], "target": [1.0, 4.0, 0.0]},
+    "walk": {"eye": [-22.0, 1.69272766, -3.0], "target": [0.0, 3.6, 0.0]}
+  },
+  "evidence": {
+    "kind": "photo_based_approximation",
+    "reference": "references/README.md",
+    "dimensions": "The pre-existing project footprint and photo proportions are estimates, not survey measurements."
+  }
+}

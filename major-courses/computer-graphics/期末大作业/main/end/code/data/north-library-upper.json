@@ -1,0 +1,25 @@
+{
+  "evidence": "Official first- and second-floor plans indicate mirrored exterior U-shaped stairs. All numerical dimensions are model estimates, not measured architectural drawings.",
+  "frame": "north-library-frame.json",
+  "first_floor_level": 0.24,
+  "second_floor_bottom": 3.75,
+  "second_floor_top": 4.35,
+  "stair": {
+    "inner_x": 16.0,
+    "turn_x": 24.2,
+    "turn_z": 25.0,
+    "turn_radius": 2.1,
+    "run_width": 1.8,
+    "near_run_z": 26.2,
+    "far_run_z": 23.8,
+    "steps_per_run": 14,
+    "opening_side_allowance": 0.03,
+    "handrail_height": 0.95
+  },
+  "door": {"center_x": 0.0, "z": 22.5, "clear_width": 4.4, "first_clear_height": 2.7, "second_clear_height": 2.8},
+  "column_centers_x": [-26.0, -19.5, -13.0, -6.5, 0.0, 6.5, 13.0, 19.5, 26.0],
+  "column_center_z": 27.5,
+  "column_width": 0.65,
+  "headroom_check_m": 1.8,
+  "route_body_radius_m": 0.30
+}

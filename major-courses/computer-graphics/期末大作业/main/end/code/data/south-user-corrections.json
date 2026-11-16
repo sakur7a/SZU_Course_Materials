@@ -1,0 +1,31 @@
+{
+  "recorded_on": "2026-11-04",
+  "scope": "南区及其与斋区、运动广场的衔接；杜鹃山和海滨小区细节继续后置。",
+  "corrections": [
+    {
+      "id": "zhounan-zhai",
+      "source": "user_correction",
+      "statement": "周南桥到斋区通过楼梯上去；斋区连接处上面没有道路。",
+      "direction_confirmed": "用户再次确认：从南区沿桥走向斋区时，最后上楼梯进入斋区。",
+      "interpretation": "修正斋区桥端，不能据此未经核对删除整座桥的全部上层结构。"
+    },
+    {
+      "id": "sports-plaza-lower",
+      "source": "user_recollection_and_clarification",
+      "statement": "运动广场架空下层有篮球场和足球场。",
+      "interpretation": "用户进一步明确指架空下层，不是地图上运动广场南侧；须与天台及独立海边足球场区分。"
+    },
+    {
+      "id": "sports-plaza-pool",
+      "source": "user_recollection",
+      "statement": "运动广场这条路的左边有游泳池。",
+      "interpretation": "须结合道路方向和泳池实拍定位，不直接新造第二个泳池。"
+    },
+    {
+      "id": "zhili-zhiyi-spine",
+      "source": "user_priority",
+      "statement": "重点细化致理楼与致艺楼之间的空道。",
+      "interpretation": "核对铺装、下穿、绿地、架空结构和高差，不能仅用底图色块表示。"
+    }
+  ]
+}

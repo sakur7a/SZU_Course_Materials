@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "asset_id": "pipeline-fixture",
+  "asset_version": "0.1.0",
+  "name": "M0 · 建模管线测试场景",
+  "synthetic": true,
+  "source_mode": "procedural",
+  "source": "source/build.py",
+  "units": "m",
+  "coordinate_system": "RH_Z_UP",
+  "description": "Synthetic pavilion used only to test export and viewing; it is not a reconstruction of a campus building.",
+  "anchors": [
+    {"id": "entry", "node": "frame", "local_blender": [0.0, -1.8, 0.0]},
+    {"id": "rear_left", "node": "frame", "local_blender": [-2.4, 1.55, 0.0]},
+    {"id": "rear_right", "node": "frame", "local_blender": [2.4, 1.55, 0.0]}
+  ],
+  "interaction": {"node": "gate_hinge", "axis": [0.0, 1.0, 0.0], "range_deg": [0.0, 85.0]},
+  "hierarchy_probe": {"parent": "building", "descendant": "canopy_roof", "rotation_deg": 15.0},
+  "views": {
+    "hero": {"eye": [8.2, 5.8, 9.5], "target": [0.1, 1.15, 0.0]},
+    "front": {"eye": [0.0, 3.0, 11.0], "target": [0.1, 1.2, 0.0]},
+    "top": {"eye": [0.0, 13.0, 0.01], "target": [0.0, 0.0, 0.0]}
+  },
+  "evidence": {"kind": "synthetic_fixture", "reference": null, "dimensions": "invented for pipeline testing"}
+}

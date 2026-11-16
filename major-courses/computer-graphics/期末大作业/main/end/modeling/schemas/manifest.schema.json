@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["schema_version", "asset_id", "asset_version", "name", "synthetic", "units", "coordinate_system", "model", "bounds", "nodes", "materials", "primitives", "anchors", "interaction", "hierarchy_probe", "views", "statistics", "files"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "asset_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "asset_version": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "synthetic": {"type": "boolean"},
+    "units": {"const": "m"},
+    "coordinate_system": {"const": "RH_Y_UP"},
+    "model": {"type": "string"},
+    "bounds": {"type": "object", "required": ["min", "max"], "properties": {"min": {"$ref": "#/$defs/vec3"}, "max": {"$ref": "#/$defs/vec3"}}},
+    "nodes": {"type": "array", "minItems": 4, "items": {"type": "object", "required": ["id", "parent", "local_matrix", "roles"], "properties": {"id": {"type": "string", "minLength": 1}, "parent": {"type": ["string", "null"]}, "local_matrix": {"type": "array", "minItems": 16, "maxItems": 16, "items": {"type": "number"}}, "roles": {"type": "array", "items": {"enum": ["visual", "walkable", "collider", "interactive", "anchor", "group"]}}}}},
+    "materials": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["id", "base_color", "alpha_mode", "alpha_cutoff", "double_sided", "legacy_texture"], "properties": {"id": {"type": "string"}, "base_color": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "number", "minimum": 0, "maximum": 1}}, "alpha_mode": {"enum": ["OPAQUE", "MASK", "BLEND"]}, "alpha_cutoff": {"type": "number", "minimum": 0, "maximum": 1}, "double_sided": {"type": "boolean"}, "legacy_texture": {"type": ["string", "null"]}}}},
+    "primitives": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["id", "node", "mesh", "material"], "properties": {"id": {"type": "string"}, "node": {"type": "string"}, "mesh": {"type": "string"}, "material": {"type": "string"}}}},
+    "anchors": {"type": "array", "minItems": 3, "items": {"type": "object", "required": ["id", "node", "local", "world"], "properties": {"id": {"type": "string"}, "node": {"type": "string"}, "local": {"$ref": "#/$defs/vec3"}, "world": {"$ref": "#/$defs/vec3"}}}},
+    "interaction": {"type": "object", "required": ["node", "axis", "range_deg"], "properties": {"node": {"type": "string"}, "axis": {"$ref": "#/$defs/vec3"}, "range_deg": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}}}},
+    "hierarchy_probe": {"type": "object", "required": ["parent", "descendant", "rotation_deg"]},
+    "views": {"type": "object", "required": ["hero", "front", "top"], "additionalProperties": {"type": "object", "required": ["eye", "target"], "properties": {"eye": {"$ref": "#/$defs/vec3"}, "target": {"$ref": "#/$defs/vec3"}}}},
+    "statistics": {"type": "object", "required": ["triangles", "meshes"], "properties": {"triangles": {"type": "integer", "minimum": 1}, "meshes": {"type": "integer", "minimum": 1}}},
+    "files": {"type": "object", "minProperties": 2, "additionalProperties": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}
+  },
+  "$defs": {"vec3": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number"}}}
+}

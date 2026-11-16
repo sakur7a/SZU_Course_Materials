@@ -1,0 +1,37 @@
+{
+  "gates": [
+    {
+      "id": "lide",
+      "name": "立德门",
+      "center_xz_m": [-410.0, -54.0],
+      "inward_direction_degrees": 0.0,
+      "model_status": "photo_based_approximation",
+      "view_eye_offset": [-38.0, 6.4, -24.0],
+      "view_target_offset": [2.0, 5.0, 0.0],
+      "notes": "双高墙和开口、水平细缝、竖排校名与蓝门牌依据校方照片；悬挑岗亭与中央分流参考2022航拍。窗格、门禁设备、尺寸及现时状态为估计，门杆保持抬起供场景探索。"
+    },
+    {
+      "id": "liye",
+      "name": "立业门",
+      "center_xz_m": [-699.51, 528.56],
+      "inward_direction_degrees": 0.0,
+      "booth_center_uv_m": [3.31, -4.06],
+      "booth_size_uv_m": [4.75, 3.10],
+      "exclude_osm_buildings": ["way/241588751"],
+      "model_status": "mapped_booth_with_photo_details",
+      "view_eye_offset": [-18.0, 5.0, 14.0],
+      "view_target_offset": [2.0, 1.8, -1.0],
+      "notes": "入口采用OSM node/2398019533，岗亭采用way/241588751轮廓；2026校方新闻门口监控可辨酒红色门禁设备、黄黑短柱、收拢伸缩门及黄黑减速带。具体布置、尺寸、岗亭窗格、屋檐和门名牌仍为可替换估计，未虚构大型门楼；监控白色水印未当作建筑字样。"
+    },
+    {
+      "id": "lizhi",
+      "name": "立志门",
+      "center_xz_m": [-44.0, -706.0],
+      "inward_direction_degrees": 90.0,
+      "model_status": "location_marker",
+      "view_eye_offset": [-3.4, 3.2, 8.5],
+      "view_target_offset": [0.0, 1.6, 0.0],
+      "notes": "2023校园手绘图标有立志门，但附近OSM入校连接线way/1271852288仍标construction，地面照片不足。当前仅在深南大道侧凹口附近建立明确写有位置参考的标记牌，位置、入口现状和永久外貌后续核实；不代表实景门楼。"
+    }
+  ]
+}

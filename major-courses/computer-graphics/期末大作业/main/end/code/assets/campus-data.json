@@ -1,0 +1,416 @@
+{
+  "source": "OpenStreetMap contributors; Mapzen Terrain Tiles / USGS",
+  "campus_buildings": 188,
+  "surrounding_buildings": 20,
+  "waters": 7,
+  "paths_and_roads": 543,
+  "trees_approximate": 4872,
+  "terrain_vertices": 366366,
+  "annotated_planting": {
+    "shrubs": 0,
+    "tree_instances": 0,
+    "rejected": 0
+  },
+  "road_details": {
+    "pavement": 104391,
+    "markings": 25908,
+    "curb": 262998,
+    "dujuan-trail": 4167,
+    "dujuan-boardwalk": 465
+  },
+  "road_environment": {
+    "inferred_sidewalk": 207606,
+    "mapped_paths": 53949,
+    "shrubs": 8838,
+    "verges": 38496,
+    "verge_grass": 6588,
+    "road_lamps": 3480,
+    "road_lamp_heads": 6960,
+    "vehicle_way_count": 158,
+    "vehicle_way_length_m": 24713,
+    "mapped_path_count": 258,
+    "mapped_area_count": 19,
+    "mapped_path_length_m": 17632,
+    "shrub_count_approximate": 491,
+    "verge_area_estimate_m2": 7722,
+    "verge_grass_clumps": 732,
+    "lamp_count_approximate": 145
+  },
+  "roadside_trees_approximate": 106,
+  "lide_walk": {
+    "paving": 366,
+    "edge": 567
+  },
+  "road_stairs": {
+    "vertices": 2262,
+    "estimated_stairways": 8
+  },
+  "gates": 11,
+  "place_labels": {
+    "places": 93,
+    "atlas_size": [
+      1024,
+      4096
+    ]
+  },
+  "shuttle": {
+    "osm_demo_road": "way/231530782",
+    "route_vertices": 22,
+    "route_length_m": 436.1,
+    "model_vertices": {
+      "body": 624,
+      "metal": 360,
+      "interior": 492,
+      "seats": 648,
+      "glass": 60,
+      "lamps": 72,
+      "sign": 6
+    }
+  },
+  "ancient_stone": {
+    "vertices": 7320,
+    "planting_vertices": 108,
+    "location": [
+      -290.0,
+      350.0
+    ],
+    "ground_estimate_m": 16.28
+  },
+  "wenshan_swans": {
+    "model_vertices": {
+      "adult": 5280,
+      "feather": 5760,
+      "bill": 144,
+      "bill-tip": 144,
+      "adult-eye": 720,
+      "chick": 3192,
+      "chick-wing": 1344,
+      "chick-bill": 144,
+      "chick-eye": 720,
+      "wake": 480
+    },
+    "center_xz_m": [
+      -271.135,
+      182.698
+    ],
+    "water_level_m": 9.126,
+    "route_radii_m": [
+      8.0,
+      6.0
+    ],
+    "individuals": 5
+  },
+  "wenshan_shore_terrain": {
+    "cells_adjusted": 22,
+    "max_downward_adjustment_m": 3.92,
+    "note": "湖岸至既有道路之间的视觉插值，不是现场测量"
+  },
+  "kaifeng_canteen": {
+    "model_vertices": {
+      "shell": 168,
+      "roof": 69,
+      "windows": 606,
+      "yellow": 24,
+      "red": 5274,
+      "frame": 1848,
+      "rail": 9024,
+      "stairs": 600,
+      "apron": 486,
+      "interior": 69,
+      "furniture": 900,
+      "door-glass": 6,
+      "door-frame": 144
+    },
+    "height_m": 14.4,
+    "entry_floor_estimate_m": 14.23,
+    "front_length_m": 48.0
+  },
+  "qiaoyuan_garden": {
+    "walk": 639,
+    "brick": 288,
+    "mulch": 738,
+    "frame": 948,
+    "words": 6,
+    "wood": 648,
+    "wood-tops": 720,
+    "plants": 4578,
+    "plants-light": 2310,
+    "stones": 5610
+  },
+  "north_city_ground_vertices": 43164,
+  "water_vertices": [
+    1281,
+    6282
+  ],
+  "wenshan_terrace_vertices": {
+    "terraces": 3390,
+    "paving_detail": 1425
+  },
+  "bridge_vertices": {
+    "campus-bridge.mesh": 15627,
+    "campus-bridge-rails.mesh": 95928,
+    "campus-bridge-roof.mesh": 3756,
+    "campus-bridge-support.mesh": 1656,
+    "campus-bridge-road.mesh": 828,
+    "campus-bridge-markings.mesh": 1656,
+    "campus-zhounan-lower.mesh": 1824,
+    "campus-zhounan-truss.mesh": 8880,
+    "campus-zhaonan-glass.mesh": 852,
+    "campus-zhounan-yellow.mesh": 10488,
+    "campus-zhounan-pots.mesh": 4380,
+    "campus-zhounan-plants.mesh": 1971,
+    "campus-zhounan-ceiling.mesh": 2508,
+    "campus-zhounan-zhai-treads.mesh": 60,
+    "campus-zhounan-zhai-walls.mesh": 222
+  },
+  "zhiyi_skywalk_vertices": {
+    "deck": 378,
+    "rails": 1440
+  },
+  "zhili_high_skywalk_vertices": {
+    "deck": 126,
+    "rails": 1152
+  },
+  "zhigong_parking": {
+    "cars": 44,
+    "light": 1188,
+    "dark": 396,
+    "glass": 1140,
+    "wheels": 5280,
+    "chargers": 420
+  },
+  "stadium_vertices": {
+    "campus-stands-red.mesh": 84,
+    "campus-stands-blue.mesh": 237,
+    "campus-stands-orange.mesh": 168,
+    "campus-stands-yellow.mesh": 18,
+    "campus-stands-base.mesh": 282,
+    "campus-stands-lines.mesh": 2256,
+    "campus-stadium-canopy.mesh": 17280,
+    "campus-stadium-masts.mesh": 480,
+    "campus-stadium-lamps.mesh": 672,
+    "campus-stadium-surface.mesh": 210,
+    "campus-stadium-goals.mesh": 384,
+    "campus-stadium-entry-paving.mesh": 24,
+    "campus-stadium-entry-edges.mesh": 222,
+    "campus-stadium-entry-metal.mesh": 24,
+    "campus-stadium-entry-walk.mesh": 93
+  },
+  "sports_vertices": {
+    "campus-sports-shell.mesh": 1422,
+    "campus-sports-roof.mesh": 276,
+    "campus-basketball.mesh": 18,
+    "campus-tennis.mesh": 18,
+    "campus-sports-rails.mesh": 11808,
+    "campus-sports-netting.mesh": 90,
+    "campus-basketball-boards.mesh": 36,
+    "campus-basketball-rims.mesh": 2304
+  },
+  "sundial_vertices": {
+    "campus-sundial-face.mesh": 192,
+    "campus-sundial-stone.mesh": 384,
+    "campus-sundial-pointer.mesh": 24
+  },
+  "time_square_vertices": {
+    "paving": 2064,
+    "curb": 510,
+    "hedges": 240,
+    "hedge-leaves": 1296
+  },
+  "yanhui_pine_vertices": {
+    "trunks": 216,
+    "crowns": 5400
+  },
+  "stone_plaza_vertices": {
+    "campus-stone-shell.mesh": 2352,
+    "campus-stone-flat.mesh": 1164,
+    "campus-stone-plaza.mesh": 60,
+    "campus-south-pool.mesh": 18,
+    "campus-stone-canopies.mesh": 564,
+    "campus-stone-rails.mesh": 1800
+  },
+  "huixing_landscape_vertices": {
+    "steps": 210,
+    "hedges": 720
+  },
+  "yuanping_beixia_vertices": {
+    "yuanping-shell": 396,
+    "yuanping-base": 102,
+    "yuanping-foundation": 360,
+    "yuanping-roof": 12,
+    "yuanping-truss": 3600,
+    "yuanping-relief": 6,
+    "yuanping-seal": 6,
+    "yuanping-glass": 18,
+    "yuanping-steps": 2580,
+    "yuanping-name": 6,
+    "yuanping-garden": 60,
+    "beixia-shell": 174,
+    "beixia-roof": 144,
+    "beixia-frame": 4320,
+    "beixia-seats": 23796,
+    "beixia-deck": 225,
+    "beixia-lanes": 6,
+    "beixia-practice": 6,
+    "beixia-coping": 672,
+    "beixia-under": 144,
+    "yuanping-entry-walk": 1950,
+    "yuanping-entry-paving": 558
+  },
+  "golf_vertices": {
+    "golf-floor": 132,
+    "golf-roof": 210,
+    "golf-frame": 2952,
+    "golf-mats": 114,
+    "golf-signs": 24
+  },
+  "building_mesh_vertices": {
+    "cream": 3546,
+    "red": 2088,
+    "city": 7290,
+    "strip": 1212,
+    "perforated": 420,
+    "teng": 240,
+    "zhai": 96,
+    "fortress": 564,
+    "activity": 72,
+    "huiwen": 522,
+    "huiyan": 30,
+    "xiyuan": 240,
+    "roof": 18105,
+    "xiyuan-frame": 3480,
+    "xiyuan-railing": 13248,
+    "glazed": 336,
+    "activity-foundation": 378,
+    "teachers-foundation": 396,
+    "northsports-foundation": 354,
+    "southdorm-foundation": 156,
+    "windzhai-foundation": 228,
+    "huiwenroad-foundation": 126,
+    "facultyroad-foundation": 30,
+    "alumni-garden": 12,
+    "canteen-glass": 126,
+    "canteen-frame": 8352,
+    "canteen-roof": 141,
+    "canteen-sign": 12,
+    "huiwen-detail": 8838,
+    "huiwen-terrace": 1158,
+    "huiwen-red": 24,
+    "huiwen-steps": 54,
+    "archive-wall": 24,
+    "archive-seal": 12,
+    "archive-fins": 1920,
+    "archive-door": 12,
+    "zhiyi-shell": 51990,
+    "zhiyi-glass": 6408,
+    "zhiyi-vents": 4290,
+    "zhiyi-rails": 576,
+    "zhiyi-podium": 150,
+    "zhiyi-gallery": 447,
+    "zhizhen-shell": 68316,
+    "zhizhen-glass": 9036,
+    "zhizhen-side": 1668,
+    "zhizhen-frame": 11112,
+    "zhizhen-podium": 168,
+    "studio-shell": 48,
+    "studio-glass": 24,
+    "studio-sign": 6,
+    "studio-columns": 336,
+    "zhizhi-shell": 54,
+    "zhizhi-glass": 66,
+    "zhizhi-frame": 4104,
+    "l4-glass": 24,
+    "l4-frame": 2352,
+    "l4-garden": 6,
+    "l4-equipment": 90,
+    "zhigong-shell": 8292,
+    "zhigong-glass": 1254,
+    "zhigong-dark": 258,
+    "zhigong-perforated": 372,
+    "zhigong-louvers": 708,
+    "zhigong-rails": 2352,
+    "zhigong-steps": 630,
+    "zhigong-sign": 6,
+    "zhili-a-shell": 1626,
+    "zhili-a-glass": 288,
+    "zhili-a-frame": 9240,
+    "zhili-a-sign": 6,
+    "zhili-glass": 120,
+    "zhili-frame": 888,
+    "zhili-side": 18,
+    "zhili-crown": 150,
+    "zhili-crown-glass": 12,
+    "zhili-crown-frame": 120,
+    "huicui-shell": 121698,
+    "huicui-glass": 15468,
+    "huicui-upper": 48,
+    "huicui-stage": 48,
+    "huicui-frames": 5058,
+    "huicui-skylights": 60,
+    "huizi-shell": 6387,
+    "huizi-ground": 318,
+    "huizi-canopy": 12,
+    "huizi-paving": 30,
+    "huizi-roof": 135,
+    "huizi-equipment": 48,
+    "huiyuan-shell": 2025,
+    "huiyuan-ground": 120,
+    "huiyuan-sign": 6,
+    "huiyuan-motto": 6,
+    "huiyuan-paving": 6,
+    "huiyuan-planting": 6,
+    "huiyuan-entry-roof": 6,
+    "yanhui-roof": 84,
+    "yanhui-under": 78,
+    "yanhui-steel": 9864,
+    "yanhui-stone": 1632,
+    "yanhui-floor": 1098,
+    "yanhui-seats": 7068,
+    "yanhui-seat-detail": 3534,
+    "yanhui-stage": 36,
+    "yanhui-screen": 6,
+    "yanhui-steps": 144,
+    "yanhui-seams": 96,
+    "zhai-stone": 1758,
+    "zhai-paving": 819
+  },
+  "dorm_models": {
+    "qiaoyuan": {
+      "buildings": 5,
+      "layers": 39,
+      "vertices": 1347942
+    },
+    "south": {
+      "buildings": 6,
+      "layers": 41,
+      "vertices": 541215
+    }
+  },
+  "road_surface_overrides": [
+    {
+      "id": "lide-south-osm2world-proposal",
+      "status": "disabled"
+    }
+  ],
+  "lide_corridor": {
+    "reference_fit_max_px": 1.28,
+    "walk_area_m2": 468.62,
+    "lawn_area_m2": 1171.53,
+    "gate_bed_area_m2": 37.53,
+    "locally_edited_records": {
+      "campus-network-sidewalk.mesh": 784,
+      "campus-network-paths.mesh": 0,
+      "campus-network-verges.mesh": 326,
+      "campus-network-verge-grass.mesh": 15,
+      "campus-network-shrubs.mesh": 0,
+      "campus-network-lamps.mesh": 2,
+      "campus-network-lamp-heads.mesh": 2
+    }
+  },
+  "south_spine": {
+    "paving_m2": 4455.3,
+    "lawn_m2": 2812.1,
+    "curb_m2": 146.4,
+    "covered_gallery_m2": 309.3
+  }
+}

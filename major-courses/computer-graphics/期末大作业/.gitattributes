@@ -1,0 +1,11 @@
+# Binary scene assets must be checked out byte-for-byte, including PPM textures.
+*.ppm binary
+*.mesh binary
+*.rgba binary
+*.bin binary
+*.glb binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.doc binary
+*.docx binary

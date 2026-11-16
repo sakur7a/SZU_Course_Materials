@@ -1,0 +1,45 @@
+External resources used by the program
+
+1. Tree bark geometry and bark color texture
+   Creator: Quaternius, Stylized Nature MegaKit, Standard edition, CC0 1.0.
+   Source: https://quaternius.com/packs/stylizednaturemegakit.html
+   Downloaded mesh (CommonTree_1):
+   https://github.com/petroulacl/fps-buildings-env-kit/blob/main/environment/vegetation/polypizza-stylized-nature-gltf/Tree-qZtx0AHhcy.glb
+   Modified for this project: geometry and textures were converted from GLB
+   to the small SZM1 mesh / raw RGBA formats; scene scale and colors adjusted.
+
+   Canopy leaves: Rico Cilliers / Poly Haven, Tree Small 02, CC0 1.0.
+   https://polyhaven.com/a/tree_small_02
+   The leaf color and alpha maps were cropped, composited and adjusted to
+   create an opaque interior tile and cutout leaf clusters for approximate
+   procedural tree crowns.
+
+2. Palm tree mesh and palette
+   Creator: Quaternius, Pirate Kit, CC0 1.0.
+   Source: https://quaternius.com/packs/piratekit.html
+   Exact asset: https://poly.pizza/m/A6cKJYFsIb
+   Converted from Environment_PalmTree_3.gltf distributed at:
+   https://github.com/8hz-app/8thwall-studio-physics-playground-example/tree/main/src/assets/models/environment/palm-tree-3.gltf
+   Modified for this project: converted to SZM1 mesh / raw RGBA texture and scaled.
+
+3. Grass004 color map
+   Creator: ambientCG, CC0 1.0.
+   Source: https://ambientcg.com/view?id=Grass004
+   The color map was resized and converted to PPM for this program.
+
+Other PPM textures and scene geometry are generated for this project.
+Campus photographs were consulted as references and are not included as textures.
+
+4. Campus geometry and road / water outlines
+   © OpenStreetMap contributors. The Open Database License (ODbL).
+   https://www.openstreetmap.org/copyright
+   The original bbox extract and generation script are provided in the source.
+
+5. Terrain elevation
+   Mapzen Terrain Tiles, with global SRTM/GMTED2010 terrain data courtesy of
+   the U.S. Geological Survey. The terrain is smoothed and lakes / sports
+   fields are locally flattened for this approximate teaching model.
+   https://registry.opendata.aws/terrain-tiles/
+   https://github.com/tilezen/joerd/blob/master/docs/attribution.md
+
+Detailed building and landmark reference links: source code data/SOURCES.md.

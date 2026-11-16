@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f1ea" />
+    <title>资产查看器 · 建模工作台</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">3<span>·</span>D</span><span class="brand-label">建模工作台 <small>MODEL WORKBENCH</small></span></div>
+        <div class="top-meta"><span class="status-dot" id="status-dot"></span><span id="top-status">等待资产</span><span class="top-divider"></span><span>资产查看器 <b>01</b></span></div>
+      </header>
+
+      <main class="workbench">
+        <aside class="inspector" aria-label="资产检查面板">
+          <div class="panel-heading"><span>ASSET / 资产</span><span class="panel-index">01</span></div>
+          <section class="asset-intro">
+            <div class="eyebrow"><span class="red-square"></span> 当前资产 <span id="synthetic-tag" class="synthetic-tag" hidden>测试夹具</span></div>
+            <h1 id="asset-name">等待载入</h1>
+            <div class="asset-id" id="asset-id">—</div>
+          </section>
+
+          <section class="panel-section">
+            <div class="section-title"><h2>资产概览</h2><span>OVERVIEW</span></div>
+            <div class="metric-grid">
+              <div><span>尺寸 <em>X × Y × Z / m</em></span><strong id="metric-size">—</strong></div>
+              <div><span>三角面</span><strong id="metric-triangles">—</strong></div>
+              <div><span>网格</span><strong id="metric-meshes">—</strong></div>
+              <div><span>节点</span><strong id="metric-nodes">—</strong></div>
+            </div>
+          </section>
+
+          <section class="panel-section interaction-section">
+            <div class="section-title"><h2>动件控制</h2><span>INTERACTION</span></div>
+            <div class="angle-head"><label for="angle">铰链角度</label><output id="angle-value" for="angle">—</output></div>
+            <input id="angle" type="range" min="0" max="90" step="1" value="0" disabled />
+            <div class="range-labels"><span id="angle-min">—</span><span id="interaction-node">无可用动件</span><span id="angle-max">—</span></div>
+          </section>
+
+          <section class="panel-section hierarchy-section">
+            <div class="section-title"><h2>节点层级</h2><span id="hierarchy-count">HIERARCHY</span></div>
+            <div id="hierarchy" class="hierarchy"><p class="muted">载入资产后显示节点</p></div>
+            <button id="hierarchy-test" class="text-action" disabled>测试父子变换 <span>↗</span></button>
+            <p id="hierarchy-result" class="test-result" aria-live="polite"></p>
+          </section>
+          <div class="inspector-foot"><span>坐标系</span><strong>RH / Y UP</strong><span>单位</span><strong>米</strong></div>
+        </aside>
+
+        <section class="viewport" aria-label="三维模型视口">
+          <div id="canvas-host" class="canvas-host"></div>
+          <div class="viewport-top">
+            <div class="viewport-label"><span class="red-square"></span><span>模型视图 <small>MODEL VIEW</small></span></div>
+            <div class="view-actions" role="group" aria-label="固定视角">
+              <button class="view-button active" data-view="hero" aria-pressed="true">透视</button>
+              <button class="view-button" data-view="front" aria-pressed="false">正视</button>
+              <button class="view-button" data-view="top" aria-pressed="false">俯视</button>
+              <button class="view-button" id="walk-view" data-view="walk" aria-pressed="false" hidden>步行</button>
+            </div>
+          </div>
+          <div class="viewport-bottom">
+            <div class="view-hint"><span class="crosshair">＋</span><span>左键旋转 <i></i> 滚轮缩放 <i></i> 右键平移</span></div>
+            <div class="display-actions">
+              <label id="context-display" hidden><input type="checkbox" id="context-toggle" checked /><span>周边环境</span></label>
+              <label><input type="checkbox" id="grid-toggle" checked /><span>网格</span></label>
+              <label><input type="checkbox" id="wireframe-toggle" /><span>线框</span></label>
+            </div>
+          </div>
+          <div id="state" class="state-overlay" role="status" aria-live="polite">
+            <div class="state-card"><div class="state-symbol" id="state-symbol">◌</div><strong id="state-title">等待资产</strong><p id="state-detail">在地址中提供资产清单路径。</p></div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer"><span>ASSET INSPECTION / 资产检查</span><span id="footer-status">未载入</span><span>LOCAL · METRIC</span></footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

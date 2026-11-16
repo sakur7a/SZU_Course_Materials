@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["schema_version", "asset_id", "asset_version", "name", "source_mode", "source", "synthetic"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "asset_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "asset_version": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "source_mode": {"enum": ["procedural", "blend"]},
+    "source": {"type": "string", "minLength": 1},
+    "synthetic": {"type": "boolean"}
+  }
+}

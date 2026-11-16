@@ -1,0 +1,38 @@
+{
+  "gates": [
+    {
+      "id": "ligong",
+      "name": "立功门",
+      "center_xz_m": [286.07184, -688.52533],
+      "across_xz": [1.0, 0.0],
+      "outward_xz": [0.0, -1.0],
+      "booth_center_xz_m": [300.8, -678.0],
+      "view_local": [23.0, 5.3, 22.0],
+      "target_local": [9.0, 1.8, -6.0],
+      "confidence": "entrance_node_confirmed_booth_layout_estimated",
+      "notes": "北门位置取 OSM node/2400176747；圆弧玻璃岗亭与金属闸机参考2020年实拍，设施位置、数量及尺度为估计。未把迎新临时帐篷作为永久建筑，未将无法确认门别的镂空大门照片套用于此门。"
+    },
+    {
+      "id": "lixin",
+      "name": "立心门",
+      "center_xz_m": [630.2, -508.7],
+      "across_xz": [0.6, -0.8],
+      "outward_xz": [0.8, 0.6],
+      "view_local": [12.0, 6.4, 19.0],
+      "target_local": [0.0, 3.7, -4.5],
+      "confidence": "photo_form_confirmed_position_and_levels_estimated",
+      "notes": "立心门对应粤海小东门。位置取校园手绘图及 OSM way/239834465 与 steps/239872139 的校界连接附近；高德POI只作区域参考，不能直接当WGS坐标。2023年6月同组实拍确认白灰塔体、低檐、入口内部电梯、宽台阶和藤架网栏通廊；模型踏步按当前估计地形接地，级数、升降方向、平台高差及其与汇研楼的关系仍待现场校准。未还原真实电梯运行与室内房间。"
+    },
+    {
+      "id": "liyan",
+      "name": "立言门",
+      "center_xz_m": [137.0, 337.0],
+      "across_xz": [0.731354, -0.681998],
+      "outward_xz": [0.681998, 0.731354],
+      "view_local": [0.0, 2.8, 23.0],
+      "target_local": [0.0, 1.4, -1.0],
+      "confidence": "photo_and_road_position_supported_dimensions_estimated",
+      "notes": "门区以 OSM way/231085451 定位，2024年校方讲习班交通指南标注的立言门照片确认中央岗亭、黄黑分流岛、蓝色设备和高杆；既有召南桥继续单独绘制。设施数量、尺寸、确切朝向及现场通行状态未测量。"
+    }
+  ]
+}
